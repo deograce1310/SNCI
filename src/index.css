@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 30% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 13%;
+    --primary: 222 68% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 97%;
+    --secondary-foreground: 220 30% 13%;
+    --muted: 220 20% 97%;
+    --muted-foreground: 222 15% 38%;
+    --accent: 220 20% 97%;
+    --accent-foreground: 220 30% 13%;
+    --destructive: 3 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 93%;
+    --input: 220 20% 93%;
+    --ring: 222 68% 33%;
+    --radius: 0.625rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ink antialiased;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F9FC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475479;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2830B3;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(27, 58, 140, 0.2);
+  color: #0F1B33;
+}
