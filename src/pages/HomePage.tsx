@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import {
   MessageSquare, UserCheck, Truck, ClipboardCheck,
-  ChevronRight
+  ChevronRight, Flame, Cylinder, GitBranch, RectangleVertical
 } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import ClientLogosMarquee from '../components/ClientLogosMarquee';
@@ -267,46 +267,49 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
               {
-                image: '/images/prestations/soudure.jpg',
+                icon: Flame,
                 title: 'Soudeurs',
                 title_en: 'Welders',
                 desc: "Soudeurs homologues de tous types, soudeurs TIG et MIG-MAG, soudeurs a l'arc. Assemblage permanent de pieces metalliques par fusion localisee.",
                 desc_en: 'Approved welders of all types, TIG and MIG-MAG welders, arc welders. Permanent assembly of metal parts by localized fusion.',
               },
               {
-                image: '/images/prestations/chaudronnerie.jpg',
+                icon: Cylinder,
                 title: 'Chaudronniers',
                 title_en: 'Boilermakers',
                 desc: 'Fabrication, assemblage et reparation de reservoirs, citernes, appareils sous pression et ouvrages chaudronnes sur mesure.',
                 desc_en: 'Manufacturing, assembly and repair of tanks, cisterns, pressure vessels and custom boilermade works.',
               },
               {
-                image: '/images/prestations/tuyauterie.jpg',
+                icon: GitBranch,
                 title: 'Tuyauteurs',
                 title_en: 'Pipe Fitters',
                 desc: "Pose, assemblage et maintenance de reseaux de tuyauterie pour fluides industriels, hydrocarbures et gaz. Etude et tracage des lignes de process.",
                 desc_en: 'Installation, assembly and maintenance of piping networks for industrial fluids, hydrocarbons and gases.',
               },
               {
-                image: '/images/prestations/echafaudages.jpg',
+                icon: RectangleVertical,
                 title: 'Echafaudeurs',
                 title_en: 'Scaffolders',
                 desc: "Montage et demontage d'echafaudages industriels conformes aux normes de securite pour les travaux en hauteur et en milieu confine.",
                 desc_en: 'Assembly and dismantling of industrial scaffolding compliant with safety standards for work at height and confined spaces.',
               },
-            ].map((metier, i) => (
-              <Reveal key={metier.title} delay={i * 0.08}>
-                <div className="group flex items-start gap-4 bg-[#F6F2F2] hover:bg-white p-5 rounded-[10px] border border-transparent hover:border-[#9A9B9C]/30 hover:shadow-md transition-all duration-300">
-                  <div className="w-12 h-12 rounded-lg bg-white group-hover:bg-[#2830B3] flex items-center justify-center shrink-0 transition-colors duration-300 shadow-sm overflow-hidden">
-                    <img src={metier.image} alt={i18n.language === 'en' ? metier.title_en : metier.title} className="w-full h-full object-cover" loading="lazy" />
+            ].map((metier, i) => {
+              const Icon = metier.icon;
+              return (
+                <Reveal key={metier.title} delay={i * 0.08}>
+                  <div className="group flex items-start gap-4 bg-[#F6F2F2] hover:bg-white p-5 rounded-[10px] border border-transparent hover:border-[#9A9B9C]/30 hover:shadow-md transition-all duration-300">
+                    <div className="w-12 h-12 rounded-lg bg-white group-hover:bg-[#2830B3] flex items-center justify-center shrink-0 transition-colors duration-300 shadow-sm">
+                      <Icon className="w-6 h-6 text-[#9A9B9C] group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-archivo font-bold text-[15px] text-[#0A090E]">{i18n.language === 'en' ? metier.title_en : metier.title}</h3>
+                      <p className="text-sm text-[#475479] leading-relaxed mt-1">{i18n.language === 'en' ? metier.desc_en : metier.desc}</p>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <h3 className="font-archivo font-bold text-[15px] text-[#0A090E]">{i18n.language === 'en' ? metier.title_en : metier.title}</h3>
-                    <p className="text-sm text-[#475479] leading-relaxed mt-1">{i18n.language === 'en' ? metier.desc_en : metier.desc}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              );
+            })}
           </div>
           <Reveal delay={0.2}>
             <div className="text-center mt-10">

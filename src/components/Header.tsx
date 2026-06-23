@@ -8,7 +8,6 @@ const navItems = [
   { label: 'nav.about', path: '/entreprise' },
   { label: 'nav.metiers', path: '/prestations' },
   { label: 'nav.equipe', path: '/equipe' },
-  { label: 'nav.contact', path: '/contact' },
 ];
 
 export default function Header() {

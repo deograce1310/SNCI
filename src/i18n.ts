@@ -41,7 +41,7 @@ const resources = {
       equipe: {
         eyebrow: 'NOTRE EQUIPE',
         title: 'Notre equipe',
-        subtitle: 'Monsieur Brice Aime ADEOKO, fort de ses annees d\'experiences aux cotes des grandes entreprises industrielles de la sous-region ouest africaine, est un amoureux du beau, de la perfection et de la revolution industrielle. Ses qualites d\'industriel de nouvelle generation, lui ont permis de constituer une equipe forte, professionnelle et hautement qualifiee.',
+        subtitle: 'Fondee par un dirigeant fort de plusieurs annees d\'experience aux cotes des grandes entreprises industrielles de la sous-region ouest-africaine, SNCI reunit une equipe forte, professionnelle et hautement qualifiee, animee par le gout du travail bien fait et de l\'excellence industrielle.',
         corpsMetier: 'Corps de metier disponibles',
       },
       clients: {
@@ -53,7 +53,7 @@ const resources = {
         eyebrow: 'L\'ENTREPRISE',
         title: 'Societe des Nouvelles Constructions Industrielles',
         p1: 'La societe des Nouvelles Constructions Industrielles (SNCI) Sarl a ete creee par un jeune et dynamique beninois ayant suivi toutes ses formations dotees de certifications en soudure industrielle, chaudronnerie au sein de grandes ecoles du Senegal.',
-        p2: 'Monsieur Brice Aime ADEOKO, fort de ses annees d\'experiences aux cotes des grandes entreprises industrielles de la sous-region ouest africaine, est un amoureux du beau, de la perfection et de la revolution industrielle. Ses qualites d\'industriel de nouvelle generation, lui ont permis de constituer une equipe forte, professionnelle et hautement qualifiee qui n\'a qu\'une seule devise : "offrir dans un bref delai et avec qualite des prestations certifiees a tous les clients".',
+        p2: 'Fort de plusieurs annees d\'experience aux cotes des grandes entreprises industrielles de la sous-region ouest-africaine, notre dirigeant a su constituer une equipe forte, professionnelle et hautement qualifiee, animee par une seule devise : "offrir dans un bref delai et avec qualite des prestations certifiees a tous les clients".',
         p3: 'SNCI SARL bien qu\'etant une societe beninoise est operationnelle partout ou est implantee votre entreprise et ne menage aucun effort pour prouver son professionnalisme. Confiez-lui votre projet et vous serez satisfaits de lui avoir fait confiance, car elle en fait une realite dans le respect des normes de qualite internationale.',
       },
       footer: {
@@ -112,7 +112,7 @@ const resources = {
         eyebrow: 'THE COMPANY',
         title: 'Society of New Industrial Constructions',
         p1: 'The company of New Industrial Constructions (SNCI) Sarl was created by a young and dynamic Beninese who followed all his training in industrial welding, boilermaking with certifications within large schools in Senegal.',
-        p2: 'Mr. Brice Aime ADEOKO, with his years of experience alongside major industrial companies in the West African sub-region, is a lover of beauty, perfection and the industrial revolution. His qualities as a new-generation industrialist have enabled him to build a strong, professional and highly qualified team with only one motto: "to offer certified services to all customers in a short time and with quality".',
+        p2: 'With several years of experience alongside major industrial companies in the West African sub-region, our management has built a strong, professional and highly qualified team driven by a single motto: "to offer certified services to all customers in a short time and with quality".',
         p3: 'SNCI SARL, although a Beninese company, is operational wherever your company is located and spares no effort to prove its professionalism. Entrust her with your project and you will be satisfied to have trusted her, because she makes it a reality in compliance with international quality standards.',
       },
       footer: {

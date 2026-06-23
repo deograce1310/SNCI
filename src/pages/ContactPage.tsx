@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Check, Send, Mail, Phone, MapPin, MessageCircle, Globe } from 'lucide-react';
+import { Check, Mail, Phone, MapPin, Globe } from 'lucide-react';
 import Reveal from '../components/Reveal';
+import WhatsAppIcon from '../components/icons/WhatsAppIcon';
 import { company, telHref } from '../data/company';
 
 export default function ContactPage() {
@@ -9,18 +10,32 @@ export default function ContactPage() {
   const en = i18n.language === 'en';
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ nom: '', email: '', sujet: '', message: '' });
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Sans backend : on ouvre le client mail de l'utilisateur avec un message pre-rempli
-    // adresse a l'entreprise. Le message est donc reellement transmis.
+  // Message commun, pre-rempli avec ce que l'utilisateur a saisi
+  const buildBody = () =>
+    `${en ? 'Name' : 'Nom'}: ${form.nom}\n` +
+    `Email: ${form.email}\n` +
+    `${en ? 'Subject' : 'Sujet'}: ${form.sujet}\n\n` +
+    `${form.message}`;
+
+  // Verifie les champs requis (validation native HTML5) avant d'agir
+  const isValid = () => formRef.current?.reportValidity() ?? false;
+
+  const sendByEmail = () => {
+    if (!isValid()) return;
     const subject = encodeURIComponent(form.sujet || (en ? 'Contact request' : 'Demande de contact'));
-    const body = encodeURIComponent(
-      `${en ? 'Name' : 'Nom'}: ${form.nom}\n` +
-      `Email: ${form.email}\n\n` +
-      `${form.message}`
-    );
+    const body = encodeURIComponent(buildBody());
     window.location.href = `mailto:${company.email}?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  };
+
+  const sendByWhatsApp = () => {
+    if (!isValid()) return;
+    const text = encodeURIComponent(
+      `${en ? 'Contact request' : 'Demande de contact'} — ${form.sujet}\n\n${buildBody()}`
+    );
+    window.open(`https://wa.me/${company.whatsapp}?text=${text}`, '_blank', 'noopener,noreferrer');
     setSubmitted(true);
   };
 
@@ -105,7 +120,7 @@ export default function ContactPage() {
                 <Reveal delay={0.15}>
                   <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4">
                     <div className="w-11 h-11 rounded-lg bg-[#F6F2F2] group-hover:bg-[#25D366] flex items-center justify-center shrink-0 transition-colors">
-                      <MessageCircle className="w-5 h-5 text-[#25D366] group-hover:text-white transition-colors" />
+                      <WhatsAppIcon className="w-5 h-5 text-[#25D366] group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <p className="text-xs font-medium uppercase tracking-wider text-[#9A9B9C]">WhatsApp</p>
@@ -156,13 +171,13 @@ export default function ContactPage() {
                         <Mail className="w-4 h-4" /> Email
                       </a>
                       <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-xs uppercase tracking-wider px-5 py-3 rounded-lg transition-all">
-                        <MessageCircle className="w-4 h-4" /> WhatsApp
+                        <WhatsAppIcon className="w-4 h-4" /> WhatsApp
                       </a>
                     </div>
                   </div>
                 </Reveal>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form ref={formRef} onSubmit={(e) => { e.preventDefault(); sendByEmail(); }} className="space-y-5">
                   <Reveal>
                     <label htmlFor="contact-nom" className="block text-sm font-medium text-[#0A090E] mb-1.5">{en ? 'Name' : 'Nom'}</label>
                     <input id="contact-nom" name="nom" autoComplete="name" type="text" required value={form.nom} onChange={(e) => setForm({ ...form, nom: e.target.value })}
@@ -184,10 +199,19 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 bg-[#F6F2F2] border border-transparent focus:border-[#0A090E] rounded-lg focus:outline-none transition-colors resize-none" />
                   </Reveal>
                   <Reveal delay={0.2}>
-                    <button type="submit" className="w-full bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider py-4 rounded-[10px] transition-all hover:shadow-lg flex items-center justify-center gap-2">
-                      <Send className="w-4 h-4" />
-                      {en ? 'Send' : 'Envoyer'}
-                    </button>
+                    <p className="text-xs text-[#9A9B9C] mb-3 text-center">
+                      {en ? 'Choose how to send your message:' : 'Choisissez comment envoyer votre message :'}
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <button type="button" onClick={sendByWhatsApp} className="flex-1 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-sm uppercase tracking-wider py-4 rounded-[10px] transition-all hover:shadow-lg flex items-center justify-center gap-2">
+                        <WhatsAppIcon className="w-5 h-5" />
+                        {en ? 'Send via WhatsApp' : 'Envoyer via WhatsApp'}
+                      </button>
+                      <button type="submit" className="flex-1 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider py-4 rounded-[10px] transition-all hover:shadow-lg flex items-center justify-center gap-2">
+                        <Mail className="w-5 h-5" />
+                        {en ? 'Send by email' : 'Envoyer par e-mail'}
+                      </button>
+                    </div>
                   </Reveal>
                 </form>
               )}
