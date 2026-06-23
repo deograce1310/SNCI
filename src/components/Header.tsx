@@ -35,7 +35,7 @@ export default function Header() {
       }`}>
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10 h-16 lg:h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 shrink-0 z-10">
-            <img src="/images/snci-logo-mark.png" alt="SNCI" className={`h-12 lg:h-14 w-auto transition-all duration-500 ${
+            <img src="/images/snci-logo.png" alt="SNCI" className={`h-12 lg:h-14 w-auto transition-all duration-500 ${
               scrolled || !isHome ? '' : 'drop-shadow-lg'
             }`} />
           </Link>
