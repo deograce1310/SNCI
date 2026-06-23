@@ -118,59 +118,70 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ═══ HERO — fond blanc avec photo ═══ */}
-      <section className="relative min-h-[95dvh] flex items-center justify-center overflow-hidden bg-white">
+      {/* ═══ HERO ═══ */}
+      <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#0A090E]">
+        {/* Image de fond + voile sombre */}
         <div className="absolute inset-0">
-          <img src="/images/hero-main.jpg" alt="Chantier industriel SNCI" className="w-full h-full object-cover" />
+          <img src="/images/hero-main.jpg" alt="Chantier industriel SNCI" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A090E]/75 via-[#0A090E]/50 to-[#0A090E]/85" />
         </div>
-        <div className="relative z-10 max-w-[900px] mx-auto px-5 text-center pt-24 pb-24 sm:py-20">
-          <div className="flex items-center justify-center gap-3 mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="flex flex-col gap-[3px]">
-              <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
-              <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
-            </div>
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-white/90">
-              {t('hero.eyebrow')}
-            </p>
-            <div className="flex flex-col gap-[3px]">
-              <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
-              <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
-            </div>
+
+        {/* Contenu */}
+        <div className="relative z-10 mx-auto w-full max-w-[900px] px-5 py-28 text-center">
+          {/* Sur-titre */}
+          <div className="mb-6 flex items-center justify-center gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <span className="flex flex-col gap-[3px]">
+              <span className="h-[2px] w-5 rounded-full bg-[#CF0D0D]" />
+              <span className="h-[2px] w-5 rounded-full bg-[#CF0D0D]" />
+            </span>
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-white/90">{t('hero.eyebrow')}</p>
+            <span className="flex flex-col gap-[3px]">
+              <span className="h-[2px] w-5 rounded-full bg-[#CF0D0D]" />
+              <span className="h-[2px] w-5 rounded-full bg-[#CF0D0D]" />
+            </span>
           </div>
-          <p className="font-archivo font-semibold text-xs sm:text-sm uppercase tracking-[0.18em] text-white/55 mb-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+
+          <p className="mb-4 font-archivo text-xs font-semibold uppercase tracking-[0.18em] text-white/55 sm:text-sm animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
             {t('hero.company')}
           </p>
-          <h1 className="font-archivo font-extrabold text-[clamp(34px,5.5vw,68px)] leading-[1.08] tracking-[-0.02em] text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+
+          <h1 className="mb-6 font-archivo text-[clamp(34px,5.5vw,68px)] font-extrabold leading-[1.08] tracking-[-0.02em] text-white animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             {t('hero.title')}
           </h1>
-          <p className="text-lg text-white/75 leading-relaxed max-w-[680px] mx-auto mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+
+          <p className="mx-auto mb-10 max-w-[680px] text-lg leading-relaxed text-white/75 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
             {t('hero.subtitle')}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
-            <Link to="/prestations" className="bg-[#CF0D0D] hover:bg-[#A80B0B] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg hover:-translate-y-0.5">
+
+          {/* Boutons d'action */}
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
+            <Link to="/prestations" className="rounded-[10px] bg-[#CF0D0D] px-8 py-4 font-archivo text-sm font-semibold uppercase tracking-wider text-white transition-all hover:-translate-y-0.5 hover:bg-[#A80B0B] hover:shadow-lg">
               {t('nav.metiers')}
             </Link>
-            <Link to="/equipe" className="border-2 border-white/40 hover:border-white hover:bg-white/10 text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-3.5 rounded-[10px] transition-all">
+            <Link to="/equipe" className="rounded-[10px] border-2 border-white/40 px-8 py-3.5 font-archivo text-sm font-semibold uppercase tracking-wider text-white transition-all hover:border-white hover:bg-white/10">
               {t('nav.equipe')}
             </Link>
           </div>
-          <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 mt-8 sm:mt-12 max-w-[280px] sm:max-w-none mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700">
+
+          {/* Badges de confiance — colonne uniforme sur mobile, rangée sur desktop */}
+          <ul className="mx-auto mt-10 flex max-w-[300px] flex-col gap-2.5 sm:mt-12 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700">
             {[
               { icon: BadgeCheck, label: t('hero.badge1') },
               { icon: ShieldCheck, label: t('hero.badge2') },
               { icon: Clock, label: t('hero.badge3') },
             ].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex w-full sm:w-auto items-center justify-start sm:justify-center gap-2 px-4 py-2.5 sm:py-2 rounded-full bg-white/10 border border-white/15 backdrop-blur-sm">
-                <Icon className="w-4 h-4 text-[#CF0D0D] shrink-0" />
-                <span className="font-archivo font-medium text-xs sm:text-[13px] uppercase tracking-wider text-white/85">{label}</span>
-              </div>
+              <li key={label} className="flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2.5 backdrop-blur-sm sm:py-2">
+                <Icon className="h-4 w-4 shrink-0 text-[#CF0D0D]" />
+                <span className="font-archivo text-xs font-medium uppercase tracking-wider text-white/85 sm:text-[13px]">{label}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 animate-bounce-slow">
-          <span className="text-white/40 text-[10px] font-mono uppercase tracking-[0.2em]">Scroll</span>
-          <div className="w-px h-6 bg-gradient-to-b from-white/40 to-transparent" />
+
+        {/* Indicateur de scroll (desktop uniquement) */}
+        <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 animate-bounce-slow sm:flex">
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">Scroll</span>
+          <span className="h-6 w-px bg-gradient-to-b from-white/40 to-transparent" />
         </div>
       </section>
 
