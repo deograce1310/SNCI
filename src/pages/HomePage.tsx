@@ -124,7 +124,7 @@ export default function HomePage() {
           <img src="/images/hero-main.jpg" alt="Chantier industriel SNCI" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A090E]/75 via-[#0A090E]/50 to-[#0A090E]/85" />
         </div>
-        <div className="relative z-10 max-w-[900px] mx-auto px-5 text-center pt-20">
+        <div className="relative z-10 max-w-[900px] mx-auto px-5 text-center pt-24 pb-24 sm:py-20">
           <div className="flex items-center justify-center gap-3 mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <div className="flex flex-col gap-[3px]">
               <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
@@ -155,7 +155,7 @@ export default function HomePage() {
               {t('nav.equipe')}
             </Link>
           </div>
-          <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 mt-12 max-w-[280px] sm:max-w-none mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 mt-8 sm:mt-12 max-w-[280px] sm:max-w-none mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700">
             {[
               { icon: BadgeCheck, label: t('hero.badge1') },
               { icon: ShieldCheck, label: t('hero.badge2') },
@@ -168,7 +168,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 animate-bounce-slow">
           <span className="text-white/40 text-[10px] font-mono uppercase tracking-[0.2em]">Scroll</span>
           <div className="w-px h-6 bg-gradient-to-b from-white/40 to-transparent" />
         </div>
