@@ -176,15 +176,15 @@ export default function HomePage() {
               {t('nav.equipe')}
             </Link>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mt-12 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700">
             {[
               { icon: BadgeCheck, label: t('hero.badge1') },
               { icon: ShieldCheck, label: t('hero.badge2') },
               { icon: Clock, label: t('hero.badge3') },
             ].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2 text-white/75">
-                <Icon className="w-4 h-4 text-[#CF0D0D]" />
-                <span className="font-archivo font-medium text-xs sm:text-sm uppercase tracking-wider">{label}</span>
+              <div key={label} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 backdrop-blur-sm">
+                <Icon className="w-4 h-4 text-[#CF0D0D] shrink-0" />
+                <span className="font-archivo font-medium text-xs sm:text-[13px] uppercase tracking-wider text-white/85">{label}</span>
               </div>
             ))}
           </div>
