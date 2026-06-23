@@ -7,7 +7,7 @@ const resources = {
     translation: {
       nav: {
         home: 'Accueil',
-        about: 'À propos',
+        about: 'À propos de nous',
         metiers: 'Nos prestations',
         equipe: 'Notre équipe',
         contact: 'Contact',
@@ -70,7 +70,7 @@ const resources = {
     translation: {
       nav: {
         home: 'Home',
-        about: 'About',
+        about: 'About us',
         metiers: 'Our Services',
         equipe: 'Our Team',
         contact: 'Contact',
