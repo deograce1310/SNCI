@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { company, telHref } from '../data/company';
 
 const navLinks = [
   { label: 'nav.home', path: '/' },
@@ -43,8 +45,23 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-archivo font-bold text-xs uppercase tracking-wider mb-4 text-white/50">{i18n.language === 'en' ? 'Language' : 'Langue'}</h4>
-            <button onClick={toggleLang} className="text-sm text-white/80 hover:text-white transition-colors">
+            <h4 className="font-archivo font-bold text-xs uppercase tracking-wider mb-4 text-white/50">Contact</h4>
+            <ul className="space-y-2.5">
+              <li>
+                <a href={telHref(company.phones[0])} className="flex items-center gap-2.5 text-sm text-white/80 hover:text-white transition-colors">
+                  <Phone className="w-4 h-4 shrink-0" /> {company.phones[0]}
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${company.email}`} className="flex items-center gap-2.5 text-sm text-white/80 hover:text-white transition-colors break-all">
+                  <Mail className="w-4 h-4 shrink-0" /> {company.email}
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5 text-sm text-white/80">
+                <MapPin className="w-4 h-4 shrink-0" /> {company.address}, {company.city}
+              </li>
+            </ul>
+            <button onClick={toggleLang} className="mt-5 text-sm text-white/80 hover:text-white transition-colors">
               <span className={i18n.language === 'fr' ? 'font-semibold' : ''}>FR</span>
               <span className="mx-2 text-white/30">|</span>
               <span className={i18n.language === 'en' ? 'font-semibold' : ''}>EN</span>

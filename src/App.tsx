@@ -10,6 +10,7 @@ const EquipePage = lazy(() => import('./pages/EquipePage'));
 const EntreprisePage = lazy(() => import('./pages/EntreprisePage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const MentionsLegalesPage = lazy(() => import('./pages/MentionsLegalesPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/entreprise" element={<EntreprisePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Suspense>
