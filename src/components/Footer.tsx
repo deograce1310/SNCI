@@ -53,6 +53,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href={telHref(company.phones[1])} className="flex items-center gap-2.5 text-sm text-white/80 hover:text-white transition-colors">
+                  <Phone className="w-4 h-4 shrink-0" /> {company.phones[1]}
+                </a>
+              </li>
+              <li>
                 <a href={`mailto:${company.email}`} className="flex items-center gap-2.5 text-sm text-white/80 hover:text-white transition-colors break-all">
                   <Mail className="w-4 h-4 shrink-0" /> {company.email}
                 </a>
