@@ -1,6 +1,6 @@
 import {
-  Flame, Cylinder, GitBranch, Building2, RectangleVertical,
-  Wind, Layers, Factory, Package, Cog, Users, Anchor
+  Flame, Cylinder, Waypoints, Building2, Construction,
+  SprayCan, Layers, Factory, Package, Cog, Users, Anchor
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -30,7 +30,7 @@ export const services: Service[] = [
     desc_en: 'Manufacturing, assembly and repair of tanks, cisterns, pressure vessels and custom boilermade works according to industrial standards.',
   },
   {
-    slug: 'tuyauterie', icon: GitBranch,
+    slug: 'tuyauterie', icon: Waypoints,
     title: 'Tuyauterie', title_en: 'Piping',
     image: '/images/prestations/tuyauterie.jpg',
     desc: 'Pose, assemblage et maintenance de reseaux de tuyauterie pour fluides industriels, hydrocarbures et gaz. Etude, tracage et installation complete des lignes de process.',
@@ -44,14 +44,14 @@ export const services: Service[] = [
     desc_en: 'Design and construction of load-bearing metal structures for industrial buildings, hangars, walkways and heavy infrastructure.',
   },
   {
-    slug: 'echafaudages', icon: RectangleVertical,
+    slug: 'echafaudages', icon: Construction,
     title: 'Echafaudages', title_en: 'Scaffolding',
     image: '/images/prestations/echafaudages.jpg',
     desc: 'Montage et demontage d\'echafaudages industriels conformes aux normes de securite pour les travaux en hauteur, en milieu confine et sur structures complexes.',
     desc_en: 'Assembly and dismantling of industrial scaffolding compliant with safety standards for work at height, in confined spaces and on complex structures.',
   },
   {
-    slug: 'sablage', icon: Wind,
+    slug: 'sablage', icon: SprayCan,
     title: 'Sablage', title_en: 'Sandblasting',
     image: '/images/prestations/sablage.jpg',
     desc: 'Preparation de surfaces par projection d\'abrasifs pour eliminer la rouille, les salissures et les anciennes peintures en vue d\'un traitement de protection anticorrosion.',

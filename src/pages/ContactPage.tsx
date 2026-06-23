@@ -9,6 +9,7 @@ export default function ContactPage() {
   const { i18n } = useTranslation();
   const en = i18n.language === 'en';
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
   const [form, setForm] = useState({ nom: '', email: '', sujet: '', message: '' });
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -22,11 +23,42 @@ export default function ContactPage() {
   // Verifie les champs requis (validation native HTML5) avant d'agir
   const isValid = () => formRef.current?.reportValidity() ?? false;
 
-  const sendByEmail = () => {
-    if (!isValid()) return;
+  // Repli sans backend : ouvre l'app mail de l'utilisateur, pre-remplie
+  const openMailto = () => {
     const subject = encodeURIComponent(form.sujet || (en ? 'Contact request' : 'Demande de contact'));
     const body = encodeURIComponent(buildBody());
     window.location.href = `mailto:${company.email}?subject=${subject}&body=${body}`;
+  };
+
+  const sendByEmail = async () => {
+    if (!isValid()) return;
+    // Si un endpoint Formspree est configure : envoi automatique (le message
+    // arrive directement dans la boite mail, sans ouvrir l'app de l'utilisateur).
+    if (company.formEndpoint) {
+      try {
+        setSending(true);
+        const res = await fetch(company.formEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            nom: form.nom,
+            email: form.email,
+            sujet: form.sujet,
+            message: form.message,
+            _subject: `${en ? 'Contact request' : 'Demande de contact'} — ${form.sujet}`,
+          }),
+        });
+        if (res.ok) { setSubmitted(true); return; }
+        openMailto(); // repli si l'envoi echoue
+      } catch {
+        openMailto();
+      } finally {
+        setSending(false);
+      }
+      return;
+    }
+    // Sinon : envoi via l'application mail
+    openMailto();
     setSubmitted(true);
   };
 
@@ -159,12 +191,18 @@ export default function ContactPage() {
                       <Check className="w-7 h-7 text-[#2830B3]" />
                     </div>
                     <h3 className="font-archivo font-bold text-xl text-[#0A090E]">
-                      {en ? 'Almost done!' : 'Presque termine !'}
+                      {company.formEndpoint
+                        ? (en ? 'Message sent!' : 'Message envoye !')
+                        : (en ? 'Almost done!' : 'Presque termine !')}
                     </h3>
                     <p className="text-[#475479] mt-2 max-w-sm mx-auto">
-                      {en
-                        ? 'Your email app should have opened with your message ready to send. If not, contact us directly:'
-                        : "Votre messagerie devrait s'etre ouverte avec votre message pret a envoyer. Sinon, contactez-nous directement :"}
+                      {company.formEndpoint
+                        ? (en
+                            ? 'Thank you, we have received your message and will get back to you shortly. You can also reach us directly:'
+                            : 'Merci, nous avons bien recu votre message et reviendrons vers vous rapidement. Vous pouvez aussi nous joindre directement :')
+                        : (en
+                            ? 'Your email app should have opened with your message ready to send. If not, contact us directly:'
+                            : "Votre messagerie devrait s'etre ouverte avec votre message pret a envoyer. Sinon, contactez-nous directement :")}
                     </p>
                     <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
                       <a href={`mailto:${company.email}`} className="inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-xs uppercase tracking-wider px-5 py-3 rounded-lg transition-colors">
@@ -207,9 +245,9 @@ export default function ContactPage() {
                         <WhatsAppIcon className="w-5 h-5" />
                         {en ? 'Send via WhatsApp' : 'Envoyer via WhatsApp'}
                       </button>
-                      <button type="submit" className="flex-1 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider py-4 rounded-[10px] transition-all hover:shadow-lg flex items-center justify-center gap-2">
+                      <button type="submit" disabled={sending} className="flex-1 bg-[#2830B3] hover:bg-[#1E2699] disabled:opacity-60 disabled:cursor-not-allowed text-white font-archivo font-semibold text-sm uppercase tracking-wider py-4 rounded-[10px] transition-all hover:shadow-lg flex items-center justify-center gap-2">
                         <Mail className="w-5 h-5" />
-                        {en ? 'Send by email' : 'Envoyer par e-mail'}
+                        {sending ? (en ? 'Sending…' : 'Envoi…') : (en ? 'Send by email' : 'Envoyer par e-mail')}
                       </button>
                     </div>
                   </Reveal>

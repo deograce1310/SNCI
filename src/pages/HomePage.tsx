@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import {
   MessageSquare, UserCheck, Truck, ClipboardCheck,
-  ChevronRight, Flame, Cylinder, GitBranch, RectangleVertical,
+  ChevronRight, Flame, Cylinder, Waypoints, Construction,
   BadgeCheck, ShieldCheck, Clock
 } from 'lucide-react';
 import Reveal from '../components/Reveal';
@@ -251,14 +251,14 @@ export default function HomePage() {
                 desc_en: 'Manufacturing, assembly and repair of tanks, cisterns, pressure vessels and custom boilermade works.',
               },
               {
-                icon: GitBranch,
+                icon: Waypoints,
                 title: 'Tuyauteurs',
                 title_en: 'Pipe Fitters',
                 desc: "Pose, assemblage et maintenance de reseaux de tuyauterie pour fluides industriels, hydrocarbures et gaz. Etude et tracage des lignes de process.",
                 desc_en: 'Installation, assembly and maintenance of piping networks for industrial fluids, hydrocarbons and gases.',
               },
               {
-                icon: RectangleVertical,
+                icon: Construction,
                 title: 'Echafaudeurs',
                 title_en: 'Scaffolders',
                 desc: "Montage et demontage d'echafaudages industriels conformes aux normes de securite pour les travaux en hauteur et en milieu confine.",

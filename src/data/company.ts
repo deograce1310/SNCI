@@ -15,6 +15,15 @@ export const company = {
   websiteUrl: 'https://www.snci-group.com',
   rccm: 'RB/COT/17 B 17890',
   ifu: '3201700182915',
+
+  // === Envoi automatique du formulaire de contact ===
+  // Pour recevoir les messages directement par e-mail (sans que l'utilisateur
+  // ait a ouvrir son app mail) : creez un formulaire gratuit sur formspree.io
+  // avec l'adresse ci-dessus, puis collez l'URL fournie ici, par exemple :
+  //   formEndpoint: 'https://formspree.io/f/xxxxxxxx'
+  // Tant que ce champ reste vide, le formulaire bascule sur l'envoi via
+  // l'application mail (mailto) ou WhatsApp.
+  formEndpoint: '',
 } as const;
 
 // Lien "tel:" propre (sans espaces) a partir d'un numero affiche
