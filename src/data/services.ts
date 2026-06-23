@@ -18,7 +18,7 @@ export const services: Service[] = [
   {
     slug: 'soudure', icon: Flame,
     title: 'Soudure Industrielle', title_en: 'Industrial Welding',
-    image: '/images/prestations/soudure.jpg',
+    image: '/images/metiers/soudeurs.jpg',
     desc: 'Assemblage permanent de pieces metalliques par fusion localisee avec ou sans metal d\'apport. Techniques TIG, MIG-MAG, arc electrique et soudure sur acier, inox et aluminium.',
     desc_en: 'Permanent assembly of metal parts by localized fusion with or without filler metal. TIG, MIG-MAG, arc welding techniques on steel, stainless steel and aluminum.',
   },
@@ -60,7 +60,7 @@ export const services: Service[] = [
   {
     slug: 'bardages', icon: Layers,
     title: 'Bardages de Toitures', title_en: 'Roof Cladding',
-    image: '/images/prestations/bardages.jpg',
+    image: '/images/sectors/industrie-btp.jpg',
     desc: 'Installation de couvertures et bardages metalliques pour la protection et l\'etancheite des batiments industriels, hangars et structures.',
     desc_en: 'Installation of metal roofing and cladding for the protection and waterproofing of industrial buildings, hangars and structures.',
   },

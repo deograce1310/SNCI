@@ -27,7 +27,7 @@ export default function EquipePage() {
         <div className="max-w-[800px] mx-auto px-5 lg:px-10">
           <Reveal>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              <img src="/images/team/snci-team.jpg" alt="SNCI Team" className="w-full aspect-[4/3] object-cover rounded-[12px] shadow-lg" loading="lazy" />
+              <img src="/images/team/snci-team.jpg" alt="SNCI Team" className="w-full aspect-[16/10] object-cover rounded-[12px] shadow-lg" loading="lazy" />
               <div>
                 <div className="flex flex-col gap-[3px] mb-4">
                   <div className="w-6 h-[2px] bg-[#CF0D0D] rounded-full" />

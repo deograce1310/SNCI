@@ -25,7 +25,7 @@ export default function EntreprisePage() {
         <div className="max-w-[800px] mx-auto px-5 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-12 items-start">
             <Reveal>
-              <img src="/images/team/snci-team.jpg" alt="SNCI" className="w-full aspect-[4/3] object-cover rounded-[12px] shadow-lg" loading="lazy" />
+              <img src="/images/team/snci-team.jpg" alt="SNCI" className="w-full aspect-[16/10] object-cover rounded-[12px] shadow-lg" loading="lazy" />
             </Reveal>
             <div>
               <Reveal><p className="text-base text-[#475479] leading-relaxed">{t('entreprise.p1')}</p></Reveal>

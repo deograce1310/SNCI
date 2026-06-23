@@ -10,28 +10,7 @@ import Reveal from '../components/Reveal';
 import ClientLogosMarquee from '../components/ClientLogosMarquee';
 import ImageSlider from '../components/ImageSlider';
 import { services } from '../data/services';
-
-/* ─── Galerie photos réelles ─── */
-const galleryPhotos = [
-  { src: '/images/gallery/16316(1).jpg', label: '' },
-  { src: '/images/gallery/16311(1).jpg', label: '' },
-  { src: '/images/gallery/16314(1).jpg', label: '' },
-  { src: '/images/gallery/16309(1).jpg', label: '' },
-  { src: '/images/gallery/16301(1).jpg', label: '' },
-  { src: '/images/gallery/16303(1).jpg', label: '' },
-  { src: '/images/gallery/16304(1).jpg', label: '' },
-  { src: '/images/gallery/16315(1).jpg', label: '' },
-  { src: '/images/gallery/16185(2).jpg', label: '' },
-  { src: '/images/gallery/16188(2).jpg', label: '' },
-  { src: '/images/gallery/16173(1).jpg', label: '' },
-  { src: '/images/gallery/16171(2).jpg', label: '' },
-  { src: '/images/gallery/16181(2).jpg', label: '' },
-  { src: '/images/gallery/16180(1).jpg', label: '' },
-  { src: '/images/gallery/16179(1).jpg', label: '' },
-  { src: '/images/gallery/16176(1).jpg', label: '' },
-  { src: '/images/gallery/16182(1).jpg', label: '' },
-  { src: '/images/gallery/16183.jpg', label: '' },
-];
+import { galleryPhotos } from '../data/gallery';
 
 /* ─── Double barre rouge — séparateur ─── */
 function RedBars() {
@@ -242,31 +221,6 @@ export default function HomePage() {
                 {i18n.language === 'en' ? 'See all our services' : 'Voir toutes nos prestations'} <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <RedBars />
-
-      {/* ═══ TÉMOIGNAGE — GRIS ═══ */}
-      <section className="py-20 lg:py-24 bg-[#F6F2F2]">
-        <div className="max-w-[800px] mx-auto px-5 lg:px-10 text-center">
-          <Reveal>
-            <div className="flex justify-center mb-6">
-              <div className="flex flex-col gap-[3px]">
-                <div className="w-8 h-[2px] bg-[#CF0D0D] rounded-full" />
-                <div className="w-8 h-[2px] bg-[#CF0D0D] rounded-full" />
-              </div>
-            </div>
-            <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mx-auto mb-6 shadow-sm">
-              <span className="font-archivo font-black text-2xl text-[#CF0D0D]">"</span>
-            </div>
-            <blockquote className="font-archivo font-semibold text-xl lg:text-2xl text-[#0A090E] italic leading-relaxed">
-              {i18n.language === 'en'
-                ? 'The companies that have tried our services have been satisfied by the respect of the specifications and the realization of the works according to the rules of the art.'
-                : "Les societes qui ont essaye nos prestations ont ete satisfaites par le respect des cahiers de charges et la realisation des travaux selon les regles de l'art."}
-            </blockquote>
-            <p className="font-archivo font-bold text-sm text-[#0A090E] mt-6">SNCI SARL</p>
           </Reveal>
         </div>
       </section>
