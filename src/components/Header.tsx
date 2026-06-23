@@ -24,6 +24,12 @@ export default function Header() {
 
   useEffect(() => { setMobileOpen(false); }, [location.pathname]);
 
+  // Bloque le scroll de la page quand le menu burger est ouvert
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   const toggleLang = () => i18n.changeLanguage(i18n.language === 'fr' ? 'en' : 'fr');
   const isActive = (path: string) => location.pathname === path;
   const isHome = location.pathname === '/';
