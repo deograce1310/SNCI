@@ -68,8 +68,8 @@ export default function MetiersPage() {
                   <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
                 </div>
               </div>
-              <h2 className="font-archivo font-bold text-[clamp(24px,3vw,36px)] text-[#0A090E]">{i18n.language === 'en' ? 'Our achievements' : 'Nos réalisations'}</h2>
-              <p className="text-[#475479] mt-3 max-w-xl mx-auto">{i18n.language === 'en' ? 'Browse our work on site' : 'Faites défiler nos réalisations sur chantier'}</p>
+              <h2 className="font-archivo font-bold text-[clamp(24px,3vw,36px)] text-[#0A090E]">{i18n.language === 'en' ? 'Our expertise in pictures' : 'Notre savoir-faire en images'}</h2>
+              <p className="text-[#475479] mt-3 max-w-xl mx-auto">{i18n.language === 'en' ? 'Welding, boilermaking, piping and metal frames' : 'Soudure, chaudronnerie, tuyauterie et charpentes métalliques'}</p>
             </div>
           </Reveal>
           <Reveal>

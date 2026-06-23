@@ -1,4 +1,5 @@
-// Galerie de réalisations — photos réelles de chantiers.
+// Galerie illustrant nos métiers (soudure, chaudronnerie, tuyauterie,
+// charpentes métalliques). Photos d'illustration des types de travaux.
 // Liste centralisée (utilisée sur l'accueil et la page prestations).
 export const galleryPhotos = [
   { src: '/images/gallery/16316(1).jpg', label: '' },

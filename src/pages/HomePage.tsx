@@ -298,8 +298,8 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
           <SectionTitle
             eyebrow={i18n.language === 'en' ? 'GALLERY' : 'GALERIE'}
-            title={i18n.language === 'en' ? 'Our works in pictures' : 'Nos réalisations en images'}
-            subtitle={i18n.language === 'en' ? 'Browse our work on site' : 'Faites défiler nos réalisations sur chantier'}
+            title={i18n.language === 'en' ? 'Our expertise in pictures' : 'Notre savoir-faire en images'}
+            subtitle={i18n.language === 'en' ? 'Welding, boilermaking, piping and metal frames' : 'Soudure, chaudronnerie, tuyauterie et charpentes métalliques'}
           />
           <Reveal>
             <ImageSlider images={galleryPhotos} />
