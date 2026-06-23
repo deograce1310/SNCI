@@ -15,8 +15,9 @@ const resources = {
       },
       hero: {
         eyebrow: 'Soudure — Chaudronnerie — Tuyauterie — Charpentes metalliques',
-        title: 'Societe des Nouvelles Constructions Industrielles',
-        subtitle: 'Jeune entreprise beninoise specialisée dans la soudure industrielle, la chaudronnerie, la tuyauterie, la construction des charpentes metalliques et des echafaudages, le sablage, les bardages de toitures, les constructions et maintenances d\'usine, la fourniture de consommables et materiels industriels, l\'usinage des pieces, la mise a disposition de personnels industriels qualifies et certifies, et prestations de services onshore et offshore.',
+        company: 'Societe des Nouvelles Constructions Industrielles',
+        title: 'Votre partenaire industriel, de la soudure a la maintenance d\'usine.',
+        subtitle: 'SNCI concoit, construit et entretient vos installations industrielles avec des equipes qualifiees et certifiees — selon les normes internationales, onshore et offshore, partout en Afrique de l\'Ouest.',
       },
       dev: {
         motto: 'Offrir dans un bref delai et avec qualite des prestations certifiees a tous les clients.',
@@ -74,8 +75,9 @@ const resources = {
       },
       hero: {
         eyebrow: 'Welding — Boilermaking — Piping — Metal Frames',
-        title: 'Society of New Industrial Constructions',
-        subtitle: 'A young Beninese company specializing in industrial welding, boilermaking, piping, construction of metal frames and scaffolding, sandblasting, roof cladding, factory construction and maintenance, supply of consumables and industrial equipment, machining of parts, provision of qualified and certified industrial personnel, and onshore and offshore services.',
+        company: 'Society of New Industrial Constructions',
+        title: 'Your industrial partner, from welding to factory maintenance.',
+        subtitle: 'SNCI designs, builds and maintains your industrial installations with qualified and certified teams — to international standards, onshore and offshore, across West Africa.',
       },
       dev: {
         motto: 'To offer certified services to all customers in a short time and with quality.',

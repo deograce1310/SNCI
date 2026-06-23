@@ -158,7 +158,10 @@ export default function HomePage() {
               <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
             </div>
           </div>
-          <h1 className="font-archivo font-extrabold text-[clamp(36px,6vw,72px)] leading-[1.05] tracking-[-0.02em] text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+          <p className="font-archivo font-semibold text-xs sm:text-sm uppercase tracking-[0.18em] text-white/55 mb-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+            {t('hero.company')}
+          </p>
+          <h1 className="font-archivo font-extrabold text-[clamp(34px,5.5vw,68px)] leading-[1.08] tracking-[-0.02em] text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
             {t('hero.title')}
           </h1>
           <p className="text-lg text-white/75 leading-relaxed max-w-[680px] mx-auto mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
