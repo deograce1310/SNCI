@@ -106,10 +106,10 @@ function StatCounter({ end, label }: { end: number; label: string }) {
 
 /* ─── données ─── */
 const steps = [
-  { icon: MessageSquare, title: 'Expression du besoin', desc: 'Décrivez vos besoins en personnel ou en prestations' },
-  { icon: UserCheck, title: 'Sélection des profils', desc: 'Nous sélectionnons les professionnels correspondant à vos critères' },
-  { icon: Truck, title: 'Mise à disposition', desc: 'Les personnels arrivent sur votre chantier, équipés et briefés' },
-  { icon: ClipboardCheck, title: 'Suivi régulier', desc: 'Suivi de la mission et remplacement si nécessaire' },
+  { icon: MessageSquare, title: 'Expression du besoin', title_en: 'Express your need', desc: 'Décrivez vos besoins en personnel ou en prestations', desc_en: 'Describe your personnel or service needs' },
+  { icon: UserCheck, title: 'Sélection des profils', title_en: 'Profile selection', desc: 'Nous sélectionnons les professionnels correspondant à vos critères', desc_en: 'We select the professionals matching your criteria' },
+  { icon: Truck, title: 'Mise à disposition', title_en: 'On-site deployment', desc: 'Les personnels arrivent sur votre chantier, équipés et briefés', desc_en: 'Personnel arrive on your site, equipped and briefed' },
+  { icon: ClipboardCheck, title: 'Suivi régulier', title_en: 'Regular follow-up', desc: 'Suivi de la mission et remplacement si nécessaire', desc_en: 'Mission monitoring and replacement if needed' },
 ];
 
 /* ─── PAGE ─── */
@@ -316,19 +316,29 @@ export default function HomePage() {
         </div>
         <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
           <SectionTitle eyebrow={i18n.language === 'en' ? 'PROCESS' : 'PROCESSUS'} title={i18n.language === 'en' ? 'How we work' : 'Comment nous travaillons'} />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-            <div className="hidden lg:block absolute top-10 left-[12%] right-[12%] h-px bg-[#D0D0D4]" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 mt-2">
             {steps.map((step, i) => {
               const Icon = step.icon;
+              const num = String(i + 1).padStart(2, '0');
               return (
-                <Reveal key={step.title} delay={i * 0.12}>
-                  <div className="relative text-center">
-                    <div className="w-20 h-20 rounded-full bg-white border-2 border-[#DDD5D5] flex items-center justify-center mx-auto mb-5 relative z-10 hover:border-[#CF0D0D] hover:bg-[#0A090E] group transition-all duration-300">
-                      <Icon className="w-7 h-7 text-[#9A9B9C] group-hover:text-white transition-colors" />
-                      <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-[#CF0D0D] text-white text-xs font-archivo font-bold flex items-center justify-center shadow-sm">{i + 1}</span>
+                <Reveal key={step.title} delay={i * 0.1}>
+                  <div className="group relative h-full overflow-hidden rounded-2xl bg-white border border-[#E4DCDC] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#CF0D0D]/40 hover:shadow-[0_18px_40px_-18px_rgba(10,9,14,0.35)]">
+                    {/* Numéro en filigrane */}
+                    <span className="pointer-events-none select-none absolute -top-5 right-1 font-archivo font-bold text-[120px] leading-none text-[#0A090E]/[0.04] group-hover:text-[#CF0D0D]/[0.07] transition-colors duration-300">
+                      {num}
+                    </span>
+                    {/* Contenu */}
+                    <div className="relative z-10">
+                      <div className="w-14 h-14 rounded-xl bg-[#F6F2F2] group-hover:bg-[#0A090E] flex items-center justify-center mb-5 transition-colors duration-300">
+                        <Icon className="w-6 h-6 text-[#CF0D0D] group-hover:text-white transition-colors duration-300" />
+                      </div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="font-mono text-xs font-bold text-[#CF0D0D]">{num}</span>
+                        <span className="h-px flex-1 bg-[#E4DCDC] group-hover:bg-[#CF0D0D]/30 transition-colors duration-300" />
+                      </div>
+                      <h3 className="font-archivo font-bold text-[16px] text-[#0A090E]">{i18n.language === 'en' ? step.title_en : step.title}</h3>
+                      <p className="text-sm text-[#475479] mt-2 leading-relaxed">{i18n.language === 'en' ? step.desc_en : step.desc}</p>
                     </div>
-                    <h3 className="font-archivo font-bold text-[15px] text-[#0A090E]">{step.title}</h3>
-                    <p className="text-sm text-[#475479] mt-2">{step.desc}</p>
                   </div>
                 </Reveal>
               );
