@@ -17,7 +17,10 @@ const resources = {
         eyebrow: 'Soudure — Chaudronnerie — Tuyauterie — Charpentes metalliques',
         company: 'Societe des Nouvelles Constructions Industrielles',
         title: 'Votre partenaire industriel, de la soudure a la maintenance d\'usine.',
-        subtitle: 'SNCI concoit, construit et entretient vos installations industrielles avec des equipes qualifiees et certifiees — selon les normes internationales, onshore et offshore, partout en Afrique de l\'Ouest.',
+        subtitle: 'Des equipes qualifiees et certifiees qui realisent vos projets avec qualite et dans les delais — selon les normes internationales, onshore et offshore, partout en Afrique de l\'Ouest.',
+        badge1: 'Personnel certifie',
+        badge2: 'Normes internationales',
+        badge3: 'Qualite & delais',
       },
       dev: {
         motto: 'Offrir dans un bref delai et avec qualite des prestations certifiees a tous les clients.',
@@ -77,7 +80,10 @@ const resources = {
         eyebrow: 'Welding — Boilermaking — Piping — Metal Frames',
         company: 'Society of New Industrial Constructions',
         title: 'Your industrial partner, from welding to factory maintenance.',
-        subtitle: 'SNCI designs, builds and maintains your industrial installations with qualified and certified teams — to international standards, onshore and offshore, across West Africa.',
+        subtitle: 'Qualified and certified teams that deliver your projects with quality and on time — to international standards, onshore and offshore, across West Africa.',
+        badge1: 'Certified personnel',
+        badge2: 'International standards',
+        badge3: 'Quality & on time',
       },
       dev: {
         motto: 'To offer certified services to all customers in a short time and with quality.',

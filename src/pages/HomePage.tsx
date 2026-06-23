@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import {
   MessageSquare, UserCheck, Truck, ClipboardCheck,
-  ChevronRight, Flame, Cylinder, GitBranch, RectangleVertical
+  ChevronRight, Flame, Cylinder, GitBranch, RectangleVertical,
+  BadgeCheck, ShieldCheck, Clock
 } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import ClientLogosMarquee from '../components/ClientLogosMarquee';
@@ -174,6 +175,18 @@ export default function HomePage() {
             <Link to="/equipe" className="border-2 border-white/40 hover:border-white hover:bg-white/10 text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-3.5 rounded-[10px] transition-all">
               {t('nav.equipe')}
             </Link>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700">
+            {[
+              { icon: BadgeCheck, label: t('hero.badge1') },
+              { icon: ShieldCheck, label: t('hero.badge2') },
+              { icon: Clock, label: t('hero.badge3') },
+            ].map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-2 text-white/75">
+                <Icon className="w-4 h-4 text-[#CF0D0D]" />
+                <span className="font-archivo font-medium text-xs sm:text-sm uppercase tracking-wider">{label}</span>
+              </div>
+            ))}
           </div>
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow">
