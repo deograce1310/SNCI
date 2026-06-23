@@ -12,18 +12,6 @@ import ImageSlider from '../components/ImageSlider';
 import { services } from '../data/services';
 import { galleryPhotos } from '../data/gallery';
 
-/* ─── Double barre rouge — séparateur ─── */
-function RedBars() {
-  return (
-    <div className="flex justify-center py-1">
-      <div className="flex flex-col gap-[3px]">
-        <div className="w-12 h-[2px] bg-[#CF0D0D] rounded-full" />
-        <div className="w-12 h-[2px] bg-[#CF0D0D] rounded-full" />
-      </div>
-    </div>
-  );
-}
-
 /* ─── Titre de section ─── */
 function SectionTitle({
   eyebrow,
@@ -185,8 +173,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <RedBars />
-
       {/* ═══ CHIFFRES CLÉS — GRIS ═══ */}
       <section className="py-16 lg:py-20 bg-[#F6F2F2]">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
@@ -198,8 +184,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <RedBars />
 
       {/* ═══ PRESTATIONS (aperçu) — BLANC ═══ */}
       <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
@@ -235,8 +219,6 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
-
-      <RedBars />
 
       {/* ═══ ÉQUIPE — BLANC — identique section prestations ═══ */}
       <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
@@ -302,8 +284,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <RedBars />
-
       {/* ═══ GALERIE PHOTOS — SLIDER AUTOMATIQUE — GRIS ═══ */}
       <section className="py-20 lg:py-28 bg-[#F6F2F2] relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
@@ -317,8 +297,6 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
-
-      <RedBars />
 
       {/* ═══ PARCOURS CLIENT — GRIS ═══ */}
       <section className="py-20 lg:py-28 bg-[#F6F2F2] relative overflow-hidden">
@@ -358,8 +336,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <RedBars />
-
       {/* ═══ ENTREPRISE (aperçu) — BLANC ═══ */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-[800px] mx-auto px-5 lg:px-10 text-center">
@@ -387,12 +363,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <RedBars />
-
       {/* ═══ CLIENTS — GRIS (défilement logos) ═══ */}
       <ClientLogosMarquee />
-
-      <RedBars />
 
       {/* ═══ CTA FINAL — BLANC ═══ */}
       <section className="py-20 lg:py-24 bg-white">
