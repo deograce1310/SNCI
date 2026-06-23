@@ -72,7 +72,7 @@ export default function Footer() {
         <div className="mt-12 pt-6 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[11px] font-mono text-white/50">&copy; {new Date().getFullYear()} SNCI SARL</p>
           <Link to="/mentions-legales" className="text-xs text-white/50 hover:text-white transition-colors">
-            {i18n.language === 'en' ? 'Legal notices' : 'Mentions legales'}
+            {i18n.language === 'en' ? 'Legal notices' : 'Mentions légales'}
           </Link>
         </div>
       </div>

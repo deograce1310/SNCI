@@ -14,25 +14,25 @@ export default function MentionsLegalesPage() {
             </div>
             <span className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-[#CF0D0D]">LEGAL</span>
           </div>
-          <h1 className="font-archivo font-bold text-[40px] text-[#0A090E]">{i18n.language === 'en' ? 'Legal notices' : 'Mentions legales'}</h1>
+          <h1 className="font-archivo font-bold text-[40px] text-[#0A090E]">{i18n.language === 'en' ? 'Legal notices' : 'Mentions légales'}</h1>
         </div>
       </section>
 
       <section className="py-16 lg:py-20 bg-white">
         <div className="max-w-[800px] mx-auto px-5 lg:px-10 space-y-10">
           <div>
-            <h2 className="font-archivo font-bold text-xl text-[#0A090E] mb-4">{i18n.language === 'en' ? 'Publisher' : 'Editeur du site'}</h2>
+            <h2 className="font-archivo font-bold text-xl text-[#0A090E] mb-4">{i18n.language === 'en' ? 'Publisher' : 'Éditeur du site'}</h2>
             <div className="text-[15px] text-[#475479] leading-relaxed space-y-1">
               <p><strong className="text-[#0A090E]">SNCI SARL</strong></p>
-              <p>{i18n.language === 'en' ? 'Society of New Industrial Constructions' : 'Societe des Nouvelles Constructions Industrielles'}</p>
+              <p>{i18n.language === 'en' ? 'Society of New Industrial Constructions' : 'Société des Nouvelles Constructions Industrielles'}</p>
             </div>
           </div>
           <div>
-            <h2 className="font-archivo font-bold text-xl text-[#0A090E] mb-4">{i18n.language === 'en' ? 'Intellectual property' : 'Propriete intellectuelle'}</h2>
+            <h2 className="font-archivo font-bold text-xl text-[#0A090E] mb-4">{i18n.language === 'en' ? 'Intellectual property' : 'Propriété intellectuelle'}</h2>
             <p className="text-[15px] text-[#475479] leading-relaxed">
               {i18n.language === 'en'
                 ? 'All content on this site is the exclusive property of SNCI SARL. Any reproduction without prior written permission is prohibited.'
-                : "L'ensemble du contenu de ce site est la propriete exclusive de SNCI SARL. Toute reproduction sans autorisation prealable ecrite est interdite."}
+                : "L'ensemble du contenu de ce site est la propriété exclusive de SNCI SARL. Toute reproduction sans autorisation préalable écrite est interdite."}
             </p>
           </div>
         </div>

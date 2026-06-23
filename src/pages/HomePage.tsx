@@ -106,10 +106,10 @@ function StatCounter({ end, label }: { end: number; label: string }) {
 
 /* ─── données ─── */
 const steps = [
-  { icon: MessageSquare, title: 'Expression du besoin', desc: 'Decrivez vos besoins en personnel ou en prestations' },
-  { icon: UserCheck, title: 'Selection des profils', desc: 'Nous selectionnons les professionnels correspondant a vos criteres' },
-  { icon: Truck, title: 'Mise a disposition', desc: 'Les personnels arrivent sur votre chantier, equipes et briefes' },
-  { icon: ClipboardCheck, title: 'Suivi regulier', desc: 'Suivi de la mission et remplacement si necessaire' },
+  { icon: MessageSquare, title: 'Expression du besoin', desc: 'Décrivez vos besoins en personnel ou en prestations' },
+  { icon: UserCheck, title: 'Sélection des profils', desc: 'Nous sélectionnons les professionnels correspondant à vos critères' },
+  { icon: Truck, title: 'Mise à disposition', desc: 'Les personnels arrivent sur votre chantier, équipés et briefés' },
+  { icon: ClipboardCheck, title: 'Suivi régulier', desc: 'Suivi de la mission et remplacement si nécessaire' },
 ];
 
 /* ─── PAGE ─── */
@@ -181,8 +181,8 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             <StatCounter end={12} label={i18n.language === 'en' ? 'Industrial Services' : 'Prestations industrielles'} />
-            <StatCounter end={19} label={i18n.language === 'en' ? 'Trusted Clients' : 'Clients references'} />
-            <StatCounter end={16} label={i18n.language === 'en' ? 'Job Categories' : 'Corps de metier'} />
+            <StatCounter end={19} label={i18n.language === 'en' ? 'Trusted Clients' : 'Clients références'} />
+            <StatCounter end={16} label={i18n.language === 'en' ? 'Job Categories' : 'Corps de métier'} />
             <StatCounter end={3} label={i18n.language === 'en' ? 'West African Countries' : "Pays d'intervention"} />
           </div>
         </div>
@@ -240,28 +240,28 @@ export default function HomePage() {
                 icon: Flame,
                 title: 'Soudeurs',
                 title_en: 'Welders',
-                desc: "Soudeurs homologues de tous types, soudeurs TIG et MIG-MAG, soudeurs a l'arc. Assemblage permanent de pieces metalliques par fusion localisee.",
+                desc: "Soudeurs homologués de tous types, soudeurs TIG et MIG-MAG, soudeurs à l'arc. Assemblage permanent de pièces métalliques par fusion localisée.",
                 desc_en: 'Approved welders of all types, TIG and MIG-MAG welders, arc welders. Permanent assembly of metal parts by localized fusion.',
               },
               {
                 icon: Cylinder,
                 title: 'Chaudronniers',
                 title_en: 'Boilermakers',
-                desc: 'Fabrication, assemblage et reparation de reservoirs, citernes, appareils sous pression et ouvrages chaudronnes sur mesure.',
+                desc: 'Fabrication, assemblage et réparation de réservoirs, citernes, appareils sous pression et ouvrages chaudronnés sur mesure.',
                 desc_en: 'Manufacturing, assembly and repair of tanks, cisterns, pressure vessels and custom boilermade works.',
               },
               {
                 icon: Waypoints,
                 title: 'Tuyauteurs',
                 title_en: 'Pipe Fitters',
-                desc: "Pose, assemblage et maintenance de reseaux de tuyauterie pour fluides industriels, hydrocarbures et gaz. Etude et tracage des lignes de process.",
+                desc: "Pose, assemblage et maintenance de réseaux de tuyauterie pour fluides industriels, hydrocarbures et gaz. Étude et traçage des lignes de process.",
                 desc_en: 'Installation, assembly and maintenance of piping networks for industrial fluids, hydrocarbons and gases.',
               },
               {
                 icon: Construction,
-                title: 'Echafaudeurs',
+                title: 'Échafaudeurs',
                 title_en: 'Scaffolders',
-                desc: "Montage et demontage d'echafaudages industriels conformes aux normes de securite pour les travaux en hauteur et en milieu confine.",
+                desc: "Montage et démontage d'échafaudages industriels conformes aux normes de sécurité pour les travaux en hauteur et en milieu confiné.",
                 desc_en: 'Assembly and dismantling of industrial scaffolding compliant with safety standards for work at height and confined spaces.',
               },
             ].map((metier, i) => {
@@ -299,7 +299,7 @@ export default function HomePage() {
           <SectionTitle
             eyebrow={i18n.language === 'en' ? 'GALLERY' : 'GALERIE'}
             title={i18n.language === 'en' ? 'Our works in pictures' : 'Nos réalisations en images'}
-            subtitle={i18n.language === 'en' ? 'Click on an image to view it in full screen' : 'Cliquez sur une image pour la voir en plein écran'}
+            subtitle={i18n.language === 'en' ? 'Browse our work on site' : 'Faites défiler nos réalisations sur chantier'}
           />
           <Reveal>
             <ImageSlider images={galleryPhotos} />

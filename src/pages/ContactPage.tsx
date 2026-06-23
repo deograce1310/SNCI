@@ -93,7 +93,7 @@ export default function ContactPage() {
           <p className="text-lg text-[#475479] mt-4 max-w-xl">
             {en
               ? 'Tell us about your project. We will get back to you as soon as possible.'
-              : 'Parlez-nous de votre projet. Nous vous repondrons dans les plus brefs delais.'}
+              : 'Parlez-nous de votre projet. Nous vous répondrons dans les plus brefs délais.'}
           </p>
         </div>
       </section>
@@ -106,7 +106,7 @@ export default function ContactPage() {
             <div>
               <Reveal>
                 <h2 className="font-archivo font-bold text-xl text-[#0A090E] mb-6">
-                  {en ? 'Our contact details' : 'Nos coordonnees'}
+                  {en ? 'Our contact details' : 'Nos coordonnées'}
                 </h2>
               </Reveal>
 
@@ -117,7 +117,7 @@ export default function ContactPage() {
                       <Phone className="w-5 h-5 text-[#2830B3] group-hover:text-white transition-colors" />
                     </div>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-[#9A9B9C]">{en ? 'Phone' : 'Telephone'}</p>
+                      <p className="text-xs font-medium uppercase tracking-wider text-[#9A9B9C]">{en ? 'Phone' : 'Téléphone'}</p>
                       <p className="text-[15px] text-[#0A090E] font-medium group-hover:text-[#2830B3] transition-colors">{company.phones[0]}</p>
                       <p className="text-[15px] text-[#0A090E] font-medium">{company.phones[1]}</p>
                     </div>
@@ -192,17 +192,17 @@ export default function ContactPage() {
                     </div>
                     <h3 className="font-archivo font-bold text-xl text-[#0A090E]">
                       {company.formEndpoint
-                        ? (en ? 'Message sent!' : 'Message envoye !')
-                        : (en ? 'Almost done!' : 'Presque termine !')}
+                        ? (en ? 'Message sent!' : 'Message envoyé !')
+                        : (en ? 'Almost done!' : 'Presque terminé !')}
                     </h3>
                     <p className="text-[#475479] mt-2 max-w-sm mx-auto">
                       {company.formEndpoint
                         ? (en
                             ? 'Thank you, we have received your message and will get back to you shortly. You can also reach us directly:'
-                            : 'Merci, nous avons bien recu votre message et reviendrons vers vous rapidement. Vous pouvez aussi nous joindre directement :')
+                            : 'Merci, nous avons bien reçu votre message et reviendrons vers vous rapidement. Vous pouvez aussi nous joindre directement :')
                         : (en
                             ? 'Your email app should have opened with your message ready to send. If not, contact us directly:'
-                            : "Votre messagerie devrait s'etre ouverte avec votre message pret a envoyer. Sinon, contactez-nous directement :")}
+                            : "Votre messagerie devrait s'être ouverte avec votre message prêt à envoyer. Sinon, contactez-nous directement :")}
                     </p>
                     <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
                       <a href={`mailto:${company.email}`} className="inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-xs uppercase tracking-wider px-5 py-3 rounded-lg transition-colors">

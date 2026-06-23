@@ -69,7 +69,7 @@ export default function MetiersPage() {
                 </div>
               </div>
               <h2 className="font-archivo font-bold text-[clamp(24px,3vw,36px)] text-[#0A090E]">{i18n.language === 'en' ? 'Our achievements' : 'Nos réalisations'}</h2>
-              <p className="text-[#475479] mt-3 max-w-xl mx-auto">{i18n.language === 'en' ? 'Click on an image to view it full screen' : 'Cliquez sur une image pour la voir en plein écran'}</p>
+              <p className="text-[#475479] mt-3 max-w-xl mx-auto">{i18n.language === 'en' ? 'Browse our work on site' : 'Faites défiler nos réalisations sur chantier'}</p>
             </div>
           </Reveal>
           <Reveal>

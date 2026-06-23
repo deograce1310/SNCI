@@ -3,14 +3,14 @@
 
 export const company = {
   name: 'SNCI SARL',
-  fullName: 'Societe des Nouvelles Constructions Industrielles',
+  fullName: 'Société des Nouvelles Constructions Industrielles',
   email: 'snciconstructionindustriel@gmail.com',
   phones: ['+229 97 23 91 33', '+229 62 15 26 35'],
-  // Numero WhatsApp au format international sans espaces ni "+"
+  // Numéro WhatsApp au format international sans espaces ni "+"
   whatsapp: '22997239133',
-  address: 'Calavi Aitchedji',
+  address: 'Calavi Aïtchedji',
   city: 'Cotonou',
-  country: 'Benin',
+  country: 'Bénin',
   website: 'www.snci-group.com',
   websiteUrl: 'https://www.snci-group.com',
   rccm: 'RB/COT/17 B 17890',
