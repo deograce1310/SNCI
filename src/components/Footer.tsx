@@ -28,7 +28,7 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
           <div>
-            <img src="/images/snci-logo.png" alt="SNCI" className="h-16 w-auto mb-4" />
+            <img src="/images/snci-logo.png" alt="SNCI" className="h-16 w-16 rounded-full object-cover mb-4" />
             <p className="text-sm font-semibold text-white/90 leading-relaxed">{t('footer.company')}</p>
             <blockquote className="mt-3 text-sm text-white/70 italic">&ldquo;{t('dev.motto')}&rdquo;</blockquote>
           </div>
