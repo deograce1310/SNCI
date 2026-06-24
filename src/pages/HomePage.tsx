@@ -343,8 +343,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ PARCOURS CLIENT — GRIS ═══ */}
-      <section className="py-20 lg:py-28 bg-[#F6F2F2] relative overflow-hidden">
+      {/* ═══ PARCOURS CLIENT — BLANC ═══ */}
+      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
         <div className="absolute -left-[10%] top-[5%] w-[40%] opacity-[0.03] pointer-events-none">
           <img src="/images/gear-watermark.png" alt="" className="w-full" />
         </div>
@@ -356,14 +356,14 @@ export default function HomePage() {
               const num = String(i + 1).padStart(2, '0');
               return (
                 <Reveal key={step.title} delay={i * 0.1}>
-                  <div className="group relative h-full overflow-hidden rounded-2xl bg-white border border-[#E4DCDC] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#CF0D0D]/40 hover:shadow-[0_18px_40px_-18px_rgba(10,9,14,0.35)]">
+                  <div className="group relative h-full overflow-hidden rounded-2xl bg-[#F6F2F2] border border-[#E4DCDC] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#CF0D0D]/40 hover:shadow-[0_18px_40px_-18px_rgba(10,9,14,0.35)]">
                     {/* Numéro en filigrane */}
                     <span className="pointer-events-none select-none absolute -top-5 right-1 font-archivo font-bold text-[120px] leading-none text-[#0A090E]/[0.04] group-hover:text-[#CF0D0D]/[0.07] transition-colors duration-300">
                       {num}
                     </span>
                     {/* Contenu */}
                     <div className="relative z-10">
-                      <div className="w-14 h-14 rounded-xl bg-[#F6F2F2] group-hover:bg-[#0A090E] flex items-center justify-center mb-5 transition-colors duration-300">
+                      <div className="w-14 h-14 rounded-xl bg-white group-hover:bg-[#0A090E] flex items-center justify-center mb-5 transition-colors duration-300">
                         <Icon className="w-6 h-6 text-[#CF0D0D] group-hover:text-white transition-colors duration-300" />
                       </div>
                       <div className="flex items-center gap-2 mb-2">
@@ -380,6 +380,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ═══ CLIENTS — GRIS (défilement logos) ═══ */}
+      <ClientLogosMarquee />
 
       {/* ═══ ENTREPRISE (aperçu) — BLANC ═══ */}
       <section className="py-20 lg:py-28 bg-white">
@@ -408,11 +411,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ CLIENTS — GRIS (défilement logos) ═══ */}
-      <ClientLogosMarquee />
-
-      {/* ═══ CTA FINAL — BLANC ═══ */}
-      <section className="py-20 lg:py-24 bg-white">
+      {/* ═══ CTA FINAL — GRIS ═══ */}
+      <section className="py-20 lg:py-24 bg-[#F6F2F2]">
         <div className="max-w-[800px] mx-auto px-5 lg:px-10 text-center">
           <Reveal>
             <div className="flex justify-center mb-6">
