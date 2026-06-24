@@ -275,7 +275,7 @@ export default function HomePage() {
                   <span className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-[#CF0D0D]">{i18n.language === 'en' ? 'OUR TEAM' : 'NOTRE ÉQUIPE'}</span>
                 </div>
                 <h2 className="font-archivo font-bold text-[clamp(24px,3vw,36px)] text-[#0A090E]">{i18n.language === 'en' ? 'The people behind every project' : 'Les femmes & hommes derrière chaque chantier'}</h2>
-                <p className="text-[#475479] leading-relaxed mt-4">{i18n.language === 'en' ? 'A close-knit, experienced team that takes on your projects from end to end, on land and at sea, across West Africa.' : "Une équipe soudée et expérimentée qui prend en charge vos chantiers de bout en bout, à terre comme en mer, partout en Afrique de l'Ouest."}</p>
+                <p className="text-[#475479] leading-relaxed mt-4">{i18n.language === 'en' ? 'A close-knit, experienced team that handles your projects end to end — plus qualified personnel we can provide on demand, on land and at sea, across West Africa.' : "Une équipe soudée et expérimentée qui prend en charge vos chantiers de bout en bout — et un personnel qualifié que nous mettons à votre disposition, à terre comme en mer, partout en Afrique de l'Ouest."}</p>
                 <ul className="mt-6 space-y-3">
                   {(i18n.language === 'en'
                     ? ['Qualified & professional team', '16 trades under one roof', 'Onshore & offshore interventions']
