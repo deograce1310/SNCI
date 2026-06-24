@@ -372,35 +372,8 @@ export default function HomePage() {
       {/* ═══ CLIENTS — GRIS (défilement logos) ═══ */}
       <ClientLogosMarquee />
 
-      {/* ═══ ENTREPRISE (aperçu) — BLANC ═══ */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-[800px] mx-auto px-5 lg:px-10 text-center">
-          <Reveal>
-            <div className="flex justify-center mb-6">
-              <div className="flex flex-col gap-[3px]">
-                <div className="w-8 h-[2px] bg-[#CF0D0D] rounded-full" />
-                <div className="w-8 h-[2px] bg-[#CF0D0D] rounded-full" />
-              </div>
-            </div>
-            <h2 className="font-archivo font-bold text-[clamp(24px,3vw,32px)] text-[#0A090E]">{t('apropos.title')}</h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="text-base text-[#475479] leading-relaxed mt-6">{t('apropos.p1')}</p>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <blockquote className="mt-8 font-archivo font-semibold text-lg text-[#0A090E] italic">&ldquo;{t('dev.motto')}&rdquo;</blockquote>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/a-propos" className="bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">{t('nav.about')}</Link>
-              <Link to="/prestations" className="border-2 border-[#9A9B9C]/40 hover:border-[#0A090E] text-[#0A090E] font-archivo font-semibold text-sm uppercase tracking-wider px-6 py-3.5 rounded-[10px] transition-all">{t('nav.metiers')}</Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ═══ CTA FINAL — GRIS ═══ */}
-      <section className="py-20 lg:py-24 bg-[#F6F2F2]">
+      {/* ═══ CTA FINAL — BLANC ═══ */}
+      <section className="py-20 lg:py-24 bg-white">
         <div className="max-w-[800px] mx-auto px-5 lg:px-10 text-center">
           <Reveal>
             <div className="flex justify-center mb-6">
