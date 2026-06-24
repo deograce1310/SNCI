@@ -63,18 +63,6 @@ export default function MentionsLegalesPage() {
             </p>
           </div>
 
-          {/* Hébergeur */}
-          <div>
-            <h2 className="font-archivo font-bold text-xl text-[#0A090E] mb-4">{en ? 'Hosting' : 'Hébergeur'}</h2>
-            <div className="text-[15px] text-[#475479] leading-relaxed space-y-1">
-              <p><strong className="text-[#0A090E]">Netlify, Inc.</strong></p>
-              <p>512 2nd Street, Suite 200, San Francisco, CA 94107, {en ? 'United States' : 'États-Unis'}</p>
-              <p>
-                <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer" className="text-[#2830B3] hover:underline">www.netlify.com</a>
-              </p>
-            </div>
-          </div>
-
           {/* Propriété intellectuelle */}
           <div>
             <h2 className="font-archivo font-bold text-xl text-[#0A090E] mb-4">{en ? 'Intellectual property' : 'Propriété intellectuelle'}</h2>
