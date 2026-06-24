@@ -10,6 +10,7 @@ import Reveal from '../components/Reveal';
 import ClientLogosMarquee from '../components/ClientLogosMarquee';
 import ImageSlider from '../components/ImageSlider';
 import { services } from '../data/services';
+import { engins } from '../data/engins';
 import { galleryPhotos } from '../data/gallery';
 
 /* ─── Titre de section ─── */
@@ -214,6 +215,50 @@ export default function HomePage() {
             <div className="text-center mt-10">
               <Link to="/prestations" className="inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
                 {i18n.language === 'en' ? 'See all our services' : 'Voir toutes nos prestations'} <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ═══ ENGINS (aperçu) — GRIS ═══ */}
+      <section className="py-20 lg:py-28 bg-[#F6F2F2] relative overflow-hidden">
+        <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
+          <SectionTitle
+            eyebrow={i18n.language === 'en' ? 'OUR EQUIPMENT' : 'NOS ENGINS'}
+            title={i18n.language === 'en' ? 'Our equipment' : 'Nos engins'}
+            subtitle={i18n.language === 'en'
+              ? 'Machines for access at height and earthworks — details and pricing on WhatsApp.'
+              : "Des engins pour l'accès en hauteur et le terrassement — détails et prix sur WhatsApp."}
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {['nacelle-articulee', 'tractopelle', 'chargeuse-sur-pneus'].map((slug, i) => {
+              const engin = engins.find((e) => e.slug === slug);
+              if (!engin) return null;
+              return (
+                <Reveal key={slug} delay={i * 0.08}>
+                  <Link to={`/engins/${engin.slug}`}
+                    className="group block h-full bg-white rounded-[12px] overflow-hidden border border-[#E7EBF2] hover:shadow-card transition-all duration-400">
+                    <div className="aspect-[4/3] overflow-hidden relative bg-[#F6F2F2]">
+                      <img src={engin.cover} alt={i18n.language === 'en' ? engin.title_en : engin.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                      <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#0A090E] font-mono text-[10px] font-medium uppercase tracking-[0.08em] px-2.5 py-1 rounded-full">
+                        {i18n.language === 'en' ? engin.category_en : engin.category}
+                      </span>
+                    </div>
+                    <div className="p-5">
+                      <h3 className="font-archivo font-bold text-[15px] text-[#0A090E]">{i18n.language === 'en' ? engin.title_en : engin.title}</h3>
+                      <p className="text-sm text-[#475479] leading-relaxed mt-1">{i18n.language === 'en' ? engin.shortDesc_en : engin.shortDesc}</p>
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </div>
+          <Reveal delay={0.2}>
+            <div className="text-center mt-10">
+              <Link to="/engins" className="inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
+                {i18n.language === 'en' ? 'See all our equipment' : 'Voir tous nos engins'} <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
           </Reveal>
