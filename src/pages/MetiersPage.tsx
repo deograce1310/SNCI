@@ -11,11 +11,16 @@ export default function MetiersPage() {
   const { t, i18n } = useTranslation();
   const en = i18n.language === 'en';
 
-  // Lien WhatsApp pré-rempli : le visiteur demande à en savoir plus sur la prestation
+  // Lien WhatsApp pré-rempli : le visiteur demande à en savoir plus sur une prestation précise
   const infoHref = (label: string) =>
     `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
       en ? `Hello SNCI, I would like to know more about: ${label}.` : `Bonjour SNCI, je souhaite en savoir plus sur : ${label}.`
     )}`;
+
+  // Lien WhatsApp générique (CTA global sous la grille)
+  const generalWhatsappHref = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
+    en ? 'Hello SNCI, I would like information about your services.' : 'Bonjour SNCI, je souhaite des informations sur vos prestations.'
+  )}`;
 
   return (
     <>
@@ -51,7 +56,7 @@ export default function MetiersPage() {
                     <a href={infoHref(en ? service.title_en : service.title)} target="_blank" rel="noopener noreferrer"
                       className="mt-4 inline-flex items-center gap-2 font-archivo font-semibold text-sm text-[#25D366] hover:text-[#1Fb855] transition-colors group/cta">
                       <WhatsAppIcon className="w-4 h-4" />
-                      {en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
+                      {en ? 'Learn more' : 'En savoir plus'}
                       <ArrowRight className="w-4 h-4 transition-transform group-hover/cta:translate-x-1" />
                     </a>
                   </div>
@@ -59,6 +64,23 @@ export default function MetiersPage() {
               </Reveal>
             ))}
           </div>
+
+          {/* CTA global WhatsApp sous la grille */}
+          <Reveal>
+            <div className="mt-14 text-center">
+              <p className="font-archivo font-semibold text-lg text-[#0A090E]">
+                {en ? 'Interested in one of our services?' : 'Une prestation vous intéresse ?'}
+              </p>
+              <p className="text-[#475479] mt-2 mb-6 max-w-md mx-auto">
+                {en ? 'Tell us about your project — we usually reply within the hour.' : 'Parlez-nous de votre projet — nous répondons généralement dans l\'heure.'}
+              </p>
+              <a href={generalWhatsappHref} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
+                <WhatsAppIcon className="w-5 h-5" />
+                {en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
