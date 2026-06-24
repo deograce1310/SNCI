@@ -22,6 +22,8 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Ferme le menu mobile à chaque changement de route (navigation)
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setMobileOpen(false); }, [location.pathname]);
 
   // Bloque le scroll de la page quand le menu burger est ouvert

@@ -53,7 +53,10 @@ export default function ImageSlider({
   };
   const onTouchEnd = (e: React.TouchEvent) => {
     const diff = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) diff > 0 ? goNext() : goPrev();
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goNext();
+      else goPrev();
+    }
   };
 
   if (images.length === 0) return null;
