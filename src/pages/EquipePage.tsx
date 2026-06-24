@@ -56,14 +56,7 @@ export default function EquipePage() {
                   </div>
                   <div className="p-5">
                     <h3 className="font-archivo font-bold text-[15px] text-[#0A090E]">{i18n.language === 'en' ? family.title_en : family.title}</h3>
-                    <ul className="mt-3 space-y-1.5">
-                      {(i18n.language === 'en' ? family.jobs_en : family.jobs).map((job) => (
-                        <li key={job} className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-[#CF0D0D] rounded-sm mt-1.5 shrink-0" />
-                          <span className="text-sm text-[#475479]">{job}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="text-sm text-[#475479] leading-relaxed mt-2">{i18n.language === 'en' ? family.desc_en : family.desc}</p>
                   </div>
                 </div>
               </Reveal>

@@ -105,6 +105,8 @@ export const services: Service[] = [
 export interface JobFamily {
   title: string;
   title_en: string;
+  desc: string;
+  desc_en: string;
   jobs: string[];
   jobs_en: string[];
   image: string;
@@ -113,42 +115,56 @@ export interface JobFamily {
 export const jobFamilies: JobFamily[] = [
   {
     title: 'Soudeurs', title_en: 'Welders',
+    desc: 'Soudeurs homologués (TIG, MIG-MAG et à l\'arc) pour l\'assemblage permanent de pièces métalliques selon les normes.',
+    desc_en: 'Approved welders (TIG, MIG-MAG and arc) for the permanent assembly of metal parts to standard.',
     jobs: ['Soudeurs homologués de tous types', 'Soudeurs TIG et MIG-MAG', 'Soudeurs à l\'arc'],
     jobs_en: ['Approved welders of all types', 'TIG and MIG-MAG welders', 'Arc welders'],
     image: '/images/metiers/soudeurs.jpg',
   },
   {
     title: 'Chaudronniers et Monteurs', title_en: 'Boilermakers and Assemblers',
+    desc: 'Fabrication, assemblage et montage d\'ensembles chaudronnés : réservoirs, citernes et appareils sous pression.',
+    desc_en: 'Manufacturing, assembly and installation of boilermade units: tanks, cisterns and pressure vessels.',
     jobs: ['Chaudronniers', 'Monteurs'],
     jobs_en: ['Boilermakers', 'Assemblers'],
     image: '/images/metiers/chaudronniers-monteurs.jpg',
   },
   {
     title: 'Tuyauteurs et Échafaudeurs', title_en: 'Pipe Fitters and Scaffolders',
+    desc: 'Pose de réseaux de tuyauterie industrielle et montage d\'échafaudages conformes pour les travaux en hauteur.',
+    desc_en: 'Installation of industrial piping networks and assembly of compliant scaffolding for work at height.',
     jobs: ['Tuyauteurs', 'Échafaudeurs'],
     jobs_en: ['Pipe fitters', 'Scaffolders'],
     image: '/images/metiers/tuyauteurs-scalfodeurs.jpg',
   },
   {
     title: 'Dessinateurs – Traceurs – Projeteurs', title_en: 'Designers – Plotters – Projectors',
+    desc: 'Études, traçage et plans de fabrication pour préparer et fiabiliser chaque intervention.',
+    desc_en: 'Studies, layout and fabrication drawings to prepare and secure every operation.',
     jobs: ['Dessinateurs – Traceurs – Projeteurs'],
     jobs_en: ['Designers – Plotters – Projectors'],
     image: '/images/metiers/dessinateurs.jpg',
   },
   {
     title: 'Sableurs et Peintres', title_en: 'Sandblasters and Painters',
+    desc: 'Préparation de surface par sablage et application de revêtements de protection anticorrosion.',
+    desc_en: 'Surface preparation by sandblasting and application of anti-corrosion protective coatings.',
     jobs: ['Sableurs', 'Peintres'],
     jobs_en: ['Sandblasters', 'Painters'],
     image: '/images/metiers/sableurs-peintres.jpg',
   },
   {
     title: 'Manœuvres et Électriciens', title_en: 'Laborers and Electricians',
+    desc: 'Personnel d\'appui et électriciens industriels pour le support de chantier et les raccordements.',
+    desc_en: 'Support staff and industrial electricians for site assistance and connections.',
     jobs: ['Manœuvres', 'Électriciens'],
     jobs_en: ['Laborers', 'Electricians'],
     image: '/images/metiers/manoeuvres-electriciens.jpg',
   },
   {
     title: 'Métiers spécialisés', title_en: 'Specialized trades',
+    desc: 'Grutiers, fumistes, calorifugeurs et électromécaniciens pour les besoins techniques spécifiques.',
+    desc_en: 'Crane operators, stove fitters, insulators and electromechanics for specific technical needs.',
     jobs: ['Grutiers', 'Fumistes', 'Calorifugeurs', 'Électromécaniciens'],
     jobs_en: ['Crane operators', 'Stove fitters', 'Insulators', 'Electromechanics'],
     image: '/images/metiers/divers.jpg',
