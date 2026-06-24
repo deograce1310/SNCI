@@ -45,7 +45,7 @@ const resources = {
       equipe: {
         eyebrow: 'NOTRE ÉQUIPE',
         title: 'Notre équipe',
-        subtitle: 'Fondée par un dirigeant fort de plusieurs années d\'expérience aux côtés des grandes entreprises industrielles de la sous-région ouest-africaine, SNCI réunit une équipe forte, professionnelle et hautement qualifiée, animée par le goût du travail bien fait et de l\'excellence industrielle.',
+        subtitle: 'Des profils qualifiés et certifiés pour chaque besoin industriel — soudure, chaudronnerie, tuyauterie, échafaudage et bien plus, onshore et offshore.',
         corpsMetier: 'Corps de métier disponibles',
       },
       clients: {
@@ -108,7 +108,7 @@ const resources = {
       equipe: {
         eyebrow: 'OUR TEAM',
         title: 'Our Team',
-        subtitle: 'SNCI SARL is a young Beninese company specializing in industrial construction and maintenance in West Africa.',
+        subtitle: 'Qualified and certified profiles for every industrial need — welding, boilermaking, piping, scaffolding and much more, onshore and offshore.',
         corpsMetier: 'Available trades',
       },
       clients: {
