@@ -87,10 +87,10 @@ export const services: Service[] = [
   },
   {
     slug: 'personnel', icon: Users,
-    title: 'Mise à disposition de personnels industriels qualifiés et certifiés', title_en: 'Provision of qualified and certified industrial personnel',
+    title: 'Mise à disposition de personnels industriels qualifiés et professionnels', title_en: 'Provision of qualified and professional industrial personnel',
     image: '/images/prestations/personnel.jpg',
-    desc: 'Placement de personnel qualifié et certifié : soudeurs, chaudronniers, tuyauteurs, monteurs, échafaudeurs et autres corps de métier pour vos chantiers.',
-    desc_en: 'Placement of qualified and certified personnel: welders, boilermakers, pipe fitters, assemblers, scaffolders and other trades for your worksites.',
+    desc: 'Placement de personnel qualifié et professionnel : soudeurs, chaudronniers, tuyauteurs, monteurs, échafaudeurs et autres corps de métier pour vos chantiers.',
+    desc_en: 'Placement of qualified and professional personnel: welders, boilermakers, pipe fitters, assemblers, scaffolders and other trades for your worksites.',
   },
   {
     slug: 'onshore-offshore', icon: Anchor,
@@ -115,10 +115,10 @@ export interface JobFamily {
 export const jobFamilies: JobFamily[] = [
   {
     title: 'Soudeurs', title_en: 'Welders',
-    desc: 'Soudeurs homologués (TIG, MIG-MAG et à l\'arc) pour l\'assemblage permanent de pièces métalliques selon les normes.',
-    desc_en: 'Approved welders (TIG, MIG-MAG and arc) for the permanent assembly of metal parts to standard.',
-    jobs: ['Soudeurs homologués de tous types', 'Soudeurs TIG et MIG-MAG', 'Soudeurs à l\'arc'],
-    jobs_en: ['Approved welders of all types', 'TIG and MIG-MAG welders', 'Arc welders'],
+    desc: 'Soudeurs qualifiés (TIG, MIG-MAG et à l\'arc) pour l\'assemblage permanent de pièces métalliques.',
+    desc_en: 'Qualified welders (TIG, MIG-MAG and arc) for the permanent assembly of metal parts.',
+    jobs: ['Soudeurs qualifiés de tous types', 'Soudeurs TIG et MIG-MAG', 'Soudeurs à l\'arc'],
+    jobs_en: ['Qualified welders of all types', 'TIG and MIG-MAG welders', 'Arc welders'],
     image: '/images/metiers/soudeurs.jpg',
   },
   {
@@ -172,7 +172,7 @@ export const jobFamilies: JobFamily[] = [
 ];
 
 export const jobCategories = [
-  'Soudeurs homologués de tous types',
+  'Soudeurs qualifiés de tous types',
   'Soudeurs TIG et MIG-MAG',
   'Soudeurs à l\'arc',
   'Chaudronniers',
@@ -191,7 +191,7 @@ export const jobCategories = [
 ];
 
 export const jobCategories_en = [
-  'Approved welders of all types',
+  'Qualified welders of all types',
   'TIG and MIG-MAG welders',
   'Arc welders',
   'Boilermakers',

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Layers, BadgeCheck, Globe2 } from 'lucide-react';
+import { Layers, Users, Globe2 } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import { jobFamilies, jobCategories } from '../data/services';
 
@@ -10,7 +10,7 @@ export default function EquipePage() {
 
   const stats = [
     { icon: Layers, value: `${jobCategories.length}`, label: en ? 'Trades available' : 'Corps de métier' },
-    { icon: BadgeCheck, value: en ? 'Certified' : 'Certifié', label: en ? 'Qualified & approved personnel' : 'Personnel qualifié & homologué' },
+    { icon: Users, value: en ? 'Qualified' : 'Qualifié', label: en ? 'Skilled & professional personnel' : 'Personnel qualifié & professionnel' },
     { icon: Globe2, value: 'On / Offshore', label: en ? 'Across West Africa' : "Partout en Afrique de l'Ouest" },
   ];
 
@@ -92,8 +92,8 @@ export default function EquipePage() {
             </h2>
             <p className="text-[#475479] mt-3 max-w-xl mx-auto">
               {en
-                ? 'Tell us about your project — we mobilise the right certified personnel, onshore and offshore.'
-                : 'Parlez-nous de votre projet — nous mobilisons le personnel certifié adapté, onshore et offshore.'}
+                ? 'Tell us about your project — we mobilise the right qualified personnel, onshore and offshore.'
+                : 'Parlez-nous de votre projet — nous mobilisons le personnel qualifié adapté, onshore et offshore.'}
             </p>
             <Link to="/contact" className="mt-6 inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
               {t('nav.contactBtn')}

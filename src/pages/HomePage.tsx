@@ -233,8 +233,8 @@ export default function HomePage() {
                 icon: Flame,
                 title: 'Soudeurs',
                 title_en: 'Welders',
-                desc: "Soudeurs homologués de tous types, soudeurs TIG et MIG-MAG, soudeurs à l'arc. Assemblage permanent de pièces métalliques par fusion localisée.",
-                desc_en: 'Approved welders of all types, TIG and MIG-MAG welders, arc welders. Permanent assembly of metal parts by localized fusion.',
+                desc: "Soudeurs qualifiés de tous types, soudeurs TIG et MIG-MAG, soudeurs à l'arc. Assemblage permanent de pièces métalliques par fusion localisée.",
+                desc_en: 'Qualified welders of all types, TIG and MIG-MAG welders, arc welders. Permanent assembly of metal parts by localized fusion.',
               },
               {
                 icon: Cylinder,
