@@ -5,7 +5,7 @@ import { company, telHref } from '../data/company';
 
 const navLinks = [
   { label: 'nav.home', path: '/' },
-  { label: 'nav.about', path: '/entreprise' },
+  { label: 'nav.about', path: '/a-propos' },
   { label: 'nav.metiers', path: '/prestations' },
   { label: 'nav.equipe', path: '/equipe' },
   { label: 'nav.contact', path: '/contact' },

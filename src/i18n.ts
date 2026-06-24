@@ -53,8 +53,8 @@ const resources = {
         title: 'Ils nous ont fait confiance',
         subtitle: 'Les sociétés qui ont essayé nos prestations ont été satisfaites par le respect des cahiers des charges et la réalisation des travaux selon les règles de l\'art.',
       },
-      entreprise: {
-        eyebrow: 'L\'ENTREPRISE',
+      apropos: {
+        eyebrow: 'À PROPOS DE NOUS',
         title: 'Société des Nouvelles Constructions Industrielles',
         p1: 'La société des Nouvelles Constructions Industrielles (SNCI) Sarl a été créée par un jeune et dynamique béninois ayant suivi toutes ses formations dotées de certifications en soudure industrielle et chaudronnerie au sein de grandes écoles du Sénégal.',
         p2: 'Fort de plusieurs années d\'expérience aux côtés des grandes entreprises industrielles de la sous-région ouest-africaine, notre dirigeant a su constituer une équipe forte, professionnelle et hautement qualifiée, animée par une seule devise : « offrir dans un bref délai et avec qualité des prestations certifiées à tous les clients ».',
@@ -116,8 +116,8 @@ const resources = {
         title: 'They trusted us',
         subtitle: 'The companies that have tried our services have been satisfied by the respect of the specifications and the realization of the works according to the rules of the art.',
       },
-      entreprise: {
-        eyebrow: 'THE COMPANY',
+      apropos: {
+        eyebrow: 'ABOUT US',
         title: 'Society of New Industrial Constructions',
         p1: 'The company of New Industrial Constructions (SNCI) Sarl was created by a young and dynamic Beninese who followed all his training in industrial welding, boilermaking with certifications within large schools in Senegal.',
         p2: 'With several years of experience alongside major industrial companies in the West African sub-region, our management has built a strong, professional and highly qualified team driven by a single motto: "to offer certified services to all customers in a short time and with quality".',
