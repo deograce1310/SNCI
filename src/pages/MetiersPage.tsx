@@ -1,10 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Factory, Building2, Ship, Zap, MapPin } from 'lucide-react';
 import Reveal from '../components/Reveal';
-import ImageSlider from '../components/ImageSlider';
 import WhatsAppIcon from '../components/icons/WhatsAppIcon';
 import { services } from '../data/services';
-import { galleryPhotos } from '../data/gallery';
 import { company } from '../data/company';
 
 export default function MetiersPage() {
@@ -21,6 +19,14 @@ export default function MetiersPage() {
   const generalWhatsappHref = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
     en ? 'Hello SNCI, I would like information about your services.' : 'Bonjour SNCI, je souhaite des informations sur vos prestations.'
   )}`;
+
+  // Secteurs dans lesquels SNCI intervient
+  const sectors = [
+    { icon: Factory, title: en ? 'Industry' : 'Industrie', desc: en ? 'Plants & production units' : 'Usines & unités de production' },
+    { icon: Building2, title: en ? 'Construction' : 'BTP & Construction', desc: en ? 'Building & civil works' : 'Bâtiment & génie civil' },
+    { icon: Ship, title: en ? 'Oil & Gas / Offshore' : 'Pétrole & Gaz / Offshore', desc: en ? 'Onshore & offshore facilities' : 'Installations onshore & offshore' },
+    { icon: Zap, title: en ? 'Energy' : 'Énergie', desc: en ? 'Power & utilities' : 'Production & distribution d\'énergie' },
+  ];
 
   return (
     <>
@@ -84,7 +90,7 @@ export default function MetiersPage() {
         </div>
       </section>
 
-      {/* ═══ GALERIE PORTFOLIO — SLIDER AUTOMATIQUE — GRIS ═══ */}
+      {/* ═══ SECTEURS & ZONE D'INTERVENTION — GRIS ═══ */}
       <section className="py-16 lg:py-24 bg-[#F6F2F2]">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
           <Reveal>
@@ -94,19 +100,55 @@ export default function MetiersPage() {
                   <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
                   <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
                 </div>
-                <span className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-[#CF0D0D]">PORTFOLIO</span>
+                <span className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-[#CF0D0D]">{en ? 'WHERE WE OPERATE' : 'NOS INTERVENTIONS'}</span>
                 <div className="flex flex-col gap-[3px]">
                   <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
                   <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
                 </div>
               </div>
-              <h2 className="font-archivo font-bold text-[clamp(24px,3vw,36px)] text-[#0A090E]">{i18n.language === 'en' ? 'Our expertise in pictures' : 'Notre savoir-faire en images'}</h2>
-              <p className="text-[#475479] mt-3 max-w-xl mx-auto">{i18n.language === 'en' ? 'Welding, boilermaking, piping and metal frames' : 'Soudure, chaudronnerie, tuyauterie et charpentes métalliques'}</p>
+              <h2 className="font-archivo font-bold text-[clamp(24px,3vw,36px)] text-[#0A090E]">{en ? 'Sectors & coverage area' : "Secteurs & zone d'intervention"}</h2>
+              <p className="text-[#475479] mt-3 max-w-xl mx-auto">{en ? 'Across industries and locations, onshore and offshore.' : 'Quels que soient le secteur et le lieu, onshore et offshore.'}</p>
             </div>
           </Reveal>
-          <Reveal>
-            <ImageSlider images={galleryPhotos} />
-          </Reveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-6 items-stretch">
+            {/* Secteurs */}
+            <Reveal>
+              <div className="h-full bg-white rounded-[12px] border border-[#E7EBF2] p-8">
+                <h3 className="font-archivo font-bold text-lg text-[#0A090E] mb-6">{en ? 'Sectors' : "Secteurs d'intervention"}</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {sectors.map(({ icon: Icon, title, desc }) => (
+                    <div key={title} className="flex items-start gap-3">
+                      <div className="w-11 h-11 rounded-xl bg-[#F6F2F2] flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5 text-[#CF0D0D]" />
+                      </div>
+                      <div>
+                        <p className="font-archivo font-semibold text-[15px] text-[#0A090E] leading-tight">{title}</p>
+                        <p className="text-sm text-[#475479] mt-1">{desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Zone d'intervention */}
+            <Reveal delay={0.1}>
+              <div className="h-full relative rounded-[12px] overflow-hidden min-h-[280px]">
+                <img src="/images/sectors/industrie-btp.jpg" alt={en ? 'Coverage area' : "Zone d'intervention"}
+                  className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/85 via-[#0A090E]/55 to-[#0A090E]/30" />
+                <div className="relative z-10 h-full flex flex-col justify-end p-8 text-white">
+                  <div className="w-11 h-11 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center mb-4">
+                    <MapPin className="w-5 h-5 text-white" />
+                  </div>
+                  <p className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-white/70">{en ? 'Coverage area' : "Zone d'intervention"}</p>
+                  <p className="font-archivo font-bold text-2xl mt-1">{en ? 'Across West Africa' : "Partout en Afrique de l'Ouest"}</p>
+                  <p className="text-sm text-white/85 mt-2 max-w-xs">{en ? 'On land and at sea — onshore & offshore — wherever your site is located.' : 'À terre comme en mer — onshore & offshore — où que soit implanté votre site.'}</p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
     </>
