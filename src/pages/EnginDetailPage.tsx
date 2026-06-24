@@ -23,8 +23,8 @@ export default function EnginDetailPage() {
 
   const whatsappHref = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
     en
-      ? `Hello SNCI, I would like the specifications and price for: ${engin.title_en}.`
-      : `Bonjour SNCI, je souhaite les caractéristiques et le prix de : ${engin.title}.`
+      ? `Hello SNCI, I'm interested in buying: ${engin.title_en}. Could you send me the price and technical sheet?`
+      : `Bonjour SNCI, je suis intéressé(e) par l'achat de : ${engin.title}. Pouvez-vous m'envoyer le prix et la fiche technique ?`
   )}`;
 
   const others = engins.filter((e) => e.slug !== engin.slug).slice(0, 3);
@@ -35,7 +35,7 @@ export default function EnginDetailPage() {
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
           {/* Fil d'Ariane */}
           <nav className="flex items-center gap-2 text-sm text-[#475479] mb-8">
-            <Link to="/engins" className="hover:text-[#CF0D0D] transition-colors">{en ? 'Equipment' : 'Nos engins'}</Link>
+            <Link to="/engins" className="hover:text-[#CF0D0D] transition-colors">{en ? 'Equipment for sale' : 'Engins à vendre'}</Link>
             <ChevronRight className="w-4 h-4 opacity-50" />
             <span className="text-[#0A090E] font-medium">{title}</span>
           </nav>
@@ -86,15 +86,15 @@ export default function EnginDetailPage() {
                 {/* CTA WhatsApp */}
                 <div className="mt-8 p-6 rounded-[14px] bg-white border border-[#E7EBF2]">
                   <p className="font-archivo font-semibold text-[#0A090E]">
-                    {en ? 'Specifications, availability & price' : 'Caractéristiques, disponibilité & prix'}
+                    {en ? 'Price, technical sheet & availability' : 'Prix, fiche technique & disponibilité'}
                   </p>
                   <p className="text-sm text-[#475479] mt-1 mb-4">
-                    {en ? 'Chat with us on WhatsApp for full details.' : 'Discutons sur WhatsApp pour tous les détails.'}
+                    {en ? 'Interested in this machine? Message us on WhatsApp.' : 'Cet engin vous intéresse ? Écrivez-nous sur WhatsApp.'}
                   </p>
                   <a href={whatsappHref} target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-sm uppercase tracking-wider px-7 py-3.5 rounded-[10px] transition-all hover:shadow-lg">
                     <WhatsAppIcon className="w-5 h-5" />
-                    {en ? 'Ask on WhatsApp' : 'Demander sur WhatsApp'}
+                    {en ? 'Ask the price' : 'Demander le prix'}
                   </a>
                 </div>
               </div>

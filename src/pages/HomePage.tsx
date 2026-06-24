@@ -225,11 +225,11 @@ export default function HomePage() {
       <section className="py-20 lg:py-28 bg-[#F6F2F2] relative overflow-hidden">
         <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
           <SectionTitle
-            eyebrow={i18n.language === 'en' ? 'OUR EQUIPMENT' : 'NOS ENGINS'}
-            title={i18n.language === 'en' ? 'Our equipment' : 'Nos engins'}
+            eyebrow={i18n.language === 'en' ? 'EQUIPMENT FOR SALE' : 'ENGINS À VENDRE'}
+            title={i18n.language === 'en' ? 'Equipment for sale' : 'Engins à vendre'}
             subtitle={i18n.language === 'en'
-              ? 'Machines for access at height and earthworks — details and pricing on WhatsApp.'
-              : "Des engins pour l'accès en hauteur et le terrassement — détails et prix sur WhatsApp."}
+              ? 'SNCI offers a selection of machines for sale — price and technical sheet on WhatsApp.'
+              : "SNCI propose à la vente une sélection d'engins — prix et fiche technique sur WhatsApp."}
           />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {['nacelle-articulee', 'tractopelle', 'chargeuse-sur-pneus'].map((slug, i) => {
@@ -258,7 +258,7 @@ export default function HomePage() {
           <Reveal delay={0.2}>
             <div className="text-center mt-10">
               <Link to="/engins" className="inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
-                {i18n.language === 'en' ? 'See all our equipment' : 'Voir tous nos engins'} <ChevronRight className="w-4 h-4" />
+                {i18n.language === 'en' ? 'See equipment for sale' : 'Voir les engins à vendre'} <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
           </Reveal>
