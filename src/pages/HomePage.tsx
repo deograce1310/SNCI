@@ -174,6 +174,55 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ═══ NOTRE OFFRE (chapeau 2 volets) — BLANC ═══ */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
+          <SectionTitle
+            eyebrow={i18n.language === 'en' ? 'WHAT WE OFFER' : 'NOTRE OFFRE'}
+            title={i18n.language === 'en' ? 'A complete industrial partner' : 'Un partenaire industriel complet'}
+            subtitle={i18n.language === 'en'
+              ? 'From carrying out your work to supplying the equipment, SNCI covers all your industrial needs — services and machines, with a single point of contact.'
+              : "De la réalisation de vos travaux à la fourniture du matériel, SNCI couvre l'ensemble de vos besoins industriels — prestations et engins, avec un seul interlocuteur."}
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Volet 1 — Prestations */}
+            <Reveal>
+              <Link to="/prestations" className="group relative block aspect-[16/10] rounded-[14px] overflow-hidden">
+                <img src="/images/prestations/chaudronnerie.jpg" alt={i18n.language === 'en' ? 'Industrial services' : 'Prestations industrielles'}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/90 via-[#0A090E]/45 to-[#0A090E]/10" />
+                <div className="absolute inset-0 p-7 flex flex-col justify-end text-white">
+                  <span className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-white/70">{i18n.language === 'en' ? 'Services' : 'Services'}</span>
+                  <h3 className="font-archivo font-bold text-2xl mt-1">{i18n.language === 'en' ? 'Industrial services' : 'Prestations industrielles'}</h3>
+                  <p className="text-sm text-white/85 mt-2 max-w-sm">{i18n.language === 'en' ? 'Welding, boilermaking, piping, metal frames, qualified personnel…' : 'Soudure, chaudronnerie, tuyauterie, charpentes métalliques, personnel qualifié…'}</p>
+                  <span className="mt-4 inline-flex items-center gap-2 font-archivo font-semibold text-sm group/cta">
+                    {i18n.language === 'en' ? 'Explore our services' : 'Découvrir nos prestations'}
+                    <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+            {/* Volet 2 — Vente d'engins */}
+            <Reveal delay={0.1}>
+              <Link to="/engins" className="group relative block aspect-[16/10] rounded-[14px] overflow-hidden">
+                <img src="/images/engins/tractopelle/1.jpg" alt={i18n.language === 'en' ? 'Equipment for sale' : "Vente d'engins"}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/90 via-[#0A090E]/45 to-[#0A090E]/10" />
+                <div className="absolute inset-0 p-7 flex flex-col justify-end text-white">
+                  <span className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-white/70">{i18n.language === 'en' ? 'Equipment' : 'Matériel'}</span>
+                  <h3 className="font-archivo font-bold text-2xl mt-1">{i18n.language === 'en' ? 'Equipment for sale' : "Vente d'engins"}</h3>
+                  <p className="text-sm text-white/85 mt-2 max-w-sm">{i18n.language === 'en' ? 'Access-at-height and earthmoving machines, available to buy.' : "Engins d'accès en hauteur et de terrassement, disponibles à l'achat."}</p>
+                  <span className="mt-4 inline-flex items-center gap-2 font-archivo font-semibold text-sm group/cta">
+                    {i18n.language === 'en' ? 'See equipment for sale' : "Voir les engins à vendre"}
+                    <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ CHIFFRES CLÉS — GRIS ═══ */}
       <section className="py-16 lg:py-20 bg-[#F6F2F2]">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
