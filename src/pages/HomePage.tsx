@@ -9,8 +9,6 @@ import {
 import Reveal from '../components/Reveal';
 import ClientLogosMarquee from '../components/ClientLogosMarquee';
 import ImageSlider from '../components/ImageSlider';
-import { services } from '../data/services';
-import { engins } from '../data/engins';
 import { galleryPhotos } from '../data/gallery';
 
 /* ─── Titre de section ─── */
@@ -232,85 +230,6 @@ export default function HomePage() {
             <StatCounter end={16} label={i18n.language === 'en' ? 'Job Categories' : 'Corps de métier'} />
             <StatCounter end={3} label={i18n.language === 'en' ? 'West African Countries' : "Pays d'intervention"} />
           </div>
-        </div>
-      </section>
-
-      {/* ═══ PRESTATIONS (aperçu) — BLANC ═══ */}
-      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
-        <div className="absolute -left-[15%] top-[20%] w-[50%] opacity-[0.03] pointer-events-none">
-          <img src="/images/gear-watermark.png" alt="" className="w-full" />
-        </div>
-        <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
-          <SectionTitle eyebrow={t('metiers.eyebrow')} title={i18n.language === 'en' ? 'Our services' : 'Nos prestations'} subtitle={t('metiers.subtitle')} />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {[services[0], services[1], services[3], services[11]].map((service, i) => {
-              const Icon = service.icon;
-              return (
-                <Reveal key={service.slug} delay={i * 0.08}>
-                  <div className="group flex items-start gap-4 bg-[#F6F2F2] hover:bg-white p-5 rounded-[10px] border border-transparent hover:border-[#9A9B9C]/30 hover:shadow-md transition-all duration-300">
-                    <div className="w-12 h-12 rounded-lg bg-white group-hover:bg-[#2830B3] flex items-center justify-center shrink-0 transition-colors duration-300 shadow-sm">
-                      <Icon className="w-6 h-6 text-[#9A9B9C] group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="font-archivo font-bold text-[15px] text-[#0A090E]">{i18n.language === 'en' ? service.title_en : service.title}</h3>
-                      <p className="text-sm text-[#475479] leading-relaxed mt-1">{i18n.language === 'en' ? service.desc_en : service.desc}</p>
-                    </div>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-          <Reveal delay={0.2}>
-            <div className="text-center mt-10">
-              <Link to="/prestations" className="inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
-                {i18n.language === 'en' ? 'See all our services' : 'Voir toutes nos prestations'} <ChevronRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ═══ ENGINS (aperçu) — GRIS ═══ */}
-      <section className="py-20 lg:py-28 bg-[#F6F2F2] relative overflow-hidden">
-        <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
-          <SectionTitle
-            eyebrow={i18n.language === 'en' ? 'EQUIPMENT FOR SALE' : 'VENTE D\'ENGINS'}
-            title={i18n.language === 'en' ? 'Equipment for sale' : 'Vente d\'engins'}
-            subtitle={i18n.language === 'en'
-              ? 'SNCI offers a selection of machines for sale — price and technical sheet on WhatsApp.'
-              : "SNCI propose à la vente une sélection d'engins — prix et fiche technique sur WhatsApp."}
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {['nacelle-articulee', 'tractopelle', 'chargeuse-sur-pneus'].map((slug, i) => {
-              const engin = engins.find((e) => e.slug === slug);
-              if (!engin) return null;
-              return (
-                <Reveal key={slug} delay={i * 0.08}>
-                  <Link to={`/engins/${engin.slug}`}
-                    className="group block h-full bg-white rounded-[12px] overflow-hidden border border-[#E7EBF2] hover:shadow-card transition-all duration-400">
-                    <div className="aspect-[4/3] overflow-hidden relative bg-[#F6F2F2]">
-                      <img src={engin.cover} alt={i18n.language === 'en' ? engin.title_en : engin.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                      <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#0A090E] font-mono text-[10px] font-medium uppercase tracking-[0.08em] px-2.5 py-1 rounded-full">
-                        {i18n.language === 'en' ? engin.category_en : engin.category}
-                      </span>
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-archivo font-bold text-[15px] text-[#0A090E]">{i18n.language === 'en' ? engin.title_en : engin.title}</h3>
-                      <p className="text-sm text-[#475479] leading-relaxed mt-1">{i18n.language === 'en' ? engin.shortDesc_en : engin.shortDesc}</p>
-                    </div>
-                  </Link>
-                </Reveal>
-              );
-            })}
-          </div>
-          <Reveal delay={0.2}>
-            <div className="text-center mt-10">
-              <Link to="/engins" className="inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
-                {i18n.language === 'en' ? 'See equipment for sale' : 'Voir les engins à vendre'} <ChevronRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </Reveal>
         </div>
       </section>
 
