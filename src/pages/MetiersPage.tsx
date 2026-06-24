@@ -134,17 +134,18 @@ export default function MetiersPage() {
 
             {/* Zone d'intervention */}
             <Reveal delay={0.1}>
-              <div className="h-full relative rounded-[12px] overflow-hidden min-h-[280px]">
-                <img src="/images/sectors/industrie-btp.jpg" alt={en ? 'Coverage area' : "Zone d'intervention"}
-                  className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/85 via-[#0A090E]/55 to-[#0A090E]/30" />
-                <div className="relative z-10 h-full flex flex-col justify-end p-8 text-white">
-                  <div className="w-11 h-11 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center mb-4">
-                    <MapPin className="w-5 h-5 text-white" />
+              <div className="h-full flex flex-col rounded-[12px] overflow-hidden bg-[#1b2540]">
+                <div className="relative flex-1 min-h-[220px]">
+                  <img src="/images/sectors/africa-map.jpg" alt={en ? 'Coverage area — West Africa' : "Zone d'intervention — Afrique de l'Ouest"}
+                    className="absolute inset-0 w-full h-full object-contain object-center p-3" loading="lazy" />
+                </div>
+                <div className="px-6 pb-6 text-white">
+                  <div className="flex items-center gap-2 text-white/70">
+                    <MapPin className="w-4 h-4 text-[#CF0D0D]" />
+                    <span className="font-mono text-xs font-medium uppercase tracking-[0.08em]">{en ? 'Coverage area' : "Zone d'intervention"}</span>
                   </div>
-                  <p className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-white/70">{en ? 'Coverage area' : "Zone d'intervention"}</p>
-                  <p className="font-archivo font-bold text-2xl mt-1">{en ? 'Across West Africa' : "Partout en Afrique de l'Ouest"}</p>
-                  <p className="text-sm text-white/85 mt-2 max-w-xs">{en ? 'On land and at sea — onshore & offshore — wherever your site is located.' : 'À terre comme en mer — onshore & offshore — où que soit implanté votre site.'}</p>
+                  <p className="font-archivo font-bold text-2xl mt-2">{en ? 'Across West Africa' : "Partout en Afrique de l'Ouest"}</p>
+                  <p className="text-sm text-white/80 mt-2 max-w-sm">{en ? 'On land and at sea — onshore & offshore — wherever your site is located.' : 'À terre comme en mer — onshore & offshore — où que soit implanté votre site.'}</p>
                 </div>
               </div>
             </Reveal>
