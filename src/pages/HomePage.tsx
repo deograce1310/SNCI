@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import {
   MessageSquare, UserCheck, Truck, ClipboardCheck,
-  ChevronRight, Flame, Cylinder, Waypoints, Construction,
-  BadgeCheck, ShieldCheck, Clock
+  ChevronRight, BadgeCheck, ShieldCheck, Clock
 } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import ClientLogosMarquee from '../components/ClientLogosMarquee';
@@ -253,67 +252,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ ÉQUIPE — BLANC — identique section prestations ═══ */}
+      {/* ═══ ÉQUIPE (humain) — BLANC ═══ */}
       <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
         <div className="absolute right-[-5%] bottom-[-10%] w-[45%] opacity-[0.03] pointer-events-none">
           <img src="/images/gear-watermark.png" alt="" className="w-full" />
         </div>
         <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
-          <SectionTitle eyebrow={t('equipe.eyebrow')} title={t('equipe.title')} subtitle={t('equipe.subtitle')} />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {[
-              {
-                icon: Flame,
-                title: 'Soudeurs',
-                title_en: 'Welders',
-                desc: "Soudeurs qualifiés de tous types, soudeurs TIG et MIG-MAG, soudeurs à l'arc. Assemblage permanent de pièces métalliques par fusion localisée.",
-                desc_en: 'Qualified welders of all types, TIG and MIG-MAG welders, arc welders. Permanent assembly of metal parts by localized fusion.',
-              },
-              {
-                icon: Cylinder,
-                title: 'Chaudronniers',
-                title_en: 'Boilermakers',
-                desc: 'Fabrication, assemblage et réparation de réservoirs, citernes, appareils sous pression et ouvrages chaudronnés sur mesure.',
-                desc_en: 'Manufacturing, assembly and repair of tanks, cisterns, pressure vessels and custom boilermade works.',
-              },
-              {
-                icon: Waypoints,
-                title: 'Tuyauteurs',
-                title_en: 'Pipe Fitters',
-                desc: "Pose, assemblage et maintenance de réseaux de tuyauterie pour fluides industriels, hydrocarbures et gaz. Étude et traçage des lignes de process.",
-                desc_en: 'Installation, assembly and maintenance of piping networks for industrial fluids, hydrocarbons and gases.',
-              },
-              {
-                icon: Construction,
-                title: 'Échafaudeurs',
-                title_en: 'Scaffolders',
-                desc: "Montage et démontage d'échafaudages industriels conformes aux normes de sécurité pour les travaux en hauteur et en milieu confiné.",
-                desc_en: 'Assembly and dismantling of industrial scaffolding compliant with safety standards for work at height and confined spaces.',
-              },
-            ].map((metier, i) => {
-              const Icon = metier.icon;
-              return (
-                <Reveal key={metier.title} delay={i * 0.08}>
-                  <div className="group flex items-start gap-4 bg-[#F6F2F2] hover:bg-white p-5 rounded-[10px] border border-transparent hover:border-[#9A9B9C]/30 hover:shadow-md transition-all duration-300">
-                    <div className="w-12 h-12 rounded-lg bg-white group-hover:bg-[#2830B3] flex items-center justify-center shrink-0 transition-colors duration-300 shadow-sm">
-                      <Icon className="w-6 h-6 text-[#9A9B9C] group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="font-archivo font-bold text-[15px] text-[#0A090E]">{i18n.language === 'en' ? metier.title_en : metier.title}</h3>
-                      <p className="text-sm text-[#475479] leading-relaxed mt-1">{i18n.language === 'en' ? metier.desc_en : metier.desc}</p>
-                    </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <Reveal>
+              <div className="aspect-[4/3] rounded-[14px] overflow-hidden">
+                <img src="/images/team/snci-team.jpg" alt={i18n.language === 'en' ? 'The SNCI team' : "L'équipe SNCI"}
+                  className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="flex flex-col gap-[3px]">
+                    <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
+                    <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
                   </div>
-                </Reveal>
-              );
-            })}
+                  <span className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-[#CF0D0D]">{i18n.language === 'en' ? 'OUR TEAM' : 'NOTRE ÉQUIPE'}</span>
+                </div>
+                <h2 className="font-archivo font-bold text-[clamp(24px,3vw,36px)] text-[#0A090E]">{i18n.language === 'en' ? 'The people behind every project' : 'Les femmes & hommes derrière chaque chantier'}</h2>
+                <p className="text-[#475479] leading-relaxed mt-4">{i18n.language === 'en' ? 'A close-knit, experienced team that takes on your projects from end to end, on land and at sea, across West Africa.' : "Une équipe soudée et expérimentée qui prend en charge vos chantiers de bout en bout, à terre comme en mer, partout en Afrique de l'Ouest."}</p>
+                <ul className="mt-6 space-y-3">
+                  {(i18n.language === 'en'
+                    ? ['Qualified & professional team', '16 trades under one roof', 'Onshore & offshore interventions']
+                    : ['Équipe qualifiée & professionnelle', '16 corps de métier réunis', 'Interventions onshore & offshore']
+                  ).map((p) => (
+                    <li key={p} className="flex items-center gap-3 text-[15px] text-[#0A090E]">
+                      <BadgeCheck className="w-5 h-5 text-[#CF0D0D] shrink-0" /> {p}
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/equipe" className="mt-8 inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
+                  {t('equipe.corpsMetier')} <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Reveal>
           </div>
-          <Reveal delay={0.2}>
-            <div className="text-center mt-10">
-              <Link to="/equipe" className="inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
-                {t('equipe.corpsMetier')} <ChevronRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -387,12 +365,9 @@ export default function HomePage() {
             </blockquote>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-10 flex justify-center">
               <Link to="/contact" className="bg-[#CF0D0D] hover:bg-[#A80B0B] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg hover:-translate-y-0.5">
                 {t('nav.contactBtn')}
-              </Link>
-              <Link to="/prestations" className="border-2 border-[#0A090E] hover:bg-[#0A090E] hover:text-white text-[#0A090E] font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-3.5 rounded-[10px] transition-all">
-                {t('nav.metiers')}
               </Link>
             </div>
           </Reveal>
