@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Reveal from '../components/Reveal';
 import ImageSlider from '../components/ImageSlider';
@@ -10,7 +9,6 @@ import { company } from '../data/company';
 export default function MetiersPage() {
   const { t, i18n } = useTranslation();
   const en = i18n.language === 'en';
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   // Lien WhatsApp pré-rempli : le visiteur demande à en savoir plus sur la prestation
   const infoHref = (label: string) =>
@@ -41,22 +39,18 @@ export default function MetiersPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, i) => (
               <Reveal key={service.slug} delay={i * 0.06}>
-                <div className="group bg-white rounded-[12px] overflow-hidden border border-[#E7EBF2] hover:border-[#0A090E]/10 hover:shadow-card transition-all duration-400"
-                  onMouseEnter={() => setActiveIndex(i)} onMouseLeave={() => setActiveIndex(null)}>
+                <div className="group bg-white rounded-[12px] overflow-hidden border border-[#E7EBF2] hover:border-[#0A090E]/10 hover:shadow-card transition-all duration-400">
                   <div className="aspect-[16/9] overflow-hidden relative">
                     <img src={service.image} alt={i18n.language === 'en' ? service.title_en : service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                    <div className={`absolute inset-0 bg-[#0A090E]/50 flex items-center justify-center transition-opacity duration-300 ${activeIndex === i ? 'opacity-100' : 'opacity-0'}`}>
-                      <span className="text-white font-archivo font-semibold text-sm uppercase tracking-wider">{en ? 'Learn more' : 'En savoir plus'}</span>
-                    </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col">
                     <h3 className="font-archivo font-bold text-lg text-[#0A090E]">{en ? service.title_en : service.title}</h3>
                     <p className="text-sm text-[#475479] leading-relaxed mt-3">{en ? service.desc_en : service.desc}</p>
                     <a href={infoHref(en ? service.title_en : service.title)} target="_blank" rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 font-archivo font-semibold text-sm text-[#25D366] hover:gap-3 transition-all">
+                      className="mt-5 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-sm uppercase tracking-wider py-3 rounded-[10px] transition-all hover:shadow-md">
                       <WhatsAppIcon className="w-4 h-4" />
-                      {en ? 'Learn more' : 'En savoir plus'}
+                      {en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
                     </a>
                   </div>
                 </div>
