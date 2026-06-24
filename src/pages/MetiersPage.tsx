@@ -114,7 +114,7 @@ export default function MetiersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-6 items-stretch">
             {/* Secteurs */}
             <Reveal>
-              <div className="h-full bg-white rounded-[12px] border border-[#E7EBF2] p-8">
+              <div className="h-full flex flex-col justify-center bg-white rounded-[12px] border border-[#E7EBF2] p-8">
                 <h3 className="font-archivo font-bold text-lg text-[#0A090E] mb-6">{en ? 'Sectors' : "Secteurs d'intervention"}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {sectors.map(({ icon: Icon, title, desc }) => (
@@ -134,12 +134,13 @@ export default function MetiersPage() {
 
             {/* Zone d'intervention */}
             <Reveal delay={0.1}>
-              <div className="h-full flex flex-col rounded-[12px] overflow-hidden bg-[#1b2540]">
-                <div className="relative flex-1 min-h-[220px]">
+              <div className="h-full flex flex-col rounded-[12px] overflow-hidden bg-[#1b2540] min-h-[440px]">
+                <div className="relative flex-1">
                   <img src="/images/sectors/africa-map.jpg" alt={en ? 'Coverage area — West Africa' : "Zone d'intervention — Afrique de l'Ouest"}
-                    className="absolute inset-0 w-full h-full object-contain object-center p-3" loading="lazy" />
+                    className="absolute inset-0 w-full h-full object-cover object-[center_38%]" loading="lazy" />
+                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#1b2540] to-transparent" />
                 </div>
-                <div className="px-6 pb-6 text-white">
+                <div className="px-6 pb-6 -mt-4 relative z-10 text-white">
                   <div className="flex items-center gap-2 text-white/70">
                     <MapPin className="w-4 h-4 text-[#CF0D0D]" />
                     <span className="font-mono text-xs font-medium uppercase tracking-[0.08em]">{en ? 'Coverage area' : "Zone d'intervention"}</span>
