@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { ArrowRight } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import ImageSlider from '../components/ImageSlider';
 import WhatsAppIcon from '../components/icons/WhatsAppIcon';
@@ -44,13 +45,14 @@ export default function MetiersPage() {
                     <img src={service.image} alt={i18n.language === 'en' ? service.title_en : service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                   </div>
-                  <div className="p-6 flex flex-col">
+                  <div className="p-6">
                     <h3 className="font-archivo font-bold text-lg text-[#0A090E]">{en ? service.title_en : service.title}</h3>
                     <p className="text-sm text-[#475479] leading-relaxed mt-3">{en ? service.desc_en : service.desc}</p>
                     <a href={infoHref(en ? service.title_en : service.title)} target="_blank" rel="noopener noreferrer"
-                      className="mt-5 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-sm uppercase tracking-wider py-3 rounded-[10px] transition-all hover:shadow-md">
+                      className="mt-4 inline-flex items-center gap-2 font-archivo font-semibold text-sm text-[#25D366] hover:text-[#1Fb855] transition-colors group/cta">
                       <WhatsAppIcon className="w-4 h-4" />
                       {en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover/cta:translate-x-1" />
                     </a>
                   </div>
                 </div>
