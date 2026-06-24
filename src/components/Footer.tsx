@@ -5,8 +5,9 @@ import { company, telHref } from '../data/company';
 
 const navLinks = [
   { label: 'nav.home', path: '/' },
-  { label: 'nav.about', path: '/entreprise' },
+  { label: 'nav.about', path: '/a-propos' },
   { label: 'nav.metiers', path: '/prestations' },
+  { label: 'nav.engins', path: '/engins' },
   { label: 'nav.equipe', path: '/equipe' },
   { label: 'nav.contact', path: '/contact' },
 ];
@@ -28,7 +29,7 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
           <div>
-            <img src="/images/snci-logo-mark.png" alt="SNCI" className="h-16 w-auto mb-4" />
+            <img src="/images/snci-logo.png" alt="SNCI" className="h-16 w-16 rounded-full object-cover mb-4" />
             <p className="text-sm font-semibold text-white/90 leading-relaxed">{t('footer.company')}</p>
             <blockquote className="mt-3 text-sm text-white/70 italic">&ldquo;{t('dev.motto')}&rdquo;</blockquote>
           </div>
@@ -53,6 +54,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href={telHref(company.phones[1])} className="flex items-center gap-2.5 text-sm text-white/80 hover:text-white transition-colors">
+                  <Phone className="w-4 h-4 shrink-0" /> {company.phones[1]}
+                </a>
+              </li>
+              <li>
                 <a href={`mailto:${company.email}`} className="flex items-center gap-2.5 text-sm text-white/80 hover:text-white transition-colors break-all">
                   <Mail className="w-4 h-4 shrink-0" /> {company.email}
                 </a>
@@ -72,7 +78,7 @@ export default function Footer() {
         <div className="mt-12 pt-6 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[11px] font-mono text-white/50">&copy; {new Date().getFullYear()} SNCI SARL</p>
           <Link to="/mentions-legales" className="text-xs text-white/50 hover:text-white transition-colors">
-            {i18n.language === 'en' ? 'Legal notices' : 'Mentions legales'}
+            {i18n.language === 'en' ? 'Legal notices' : 'Mentions légales'}
           </Link>
         </div>
       </div>

@@ -22,7 +22,7 @@ export default function NotFoundPage() {
         <p className="text-[#475479] mt-4">
           {en
             ? 'The page you are looking for does not exist or has been moved.'
-            : "La page que vous recherchez n'existe pas ou a ete deplacee."}
+            : "La page que vous recherchez n'existe pas ou a été déplacée."}
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link to="/" className="inline-flex items-center gap-2 bg-[#CF0D0D] hover:bg-[#A80B0B] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg hover:-translate-y-0.5">

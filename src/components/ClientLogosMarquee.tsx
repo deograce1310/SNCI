@@ -27,7 +27,7 @@ export default function ClientLogosMarquee() {
   const row2 = realClients.slice(10);
 
   return (
-    <section className="py-12 bg-white overflow-hidden">
+    <section className="py-12 bg-[#F6F2F2] overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-5 lg:px-10 mb-7">
         <p className="text-center font-mono text-xs font-medium uppercase tracking-[0.08em] text-[#5B6678]">
           {t('clients.eyebrow')}

@@ -5,8 +5,9 @@ import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'nav.home', path: '/' },
-  { label: 'nav.about', path: '/entreprise' },
+  { label: 'nav.about', path: '/a-propos' },
   { label: 'nav.metiers', path: '/prestations' },
+  { label: 'nav.engins', path: '/engins' },
   { label: 'nav.equipe', path: '/equipe' },
 ];
 
@@ -22,7 +23,15 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Ferme le menu mobile à chaque changement de route (navigation)
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setMobileOpen(false); }, [location.pathname]);
+
+  // Bloque le scroll de la page quand le menu burger est ouvert
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
 
   const toggleLang = () => i18n.changeLanguage(i18n.language === 'fr' ? 'en' : 'fr');
   const isActive = (path: string) => location.pathname === path;
@@ -35,7 +44,7 @@ export default function Header() {
       }`}>
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10 h-16 lg:h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 shrink-0 z-10">
-            <img src="/images/snci-logo-mark.png" alt="SNCI" className={`h-12 lg:h-14 w-auto transition-all duration-500 ${
+            <img src="/images/snci-logo.png" alt="SNCI" className={`h-12 lg:h-14 w-auto rounded-full transition-all duration-500 ${
               scrolled || !isHome ? '' : 'drop-shadow-lg'
             }`} />
           </Link>

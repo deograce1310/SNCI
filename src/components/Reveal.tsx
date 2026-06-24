@@ -9,15 +9,13 @@ interface RevealProps {
 
 export default function Reveal({ children, className = '', delay = 0, direction = 'up' }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  // Si l'utilisateur préfère les animations réduites, on affiche directement
+  const [visible, setVisible] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      setVisible(true);
-      return;
-    }
-
+    if (visible) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -30,7 +28,7 @@ export default function Reveal({ children, className = '', delay = 0, direction 
 
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, []);
+  }, [visible]);
 
   const dirMap = {
     up: 'translateY(30px)',

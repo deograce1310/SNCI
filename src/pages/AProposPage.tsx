@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import Reveal from '../components/Reveal';
 
-export default function EntreprisePage() {
+export default function AProposPage() {
   const { t } = useTranslation();
 
   return (
@@ -14,9 +14,9 @@ export default function EntreprisePage() {
               <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
               <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
             </div>
-            <span className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-[#CF0D0D]">{t('entreprise.eyebrow')}</span>
+            <span className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-[#CF0D0D]">{t('apropos.eyebrow')}</span>
           </div>
-          <h1 className="font-archivo font-bold text-[clamp(28px,3vw,42px)] text-[#0A090E] max-w-2xl">{t('entreprise.title')}</h1>
+          <h1 className="font-archivo font-bold text-[clamp(28px,3vw,42px)] text-[#0A090E] max-w-2xl">{t('apropos.title')}</h1>
         </div>
       </section>
 
@@ -28,8 +28,8 @@ export default function EntreprisePage() {
               <img src="/images/team/snci-team.jpg" alt="SNCI" className="w-full aspect-[16/10] object-cover rounded-[12px] shadow-lg" loading="lazy" />
             </Reveal>
             <div>
-              <Reveal><p className="text-base text-[#475479] leading-relaxed">{t('entreprise.p1')}</p></Reveal>
-              <Reveal delay={0.1}><p className="text-base text-[#475479] leading-relaxed mt-4">{t('entreprise.p2')}</p></Reveal>
+              <Reveal><p className="text-base text-[#475479] leading-relaxed">{t('apropos.p1')}</p></Reveal>
+              <Reveal delay={0.1}><p className="text-base text-[#475479] leading-relaxed mt-4">{t('apropos.p2')}</p></Reveal>
             </div>
           </div>
 
@@ -47,7 +47,7 @@ export default function EntreprisePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.2}><p className="text-base text-[#475479] leading-relaxed mt-12">{t('entreprise.p3')}</p></Reveal>
+          <Reveal delay={0.2}><p className="text-base text-[#475479] leading-relaxed mt-12">{t('apropos.p3')}</p></Reveal>
         </div>
       </section>
     </>

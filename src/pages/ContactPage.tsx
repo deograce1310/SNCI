@@ -9,59 +9,20 @@ export default function ContactPage() {
   const { i18n } = useTranslation();
   const en = i18n.language === 'en';
   const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
   const [form, setForm] = useState({ nom: '', email: '', sujet: '', message: '' });
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Message commun, pre-rempli avec ce que l'utilisateur a saisi
+  // Message pré-rempli avec ce que l'utilisateur a saisi
   const buildBody = () =>
     `${en ? 'Name' : 'Nom'}: ${form.nom}\n` +
     `Email: ${form.email}\n` +
     `${en ? 'Subject' : 'Sujet'}: ${form.sujet}\n\n` +
     `${form.message}`;
 
-  // Verifie les champs requis (validation native HTML5) avant d'agir
+  // Vérifie les champs requis (validation native HTML5) avant d'envoyer
   const isValid = () => formRef.current?.reportValidity() ?? false;
 
-  // Repli sans backend : ouvre l'app mail de l'utilisateur, pre-remplie
-  const openMailto = () => {
-    const subject = encodeURIComponent(form.sujet || (en ? 'Contact request' : 'Demande de contact'));
-    const body = encodeURIComponent(buildBody());
-    window.location.href = `mailto:${company.email}?subject=${subject}&body=${body}`;
-  };
-
-  const sendByEmail = async () => {
-    if (!isValid()) return;
-    // Si un endpoint Formspree est configure : envoi automatique (le message
-    // arrive directement dans la boite mail, sans ouvrir l'app de l'utilisateur).
-    if (company.formEndpoint) {
-      try {
-        setSending(true);
-        const res = await fetch(company.formEndpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({
-            nom: form.nom,
-            email: form.email,
-            sujet: form.sujet,
-            message: form.message,
-            _subject: `${en ? 'Contact request' : 'Demande de contact'} — ${form.sujet}`,
-          }),
-        });
-        if (res.ok) { setSubmitted(true); return; }
-        openMailto(); // repli si l'envoi echoue
-      } catch {
-        openMailto();
-      } finally {
-        setSending(false);
-      }
-      return;
-    }
-    // Sinon : envoi via l'application mail
-    openMailto();
-    setSubmitted(true);
-  };
-
+  // Envoi unique : ouvre WhatsApp avec le message pré-rempli
   const sendByWhatsApp = () => {
     if (!isValid()) return;
     const text = encodeURIComponent(
@@ -93,7 +54,7 @@ export default function ContactPage() {
           <p className="text-lg text-[#475479] mt-4 max-w-xl">
             {en
               ? 'Tell us about your project. We will get back to you as soon as possible.'
-              : 'Parlez-nous de votre projet. Nous vous repondrons dans les plus brefs delais.'}
+              : 'Parlez-nous de votre projet. Nous vous répondrons dans les plus brefs délais.'}
           </p>
         </div>
       </section>
@@ -106,7 +67,7 @@ export default function ContactPage() {
             <div>
               <Reveal>
                 <h2 className="font-archivo font-bold text-xl text-[#0A090E] mb-6">
-                  {en ? 'Our contact details' : 'Nos coordonnees'}
+                  {en ? 'Our contact details' : 'Nos coordonnées'}
                 </h2>
               </Reveal>
 
@@ -117,7 +78,7 @@ export default function ContactPage() {
                       <Phone className="w-5 h-5 text-[#2830B3] group-hover:text-white transition-colors" />
                     </div>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-[#9A9B9C]">{en ? 'Phone' : 'Telephone'}</p>
+                      <p className="text-xs font-medium uppercase tracking-wider text-[#9A9B9C]">{en ? 'Phone' : 'Téléphone'}</p>
                       <p className="text-[15px] text-[#0A090E] font-medium group-hover:text-[#2830B3] transition-colors">{company.phones[0]}</p>
                       <p className="text-[15px] text-[#0A090E] font-medium">{company.phones[1]}</p>
                     </div>
@@ -188,26 +149,17 @@ export default function ContactPage() {
                 <Reveal>
                   <div className="text-center py-12 bg-[#F6F2F2] rounded-[12px] px-6">
                     <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-5">
-                      <Check className="w-7 h-7 text-[#2830B3]" />
+                      <Check className="w-7 h-7 text-[#25D366]" />
                     </div>
                     <h3 className="font-archivo font-bold text-xl text-[#0A090E]">
-                      {company.formEndpoint
-                        ? (en ? 'Message sent!' : 'Message envoye !')
-                        : (en ? 'Almost done!' : 'Presque termine !')}
+                      {en ? 'Almost done!' : 'Presque terminé !'}
                     </h3>
                     <p className="text-[#475479] mt-2 max-w-sm mx-auto">
-                      {company.formEndpoint
-                        ? (en
-                            ? 'Thank you, we have received your message and will get back to you shortly. You can also reach us directly:'
-                            : 'Merci, nous avons bien recu votre message et reviendrons vers vous rapidement. Vous pouvez aussi nous joindre directement :')
-                        : (en
-                            ? 'Your email app should have opened with your message ready to send. If not, contact us directly:'
-                            : "Votre messagerie devrait s'etre ouverte avec votre message pret a envoyer. Sinon, contactez-nous directement :")}
+                      {en
+                        ? 'WhatsApp should have opened with your message ready to send. If not, reach us directly:'
+                        : "WhatsApp devrait s'être ouvert avec votre message prêt à envoyer. Sinon, contactez-nous directement :"}
                     </p>
-                    <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
-                      <a href={`mailto:${company.email}`} className="inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-xs uppercase tracking-wider px-5 py-3 rounded-lg transition-colors">
-                        <Mail className="w-4 h-4" /> Email
-                      </a>
+                    <div className="mt-5 flex justify-center">
                       <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-xs uppercase tracking-wider px-5 py-3 rounded-lg transition-all">
                         <WhatsAppIcon className="w-4 h-4" /> WhatsApp
                       </a>
@@ -215,7 +167,7 @@ export default function ContactPage() {
                   </div>
                 </Reveal>
               ) : (
-                <form ref={formRef} onSubmit={(e) => { e.preventDefault(); sendByEmail(); }} className="space-y-5">
+                <form ref={formRef} onSubmit={(e) => { e.preventDefault(); sendByWhatsApp(); }} className="space-y-5">
                   <Reveal>
                     <label htmlFor="contact-nom" className="block text-sm font-medium text-[#0A090E] mb-1.5">{en ? 'Name' : 'Nom'}</label>
                     <input id="contact-nom" name="nom" autoComplete="name" type="text" required value={form.nom} onChange={(e) => setForm({ ...form, nom: e.target.value })}
@@ -237,19 +189,13 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 bg-[#F6F2F2] border border-transparent focus:border-[#0A090E] rounded-lg focus:outline-none transition-colors resize-none" />
                   </Reveal>
                   <Reveal delay={0.2}>
-                    <p className="text-xs text-[#9A9B9C] mb-3 text-center">
-                      {en ? 'Choose how to send your message:' : 'Choisissez comment envoyer votre message :'}
+                    <button type="submit" className="w-full bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-sm uppercase tracking-wider py-4 rounded-[10px] transition-all hover:shadow-lg flex items-center justify-center gap-2">
+                      <WhatsAppIcon className="w-5 h-5" />
+                      {en ? 'Send via WhatsApp' : 'Envoyer via WhatsApp'}
+                    </button>
+                    <p className="text-xs text-[#9A9B9C] mt-3 text-center">
+                      {en ? 'Your message opens in WhatsApp, ready to send.' : "Votre message s'ouvre dans WhatsApp, prêt à envoyer."}
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <button type="button" onClick={sendByWhatsApp} className="flex-1 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-sm uppercase tracking-wider py-4 rounded-[10px] transition-all hover:shadow-lg flex items-center justify-center gap-2">
-                        <WhatsAppIcon className="w-5 h-5" />
-                        {en ? 'Send via WhatsApp' : 'Envoyer via WhatsApp'}
-                      </button>
-                      <button type="submit" disabled={sending} className="flex-1 bg-[#2830B3] hover:bg-[#1E2699] disabled:opacity-60 disabled:cursor-not-allowed text-white font-archivo font-semibold text-sm uppercase tracking-wider py-4 rounded-[10px] transition-all hover:shadow-lg flex items-center justify-center gap-2">
-                        <Mail className="w-5 h-5" />
-                        {sending ? (en ? 'Sending…' : 'Envoi…') : (en ? 'Send by email' : 'Envoyer par e-mail')}
-                      </button>
-                    </div>
                   </Reveal>
                 </form>
               )}
