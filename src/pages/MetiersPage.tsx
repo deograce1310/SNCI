@@ -2,12 +2,21 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Reveal from '../components/Reveal';
 import ImageSlider from '../components/ImageSlider';
+import WhatsAppIcon from '../components/icons/WhatsAppIcon';
 import { services } from '../data/services';
 import { galleryPhotos } from '../data/gallery';
+import { company } from '../data/company';
 
 export default function MetiersPage() {
   const { t, i18n } = useTranslation();
+  const en = i18n.language === 'en';
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  // Lien WhatsApp pré-rempli avec le nom de la prestation
+  const devisHref = (label: string) =>
+    `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
+      en ? `Hello SNCI, I would like a quote for: ${label}.` : `Bonjour SNCI, je souhaite un devis pour : ${label}.`
+    )}`;
 
   return (
     <>
@@ -38,12 +47,17 @@ export default function MetiersPage() {
                     <img src={service.image} alt={i18n.language === 'en' ? service.title_en : service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                     <div className={`absolute inset-0 bg-[#0A090E]/50 flex items-center justify-center transition-opacity duration-300 ${activeIndex === i ? 'opacity-100' : 'opacity-0'}`}>
-                      <span className="text-white font-archivo font-semibold text-sm uppercase tracking-wider">{i18n.language === 'en' ? 'Learn more' : 'En savoir plus'}</span>
+                      <span className="text-white font-archivo font-semibold text-sm uppercase tracking-wider">{en ? 'Request a quote' : 'Demander un devis'}</span>
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="font-archivo font-bold text-lg text-[#0A090E]">{i18n.language === 'en' ? service.title_en : service.title}</h3>
-                    <p className="text-sm text-[#475479] leading-relaxed mt-3">{i18n.language === 'en' ? service.desc_en : service.desc}</p>
+                    <h3 className="font-archivo font-bold text-lg text-[#0A090E]">{en ? service.title_en : service.title}</h3>
+                    <p className="text-sm text-[#475479] leading-relaxed mt-3">{en ? service.desc_en : service.desc}</p>
+                    <a href={devisHref(en ? service.title_en : service.title)} target="_blank" rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center gap-2 font-archivo font-semibold text-sm text-[#25D366] hover:gap-3 transition-all">
+                      <WhatsAppIcon className="w-4 h-4" />
+                      {en ? 'Request a quote' : 'Demander un devis'}
+                    </a>
                   </div>
                 </div>
               </Reveal>

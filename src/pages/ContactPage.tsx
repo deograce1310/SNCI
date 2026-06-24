@@ -20,6 +20,10 @@ export default function ContactPage() {
     `${en ? 'Subject' : 'Sujet'}: ${form.sujet}\n\n` +
     `${form.message}`;
 
+  // Encode un objet en corps de formulaire (pour Netlify Forms)
+  const encodeForm = (data: Record<string, string>) =>
+    Object.keys(data).map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`).join('&');
+
   // Verifie les champs requis (validation native HTML5) avant d'agir
   const isValid = () => formRef.current?.reportValidity() ?? false;
 
@@ -57,9 +61,21 @@ export default function ContactPage() {
       }
       return;
     }
-    // Sinon : envoi via l'application mail
-    openMailto();
-    setSubmitted(true);
+    // Sinon : envoi via Netlify Forms (le message arrive par e-mail à SNCI)
+    try {
+      setSending(true);
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeForm({ 'form-name': 'contact', ...form }),
+      });
+      if (res.ok) { setSubmitted(true); return; }
+      openMailto(); // repli si Netlify indisponible (ex. hors production)
+    } catch {
+      openMailto();
+    } finally {
+      setSending(false);
+    }
   };
 
   const sendByWhatsApp = () => {
@@ -215,7 +231,9 @@ export default function ContactPage() {
                   </div>
                 </Reveal>
               ) : (
-                <form ref={formRef} onSubmit={(e) => { e.preventDefault(); sendByEmail(); }} className="space-y-5">
+                <form ref={formRef} name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={(e) => { e.preventDefault(); sendByEmail(); }} className="space-y-5">
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p className="hidden"><label>{en ? 'Do not fill this in:' : 'Ne pas remplir :'} <input name="bot-field" /></label></p>
                   <Reveal>
                     <label htmlFor="contact-nom" className="block text-sm font-medium text-[#0A090E] mb-1.5">{en ? 'Name' : 'Nom'}</label>
                     <input id="contact-nom" name="nom" autoComplete="name" type="text" required value={form.nom} onChange={(e) => setForm({ ...form, nom: e.target.value })}

@@ -19,7 +19,9 @@
     <meta property="og:site_name" content="SNCI SARL" />
     <meta property="og:title" content="SNCI — Votre partenaire industriel, de la soudure à la maintenance d'usine" />
     <meta property="og:description" content="Soudure, chaudronnerie, tuyauterie, charpentes métalliques et personnel certifié. Onshore et offshore, partout en Afrique de l'Ouest." />
-    <meta property="og:image" content="https://www.snci-group.com/images/snci-logo.png" />
+    <meta property="og:image" content="https://www.snci-group.com/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://www.snci-group.com/" />
     <meta property="og:locale" content="fr_FR" />
 
@@ -27,7 +29,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SNCI — Votre partenaire industriel" />
     <meta name="twitter:description" content="Soudure, chaudronnerie, tuyauterie, charpentes et personnel certifié. Onshore et offshore en Afrique de l'Ouest." />
-    <meta name="twitter:image" content="https://www.snci-group.com/images/snci-logo.png" />
+    <meta name="twitter:image" content="https://www.snci-group.com/images/og-image.jpg" />
 
     <!-- Données structurées (SEO local) -->
     <script type="application/ld+json">
@@ -52,6 +54,15 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Formulaire fantôme : permet à Netlify de détecter le formulaire de contact (SPA) -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="nom" />
+      <input type="email" name="email" />
+      <input type="text" name="sujet" />
+      <textarea name="message"></textarea>
+    </form>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
