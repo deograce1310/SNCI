@@ -185,15 +185,25 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Volet 1 — Prestations */}
             <Reveal>
-              <Link to="/prestations" className="group relative block aspect-[16/10] rounded-[14px] overflow-hidden">
-                <img src="/images/prestations/chaudronnerie.jpg" alt={i18n.language === 'en' ? 'Industrial services' : 'Prestations industrielles'}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/90 via-[#0A090E]/45 to-[#0A090E]/10" />
-                <div className="absolute inset-0 p-7 flex flex-col justify-end text-white">
-                  <span className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-white/70">{i18n.language === 'en' ? 'Services' : 'Services'}</span>
-                  <h3 className="font-archivo font-bold text-2xl mt-1">{i18n.language === 'en' ? 'Industrial services' : 'Prestations industrielles'}</h3>
-                  <p className="text-sm text-white/85 mt-2 max-w-sm">{i18n.language === 'en' ? 'Welding, boilermaking, piping, metal frames, qualified personnel…' : 'Soudure, chaudronnerie, tuyauterie, charpentes métalliques, personnel qualifié…'}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 font-archivo font-semibold text-sm group/cta">
+              <Link to="/prestations" className="group flex h-full flex-col bg-white rounded-[14px] overflow-hidden border border-[#E7EBF2] hover:border-[#0A090E]/10 hover:shadow-card transition-all duration-400">
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <img src="/images/prestations/chaudronnerie.jpg" alt={i18n.language === 'en' ? 'Industrial services' : 'Prestations industrielles'}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/40 to-transparent" />
+                  <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#0A090E] font-mono text-[10px] font-medium uppercase tracking-[0.12em] px-2.5 py-1 rounded-full">{i18n.language === 'en' ? 'Services' : 'Services'}</span>
+                </div>
+                <div className="flex flex-1 flex-col p-6 lg:p-7">
+                  <h3 className="font-archivo font-bold text-xl text-[#0A090E]">{i18n.language === 'en' ? 'Industrial services' : 'Prestations industrielles'}</h3>
+                  <p className="text-sm text-[#475479] leading-relaxed mt-2">{i18n.language === 'en' ? 'Industrial work delivered by qualified teams, onshore and offshore.' : 'Travaux industriels réalisés par des équipes qualifiées, onshore et offshore.'}</p>
+                  <ul className="flex flex-wrap gap-2 mt-4">
+                    {(i18n.language === 'en'
+                      ? ['Welding', 'Boilermaking', 'Piping', 'Metal frames', 'Machining', 'Qualified personnel']
+                      : ['Soudure', 'Chaudronnerie', 'Tuyauterie', 'Charpentes métalliques', 'Usinage', 'Personnel qualifié']
+                    ).map((item) => (
+                      <li key={item} className="text-xs font-medium text-[#475479] bg-[#F6F2F2] px-3 py-1.5 rounded-full">{item}</li>
+                    ))}
+                  </ul>
+                  <span className="mt-auto pt-5 inline-flex items-center gap-2 font-archivo font-semibold text-sm text-[#CF0D0D] group/cta">
                     {i18n.language === 'en' ? 'Explore our services' : 'Découvrir nos prestations'}
                     <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </span>
@@ -202,15 +212,25 @@ export default function HomePage() {
             </Reveal>
             {/* Volet 2 — Vente d'engins */}
             <Reveal delay={0.1}>
-              <Link to="/engins" className="group relative block aspect-[16/10] rounded-[14px] overflow-hidden">
-                <img src="/images/engins/tractopelle/1.jpg" alt={i18n.language === 'en' ? 'Equipment for sale' : "Vente d'engins"}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/90 via-[#0A090E]/45 to-[#0A090E]/10" />
-                <div className="absolute inset-0 p-7 flex flex-col justify-end text-white">
-                  <span className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-white/70">{i18n.language === 'en' ? 'Equipment' : 'Matériel'}</span>
-                  <h3 className="font-archivo font-bold text-2xl mt-1">{i18n.language === 'en' ? 'Equipment for sale' : "Vente d'engins"}</h3>
-                  <p className="text-sm text-white/85 mt-2 max-w-sm">{i18n.language === 'en' ? 'Access-at-height and earthmoving machines, available to buy.' : "Engins d'accès en hauteur et de terrassement, disponibles à l'achat."}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 font-archivo font-semibold text-sm group/cta">
+              <Link to="/engins" className="group flex h-full flex-col bg-white rounded-[14px] overflow-hidden border border-[#E7EBF2] hover:border-[#0A090E]/10 hover:shadow-card transition-all duration-400">
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <img src="/images/engins/tractopelle/1.jpg" alt={i18n.language === 'en' ? 'Equipment for sale' : "Vente d'engins"}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/40 to-transparent" />
+                  <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#0A090E] font-mono text-[10px] font-medium uppercase tracking-[0.12em] px-2.5 py-1 rounded-full">{i18n.language === 'en' ? 'Equipment' : 'Matériel'}</span>
+                </div>
+                <div className="flex flex-1 flex-col p-6 lg:p-7">
+                  <h3 className="font-archivo font-bold text-xl text-[#0A090E]">{i18n.language === 'en' ? 'Equipment for sale' : "Vente d'engins"}</h3>
+                  <p className="text-sm text-[#475479] leading-relaxed mt-2">{i18n.language === 'en' ? 'Access-at-height and earthmoving machines, offered for sale.' : "Engins d'accès en hauteur et de terrassement, proposés à la vente."}</p>
+                  <ul className="flex flex-wrap gap-2 mt-4">
+                    {(i18n.language === 'en'
+                      ? ['Articulating boom lifts', 'Scissor lifts', 'Truck-mounted platform', 'Backhoe loaders', 'Wheel loaders']
+                      : ['Nacelles articulées', 'Nacelles à ciseaux', 'Nacelle sur camion', 'Tractopelles', 'Chargeuses sur pneus']
+                    ).map((item) => (
+                      <li key={item} className="text-xs font-medium text-[#475479] bg-[#F6F2F2] px-3 py-1.5 rounded-full">{item}</li>
+                    ))}
+                  </ul>
+                  <span className="mt-auto pt-5 inline-flex items-center gap-2 font-archivo font-semibold text-sm text-[#CF0D0D] group/cta">
                     {i18n.language === 'en' ? 'See equipment for sale' : "Voir les engins à vendre"}
                     <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </span>
