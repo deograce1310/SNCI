@@ -8,7 +8,6 @@ const navLinks = [
   { label: 'nav.about', path: '/entreprise' },
   { label: 'nav.metiers', path: '/prestations' },
   { label: 'nav.equipe', path: '/equipe' },
-  { label: 'nav.recrutement', path: '/recrutement' },
   { label: 'nav.contact', path: '/contact' },
 ];
 
