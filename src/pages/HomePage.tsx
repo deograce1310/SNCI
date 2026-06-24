@@ -225,8 +225,8 @@ export default function HomePage() {
       <section className="py-20 lg:py-28 bg-[#F6F2F2] relative overflow-hidden">
         <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
           <SectionTitle
-            eyebrow={i18n.language === 'en' ? 'EQUIPMENT FOR SALE' : 'ENGINS À VENDRE'}
-            title={i18n.language === 'en' ? 'Equipment for sale' : 'Engins à vendre'}
+            eyebrow={i18n.language === 'en' ? 'EQUIPMENT FOR SALE' : 'VENTE D\'ENGINS'}
+            title={i18n.language === 'en' ? 'Equipment for sale' : 'Vente d\'engins'}
             subtitle={i18n.language === 'en'
               ? 'SNCI offers a selection of machines for sale — price and technical sheet on WhatsApp.'
               : "SNCI propose à la vente une sélection d'engins — prix et fiche technique sur WhatsApp."}

@@ -24,9 +24,9 @@ export default function EnginsPage() {
               <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
               <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
             </div>
-            <span className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-[#CF0D0D]">{en ? 'EQUIPMENT FOR SALE' : 'ENGINS À VENDRE'}</span>
+            <span className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-[#CF0D0D]">{en ? 'EQUIPMENT FOR SALE' : 'VENTE D\'ENGINS'}</span>
           </div>
-          <h1 className="font-archivo font-bold text-[clamp(32px,4vw,48px)] text-[#0A090E]">{en ? 'Equipment for sale' : 'Engins à vendre'}</h1>
+          <h1 className="font-archivo font-bold text-[clamp(32px,4vw,48px)] text-[#0A090E]">{en ? 'Equipment for sale' : 'Vente d\'engins'}</h1>
           <p className="text-lg text-[#475479] mt-4 max-w-2xl">
             {en
               ? 'SNCI offers for sale a range of machines for access at height and earthworks. Open a listing, then contact us on WhatsApp for the price, technical sheet and availability.'

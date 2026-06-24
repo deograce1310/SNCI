@@ -9,7 +9,7 @@ const resources = {
         home: 'Accueil',
         about: 'À propos de nous',
         metiers: 'Nos prestations',
-        engins: 'Engins à vendre',
+        engins: 'Vente d\'engins',
         equipe: 'Notre équipe',
         contact: 'Contact',
         contactBtn: 'Nous contacter',
