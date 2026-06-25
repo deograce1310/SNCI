@@ -374,36 +374,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ À PROPOS DE NOUS — GRIS (dernière position) ═══ */}
-      <section className="py-20 lg:py-28 bg-[#F6F2F2] relative overflow-hidden">
-        <div className="absolute -left-[8%] bottom-[-10%] w-[40%] opacity-[0.03] pointer-events-none">
+      {/* ═══ À PROPOS DE NOUS — BANDE SOMBRE CENTRÉE (dernière position) ═══ */}
+      <section className="py-20 lg:py-28 bg-[#0A090E] relative overflow-hidden">
+        <div className="absolute left-1/2 top-1/2 w-[55%] max-w-[640px] -translate-x-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none">
           <img src="/images/gear-watermark.png" alt="" className="w-full" />
         </div>
-        <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-            <Reveal>
-              <div className="aspect-[4/3] rounded-[14px] overflow-hidden shadow-lg">
-                <img src="/images/team/snci-team.jpg" alt={i18n.language === 'en' ? 'About SNCI' : 'À propos de SNCI'}
-                  className="w-full h-full object-cover" loading="lazy" />
+        <div className="relative max-w-[760px] mx-auto px-5 lg:px-10 text-center">
+          <Reveal>
+            <div className="flex items-center justify-center gap-3 mb-5">
+              <div className="flex flex-col gap-[3px]">
+                <div className="w-6 h-[2px] bg-[#CF0D0D] rounded-full" />
+                <div className="w-6 h-[2px] bg-[#CF0D0D] rounded-full" />
               </div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex flex-col gap-[3px]">
-                    <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
-                    <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
-                  </div>
-                  <span className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-[#CF0D0D]">{t('apropos.eyebrow')}</span>
-                </div>
-                <h2 className="font-archivo font-bold text-[clamp(24px,3vw,36px)] text-[#0A090E]">{t('apropos.title')}</h2>
-                <p className="text-[#475479] leading-relaxed mt-4">{t('apropos.p1')}</p>
-                <Link to="/a-propos" className="mt-8 inline-flex items-center gap-2 bg-[#CF0D0D] hover:bg-[#A80B0B] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
-                  {i18n.language === 'en' ? 'Learn more about us' : 'En savoir plus sur nous'} <ChevronRight className="w-4 h-4" />
-                </Link>
+              <span className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-[#CF0D0D]">{t('apropos.eyebrow')}</span>
+              <div className="flex flex-col gap-[3px]">
+                <div className="w-6 h-[2px] bg-[#CF0D0D] rounded-full" />
+                <div className="w-6 h-[2px] bg-[#CF0D0D] rounded-full" />
               </div>
-            </Reveal>
-          </div>
+            </div>
+            <h2 className="font-archivo font-bold text-[clamp(24px,3vw,38px)] text-white leading-tight">{t('apropos.title')}</h2>
+            <p className="text-white/70 leading-relaxed mt-5">{t('apropos.p1')}</p>
+            <Link to="/a-propos" className="mt-9 inline-flex items-center gap-2 bg-[#CF0D0D] hover:bg-[#A80B0B] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg hover:-translate-y-0.5">
+              {i18n.language === 'en' ? 'Learn more about us' : 'En savoir plus sur nous'} <ChevronRight className="w-4 h-4" />
+            </Link>
+          </Reveal>
         </div>
       </section>
     </>

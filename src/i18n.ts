@@ -58,7 +58,7 @@ const resources = {
         eyebrow: 'À PROPOS DE NOUS',
         title: 'Société des Nouvelles Constructions Industrielles',
         p1: 'La société des Nouvelles Constructions Industrielles (SNCI) Sarl a été créée par un jeune et dynamique béninois ayant suivi toutes ses formations en soudure industrielle et chaudronnerie au sein de grandes écoles du Sénégal.',
-        p2: 'Fort de plusieurs années d\'expérience aux côtés des grandes entreprises industrielles de la sous-région ouest-africaine, notre dirigeant a su constituer une équipe forte, professionnelle et hautement qualifiée, animée par une seule devise : « offrir dans un bref délai et avec qualité des prestations professionnelles à tous les clients ».',
+        p2: 'Fort de plusieurs années d\'expérience aux côtés des grandes entreprises industrielles de la sous-région ouest-africaine, notre dirigeant a su constituer une équipe forte, professionnelle et hautement qualifiée, fidèle à une seule devise qui guide chacune de nos interventions.',
         p3: 'SNCI SARL, bien qu\'étant une société béninoise, est opérationnelle partout où est implantée votre entreprise et ne ménage aucun effort pour prouver son professionnalisme. Confiez-lui votre projet et vous serez satisfaits de lui avoir fait confiance, car elle en fait une réalité dans le respect des normes de qualité internationale.',
       },
       footer: {
@@ -122,7 +122,7 @@ const resources = {
         eyebrow: 'ABOUT US',
         title: 'Society of New Industrial Constructions',
         p1: 'The company of New Industrial Constructions (SNCI) Sarl was created by a young and dynamic Beninese who followed all his training in industrial welding and boilermaking within large schools in Senegal.',
-        p2: 'With several years of experience alongside major industrial companies in the West African sub-region, our management has built a strong, professional and highly qualified team driven by a single motto: "to offer professional services to all customers in a short time and with quality".',
+        p2: 'With several years of experience alongside major industrial companies in the West African sub-region, our management has built a strong, professional and highly qualified team, faithful to a single motto that guides every one of our operations.',
         p3: 'SNCI SARL, although a Beninese company, is operational wherever your company is located and spares no effort to prove its professionalism. Entrust her with your project and you will be satisfied to have trusted her, because she makes it a reality in compliance with international quality standards.',
       },
       footer: {
