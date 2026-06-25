@@ -5,10 +5,10 @@ import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'nav.home', path: '/' },
-  { label: 'nav.about', path: '/a-propos' },
   { label: 'nav.metiers', path: '/prestations' },
   { label: 'nav.engins', path: '/engins' },
   { label: 'nav.equipe', path: '/equipe' },
+  { label: 'nav.about', path: '/a-propos' },
 ];
 
 export default function Header() {
