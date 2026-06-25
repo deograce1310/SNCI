@@ -398,7 +398,6 @@ export default function HomePage() {
                 </div>
                 <h2 className="font-archivo font-bold text-[clamp(24px,3vw,36px)] text-[#0A090E]">{t('apropos.title')}</h2>
                 <p className="text-[#475479] leading-relaxed mt-4">{t('apropos.p1')}</p>
-                <p className="text-[#475479] leading-relaxed mt-3">{t('apropos.p3')}</p>
                 <Link to="/a-propos" className="mt-8 inline-flex items-center gap-2 bg-[#CF0D0D] hover:bg-[#A80B0B] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
                   {i18n.language === 'en' ? 'Learn more about us' : 'En savoir plus sur nous'} <ChevronRight className="w-4 h-4" />
                 </Link>
