@@ -35,7 +35,7 @@ export default function EnginDetailPage() {
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
           {/* Fil d'Ariane */}
           <nav className="flex items-center gap-2 text-sm text-[#475479] mb-8">
-            <Link to="/engins" className="hover:text-[#CF0D0D] transition-colors">{en ? 'Equipment for sale' : 'Vente d\'engins'}</Link>
+            <Link to="/engins" className="hover:text-[#CF0D0D] transition-colors">{en ? 'Equipment rental & sale' : 'Location et vente d\'engins'}</Link>
             <ChevronRight className="w-4 h-4 opacity-50" />
             <span className="text-[#0A090E] font-medium">{title}</span>
           </nav>

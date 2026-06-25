@@ -5,10 +5,10 @@ import { company, telHref } from '../data/company';
 
 const navLinks = [
   { label: 'nav.home', path: '/' },
-  { label: 'nav.about', path: '/a-propos' },
   { label: 'nav.metiers', path: '/prestations' },
   { label: 'nav.engins', path: '/engins' },
   { label: 'nav.equipe', path: '/equipe' },
+  { label: 'nav.about', path: '/a-propos' },
   { label: 'nav.contact', path: '/contact' },
 ];
 
@@ -18,18 +18,18 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#2830B3]">
-      <div className="max-w-[1200px] mx-auto px-5 lg:px-10 py-14">
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-10 py-8">
         {/* Double barre rouge */}
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-6">
           <div className="flex flex-col gap-[3px]">
             <div className="w-10 h-[2px] bg-[#CF0D0D] rounded-full" />
             <div className="w-10 h-[2px] bg-[#CF0D0D] rounded-full" />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
           <div>
-            <img src="/images/snci-logo.png" alt="SNCI" className="h-16 w-16 rounded-full object-cover mb-4" />
+            <img src="/images/snci-logo.png" alt="SNCI" className="h-12 w-12 rounded-full object-cover mb-3" />
             <p className="text-sm font-semibold text-white/90 leading-relaxed">{t('footer.company')}</p>
             <blockquote className="mt-3 text-sm text-white/70 italic">&ldquo;{t('dev.motto')}&rdquo;</blockquote>
           </div>
@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-8 pt-5 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[11px] font-mono text-white/50">&copy; {new Date().getFullYear()} SNCI SARL</p>
           <Link to="/mentions-legales" className="text-xs text-white/50 hover:text-white transition-colors">
             {i18n.language === 'en' ? 'Legal notices' : 'Mentions légales'}

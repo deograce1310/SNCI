@@ -5,10 +5,10 @@ import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'nav.home', path: '/' },
-  { label: 'nav.about', path: '/a-propos' },
   { label: 'nav.metiers', path: '/prestations' },
   { label: 'nav.engins', path: '/engins' },
   { label: 'nav.equipe', path: '/equipe' },
+  { label: 'nav.about', path: '/a-propos' },
 ];
 
 export default function Header() {
@@ -42,9 +42,9 @@ export default function Header() {
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled || !isHome ? 'bg-white/95 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.06)]' : 'bg-transparent'
       }`}>
-        <div className="max-w-[1200px] mx-auto px-5 lg:px-10 h-16 lg:h-20 flex items-center justify-between">
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-10 h-20 lg:h-24 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 shrink-0 z-10">
-            <img src="/images/snci-logo.png" alt="SNCI" className={`h-12 lg:h-14 w-auto rounded-full transition-all duration-500 ${
+            <img src="/images/snci-logo.png" alt="SNCI" className={`h-16 lg:h-20 w-auto rounded-full transition-all duration-500 ${
               scrolled || !isHome ? '' : 'drop-shadow-lg'
             }`} />
           </Link>
