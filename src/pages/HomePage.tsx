@@ -373,6 +373,40 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+
+      {/* ═══ À PROPOS DE NOUS — GRIS (dernière position) ═══ */}
+      <section className="py-20 lg:py-28 bg-[#F6F2F2] relative overflow-hidden">
+        <div className="absolute -left-[8%] bottom-[-10%] w-[40%] opacity-[0.03] pointer-events-none">
+          <img src="/images/gear-watermark.png" alt="" className="w-full" />
+        </div>
+        <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <Reveal>
+              <div className="aspect-[4/3] rounded-[14px] overflow-hidden shadow-lg">
+                <img src="/images/team/snci-team.jpg" alt={i18n.language === 'en' ? 'About SNCI' : 'À propos de SNCI'}
+                  className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="flex flex-col gap-[3px]">
+                    <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
+                    <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
+                  </div>
+                  <span className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-[#CF0D0D]">{t('apropos.eyebrow')}</span>
+                </div>
+                <h2 className="font-archivo font-bold text-[clamp(24px,3vw,36px)] text-[#0A090E]">{t('apropos.title')}</h2>
+                <p className="text-[#475479] leading-relaxed mt-4">{t('apropos.p1')}</p>
+                <p className="text-[#475479] leading-relaxed mt-3">{t('apropos.p3')}</p>
+                <Link to="/a-propos" className="mt-8 inline-flex items-center gap-2 bg-[#CF0D0D] hover:bg-[#A80B0B] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
+                  {i18n.language === 'en' ? 'Learn more about us' : 'En savoir plus sur nous'} <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
