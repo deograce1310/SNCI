@@ -74,7 +74,7 @@ export const services: Service[] = [
   {
     slug: 'consommables', icon: Package,
     title: 'Fourniture de consommables et matériels industriels', title_en: 'Supply of consumables and industrial equipment',
-    image: '/images/prestations/consommables.jpg',
+    image: '/images/gallery/consommables-epi.jpg',
     desc: 'Approvisionnement en matériaux, consommables, équipements de protection individuelle, outillage et fournitures techniques pour l\'industrie et la construction.',
     desc_en: 'Procurement of materials, consumables, personal protective equipment, tools and technical supplies for industry and construction.',
   },
