@@ -49,10 +49,10 @@ export default function Header() {
             }`} />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
             {navItems.map((item) => (
               <Link key={item.path} to={item.path}
-                className={`relative px-4 py-2 text-sm font-inter font-medium transition-colors rounded-lg ${
+                className={`relative whitespace-nowrap px-2.5 xl:px-4 py-2 text-sm font-inter font-medium transition-colors rounded-lg ${
                   isActive(item.path)
                     ? 'text-[#CF0D0D]'
                     : scrolled || !isHome
@@ -60,7 +60,7 @@ export default function Header() {
                     : 'text-white/90 hover:text-white'
                 }`}>
                 {t(item.label)}
-                {isActive(item.path) && <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-[#CF0D0D] rounded-full" />}
+                {isActive(item.path) && <span className="absolute bottom-0 left-2.5 right-2.5 xl:left-4 xl:right-4 h-0.5 bg-[#CF0D0D] rounded-full" />}
               </Link>
             ))}
           </nav>
