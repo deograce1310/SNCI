@@ -15,7 +15,7 @@ const resources = {
         contactBtn: 'Nous contacter',
       },
       hero: {
-        eyebrow: 'Soudure — Chaudronnerie — Tuyauterie — Charpentes métalliques',
+        eyebrow: 'Soudure — Chaudronnerie — Tuyauterie — Charpentes métalliques — Fournisseur d\'équipements',
         company: 'Société des Nouvelles Constructions Industrielles',
         title: 'Votre partenaire industriel, de la soudure à la maintenance d\'usine.',
         subtitle: 'Des équipes qualifiées et professionnelles qui réalisent vos projets avec qualité et dans les délais, onshore et offshore, partout en Afrique de l\'Ouest.',
@@ -79,7 +79,7 @@ const resources = {
         contactBtn: 'Contact us',
       },
       hero: {
-        eyebrow: 'Welding — Boilermaking — Piping — Metal Frames',
+        eyebrow: 'Welding — Boilermaking — Piping — Metal Frames — Equipment Supplier',
         company: 'Society of New Industrial Constructions',
         title: 'Your industrial partner, from welding to factory maintenance.',
         subtitle: 'Qualified and professional teams that deliver your projects with quality and on time, onshore and offshore, across West Africa.',
