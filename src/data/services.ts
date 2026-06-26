@@ -67,7 +67,7 @@ export const services: Service[] = [
   {
     slug: 'constructions', icon: Factory,
     title: 'Constructions et maintenances d\'usine', title_en: 'Factory construction and maintenance',
-    image: '/images/prestations/constructions.jpg',
+    image: '/images/gallery/etaiement-chantier.jpg',
     desc: 'Construction de bâtiments industriels, fondations, dalles, infrastructure et aménagement de sites. Maintenance préventive et curative des installations industrielles.',
     desc_en: 'Construction of industrial buildings, foundations, slabs, infrastructure and site development. Preventive and corrective maintenance of industrial installations.',
   },
