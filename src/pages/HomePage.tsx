@@ -286,9 +286,11 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/equipe" className="mt-8 inline-flex w-full sm:w-auto justify-center items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
-                  {t('equipe.corpsMetier')} <ChevronRight className="w-4 h-4" />
-                </Link>
+                <div className="mt-8 flex justify-center">
+                  <Link to="/equipe" className="inline-flex w-full sm:w-auto justify-center items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
+                    {t('equipe.corpsMetier')} <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </Reveal>
           </div>
