@@ -35,7 +35,7 @@ export default function EnginDetailPage() {
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
           {/* Fil d'Ariane */}
           <nav className="flex items-center gap-2 text-sm text-[#475479] mb-8">
-            <Link to="/engins" className="hover:text-[#CF0D0D] transition-colors">{en ? 'Equipment rental & sale' : 'Location et vente d\'engins'}</Link>
+            <Link to="/engins" className="hover:text-[#CF0D0D] transition-colors">{en ? 'Equipment rental & sale' : 'Location et vente d\'équipements'}</Link>
             <ChevronRight className="w-4 h-4 opacity-50" />
             <span className="text-[#0A090E] font-medium">{title}</span>
           </nav>
@@ -101,13 +101,13 @@ export default function EnginDetailPage() {
             </Reveal>
           </div>
 
-          {/* Autres engins */}
+          {/* Autres équipements */}
           <div className="mt-20">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="font-archivo font-bold text-xl text-[#0A090E]">{en ? 'Other equipment' : 'Autres engins'}</h2>
+              <h2 className="font-archivo font-bold text-xl text-[#0A090E]">{en ? 'Other equipment' : 'Autres équipements'}</h2>
               <Link to="/engins" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#CF0D0D] hover:gap-2.5 transition-all">
                 <ArrowLeft className="w-4 h-4" />
-                {en ? 'All equipment' : 'Tous les engins'}
+                {en ? 'All equipment' : 'Tous les équipements'}
               </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
