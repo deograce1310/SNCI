@@ -19,7 +19,6 @@ export default function Footer() {
         <div className="flex flex-col items-center text-center">
           <img src="/images/snci-logo.png" alt="SNCI" className="h-12 w-12 rounded-full object-cover mb-3" />
           <p className="text-sm font-semibold text-white/90 leading-relaxed">{t('footer.company')}</p>
-          <blockquote className="mt-3 max-w-xl text-sm text-white/70 italic">&ldquo;{t('dev.motto')}&rdquo;</blockquote>
         </div>
 
         <div className="mt-8 pt-5 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">

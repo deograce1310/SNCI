@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { ArrowRight, Factory, Building2, Ship, Zap, MapPin } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import WhatsAppIcon from '../components/icons/WhatsAppIcon';
+import WhatsAppCTA from '../components/WhatsAppCTA';
 import { services } from '../data/services';
 import { company } from '../data/company';
 
@@ -72,21 +73,12 @@ export default function MetiersPage() {
           </div>
 
           {/* CTA global WhatsApp sous la grille */}
-          <Reveal>
-            <div className="mt-14 text-center">
-              <p className="font-archivo font-semibold text-lg text-[#0A090E]">
-                {en ? 'Interested in one of our services?' : 'Une prestation vous intéresse ?'}
-              </p>
-              <p className="text-[#475479] mt-2 mb-6 max-w-md mx-auto">
-                {en ? 'Tell us about your project — we usually reply within the hour.' : 'Parlez-nous de votre projet — nous répondons généralement dans l\'heure.'}
-              </p>
-              <a href={generalWhatsappHref} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
-                <WhatsAppIcon className="w-5 h-5" />
-                {en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
-              </a>
-            </div>
-          </Reveal>
+          <WhatsAppCTA
+            title={en ? 'Interested in one of our services?' : 'Une prestation vous intéresse ?'}
+            subtitle={en ? 'Tell us about your project — we usually reply within the hour.' : 'Parlez-nous de votre projet — nous répondons généralement dans l\'heure.'}
+            href={generalWhatsappHref}
+            buttonLabel={en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
+          />
         </div>
       </section>
 

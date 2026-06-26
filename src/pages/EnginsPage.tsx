@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
 import Reveal from '../components/Reveal';
-import WhatsAppIcon from '../components/icons/WhatsAppIcon';
+import WhatsAppCTA from '../components/WhatsAppCTA';
 import { engins } from '../data/engins';
 import { company } from '../data/company';
 
@@ -69,21 +69,12 @@ export default function EnginsPage() {
           </div>
 
           {/* CTA global WhatsApp */}
-          <Reveal>
-            <div className="mt-14 text-center">
-              <p className="font-archivo font-semibold text-lg text-[#0A090E]">
-                {en ? 'Looking for a specific machine?' : 'Vous cherchez un engin précis ?'}
-              </p>
-              <p className="text-[#475479] mt-2 mb-6 max-w-md mx-auto">
-                {en ? 'Tell us your need — we reply with availability and pricing.' : 'Dites-nous votre besoin — nous répondons avec la disponibilité et les prix.'}
-              </p>
-              <a href={generalWhatsappHref} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
-                <WhatsAppIcon className="w-5 h-5" />
-                {en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
-              </a>
-            </div>
-          </Reveal>
+          <WhatsAppCTA
+            title={en ? 'Looking for a specific machine?' : 'Vous cherchez un engin précis ?'}
+            subtitle={en ? 'Tell us your need — we reply with availability and pricing.' : 'Dites-nous votre besoin — nous répondons avec la disponibilité et les prix.'}
+            href={generalWhatsappHref}
+            buttonLabel={en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
+          />
         </div>
       </section>
     </>

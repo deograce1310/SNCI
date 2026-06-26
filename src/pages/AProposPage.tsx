@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import {
-  ShieldCheck, Clock, BadgeCheck, Target, ChevronRight, FileText,
+  ShieldCheck, Clock, BadgeCheck, Target, ChevronRight,
 } from 'lucide-react';
 import Reveal from '../components/Reveal';
-import { company } from '../data/company';
 
 export default function AProposPage() {
   const { t, i18n } = useTranslation();
@@ -41,21 +40,6 @@ export default function AProposPage() {
     },
   ];
 
-  const stats = [
-    { value: '12', label: en ? 'Industrial services' : 'Prestations industrielles' },
-    { value: '19', label: en ? 'Trusted clients' : 'Clients références' },
-    { value: '16', label: en ? 'Job categories' : 'Corps de métier' },
-    { value: '3', label: en ? 'Countries served' : "Pays d'intervention" },
-  ];
-
-  const legal = [
-    { label: en ? 'Company name' : 'Raison sociale', value: company.fullName },
-    { label: en ? 'Legal form' : 'Forme juridique', value: company.name },
-    { label: 'RCCM', value: company.rccm },
-    { label: 'IFU', value: company.ifu },
-    { label: en ? 'Head office' : 'Siège social', value: `${company.address}, ${company.city}, ${company.country}` },
-  ];
-
   return (
     <>
       {/* Hero — gris */}
@@ -77,7 +61,7 @@ export default function AProposPage() {
         <div className="max-w-[1000px] mx-auto px-5 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-12 items-start">
             <Reveal>
-              <img src="/images/team/snci-team.jpg" alt="SNCI" className="w-full aspect-[16/10] object-cover rounded-[12px] shadow-lg" loading="lazy" />
+              <img src="/images/sectors/industrie-btp.jpg" alt={en ? 'SNCI industrial expertise' : 'Savoir-faire industriel SNCI'} className="w-full aspect-[16/10] object-cover rounded-[12px] shadow-lg" loading="lazy" />
             </Reveal>
             <div>
               <Reveal><p className="text-base text-[#475479] leading-relaxed">{t('apropos.p1')}</p></Reveal>
@@ -137,41 +121,6 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Chiffres clés — gris */}
-      <section className="py-16 lg:py-20 bg-[#F6F2F2]">
-        <div className="max-w-[1100px] mx-auto px-5 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
-            {stats.map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="font-archivo font-black text-[clamp(40px,5vw,64px)] text-[#0A090E] leading-none">{s.value}</div>
-                <div className="flex justify-center mt-3 mb-2">
-                  <div className="w-8 h-[2px] bg-[#CF0D0D] rounded-full" />
-                </div>
-                <p className="text-sm text-[#475479] font-medium">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Informations légales — blanc */}
-      <section className="py-16 lg:py-20 bg-white">
-        <div className="max-w-[1000px] mx-auto px-5 lg:px-10">
-          <div className="flex items-center gap-3 mb-8">
-            <FileText className="w-5 h-5 text-[#CF0D0D]" />
-            <h2 className="font-archivo font-bold text-[clamp(20px,2.4vw,28px)] text-[#0A090E]">{en ? 'Company information' : "Informations sur l'entreprise"}</h2>
-          </div>
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5">
-            {legal.map((item) => (
-              <div key={item.label} className="border-b border-[#E7EBF2] pb-4">
-                <dt className="font-mono text-xs uppercase tracking-[0.08em] text-[#475479]">{item.label}</dt>
-                <dd className="font-archivo font-semibold text-[15px] text-[#0A090E] mt-1">{item.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
       {/* CTA — gris */}
       <section className="py-16 lg:py-20 bg-[#F6F2F2]">
         <div className="max-w-[800px] mx-auto px-5 lg:px-10 text-center">
@@ -182,6 +131,11 @@ export default function AProposPage() {
               {t('nav.contactBtn')} <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
+          <p className="mt-6 text-sm text-[#475479]">
+            <Link to="/mentions-legales" className="underline underline-offset-2 hover:text-[#CF0D0D] transition-colors">
+              {en ? 'View legal notices (RCCM, IFU, registered office)' : 'Voir les mentions légales (RCCM, IFU, siège social)'}
+            </Link>
+          </p>
         </div>
       </section>
     </>
