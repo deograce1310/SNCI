@@ -9,6 +9,8 @@ export interface Service {
   icon: LucideIcon;
   title: string;
   title_en: string;
+  shortDesc: string;
+  shortDesc_en: string;
   image: string;
   desc: string;
   desc_en: string;
@@ -18,6 +20,8 @@ export const services: Service[] = [
   {
     slug: 'soudure', icon: Flame,
     title: 'Soudure Industrielle', title_en: 'Industrial Welding',
+    shortDesc: 'Assemblage de pièces métalliques par fusion (TIG, MIG-MAG, arc) sur acier, inox et aluminium.',
+    shortDesc_en: 'Metal parts joined by fusion (TIG, MIG-MAG, arc) on steel, stainless steel and aluminium.',
     image: '/images/gallery/soudure-pro.jpg',
     desc: 'Assemblage permanent de pièces métalliques par fusion localisée avec ou sans métal d\'apport. Techniques TIG, MIG-MAG, arc électrique et soudure sur acier, inox et aluminium.',
     desc_en: 'Permanent assembly of metal parts by localized fusion with or without filler metal. TIG, MIG-MAG, arc welding techniques on steel, stainless steel and aluminum.',
@@ -25,6 +29,8 @@ export const services: Service[] = [
   {
     slug: 'chaudronnerie', icon: Cylinder,
     title: 'Chaudronnerie', title_en: 'Boilermaking',
+    shortDesc: 'Fabrication et réparation de réservoirs, citernes et appareils sous pression sur mesure.',
+    shortDesc_en: 'Custom manufacture and repair of tanks, cisterns and pressure vessels.',
     image: '/images/gallery/cuve-rouge.jpg',
     desc: 'Fabrication, assemblage et réparation de réservoirs, citernes, appareils sous pression et ouvrages chaudronnés sur mesure selon les normes industrielles.',
     desc_en: 'Manufacturing, assembly and repair of tanks, cisterns, pressure vessels and custom boilermade works according to industrial standards.',
@@ -32,6 +38,8 @@ export const services: Service[] = [
   {
     slug: 'tuyauterie', icon: Waypoints,
     title: 'Tuyauterie', title_en: 'Piping',
+    shortDesc: 'Pose et maintenance de réseaux de tuyauterie pour fluides, hydrocarbures et gaz.',
+    shortDesc_en: 'Installation and maintenance of piping networks for fluids, hydrocarbons and gas.',
     image: '/images/gallery/tuyauterie-site.jpg',
     desc: 'Pose, assemblage et maintenance de réseaux de tuyauterie pour fluides industriels, hydrocarbures et gaz. Étude, traçage et installation complète des lignes de process.',
     desc_en: 'Installation, assembly and maintenance of piping networks for industrial fluids, hydrocarbons and gases. Study, tracing and complete installation of process lines.',
@@ -39,6 +47,8 @@ export const services: Service[] = [
   {
     slug: 'charpentes', icon: Building2,
     title: 'Construction des Charpentes métalliques', title_en: 'Construction of Metal Frames',
+    shortDesc: 'Conception et montage de structures métalliques porteuses pour bâtiments et infrastructures.',
+    shortDesc_en: 'Design and assembly of load-bearing steel structures for buildings and infrastructure.',
     image: '/images/gallery/charpentes-soudure.jpg',
     desc: 'Conception et réalisation de structures métalliques porteuses pour bâtiments industriels, hangars, passerelles et infrastructures lourdes.',
     desc_en: 'Design and construction of load-bearing metal structures for industrial buildings, hangars, walkways and heavy infrastructure.',
@@ -46,6 +56,8 @@ export const services: Service[] = [
   {
     slug: 'echafaudages', icon: Construction,
     title: 'Échafaudages', title_en: 'Scaffolding',
+    shortDesc: 'Montage et démontage d\'échafaudages conformes pour les travaux en hauteur.',
+    shortDesc_en: 'Assembly and dismantling of compliant scaffolding for work at height.',
     image: '/images/prestations/echafaudages.jpg',
     desc: 'Montage et démontage d\'échafaudages industriels conformes aux normes de sécurité pour les travaux en hauteur, en milieu confiné et sur structures complexes.',
     desc_en: 'Assembly and dismantling of industrial scaffolding compliant with safety standards for work at height, in confined spaces and on complex structures.',
@@ -53,6 +65,8 @@ export const services: Service[] = [
   {
     slug: 'sablage', icon: SprayCan,
     title: 'Sablage', title_en: 'Sandblasting',
+    shortDesc: 'Préparation de surfaces par projection d\'abrasifs avant traitement anticorrosion.',
+    shortDesc_en: 'Surface preparation by abrasive blasting before anti-corrosion treatment.',
     image: '/images/prestations/sablage.jpg',
     desc: 'Préparation de surfaces par projection d\'abrasifs pour éliminer la rouille, les salissures et les anciennes peintures en vue d\'un traitement de protection anticorrosion.',
     desc_en: 'Surface preparation by abrasive blasting to remove rust, dirt and old paint for anti-corrosion protection treatment.',
@@ -60,6 +74,8 @@ export const services: Service[] = [
   {
     slug: 'bardages', icon: Layers,
     title: 'Bardages de Toitures', title_en: 'Roof Cladding',
+    shortDesc: 'Pose de couvertures et bardages métalliques pour bâtiments et hangars.',
+    shortDesc_en: 'Installation of metal roofing and cladding for buildings and warehouses.',
     image: '/images/gallery/charpente-verriere.jpg',
     desc: 'Installation de couvertures et bardages métalliques pour la protection et l\'étanchéité des bâtiments industriels, hangars et structures.',
     desc_en: 'Installation of metal roofing and cladding for the protection and waterproofing of industrial buildings, hangars and structures.',
@@ -67,6 +83,8 @@ export const services: Service[] = [
   {
     slug: 'constructions', icon: Factory,
     title: 'Constructions et maintenances d\'usine', title_en: 'Factory construction and maintenance',
+    shortDesc: 'Construction et maintenance de bâtiments et installations industriels.',
+    shortDesc_en: 'Construction and maintenance of industrial buildings and installations.',
     image: '/images/gallery/usine-construction.jpg',
     desc: 'Construction de bâtiments industriels, fondations, dalles, infrastructure et aménagement de sites. Maintenance préventive et curative des installations industrielles.',
     desc_en: 'Construction of industrial buildings, foundations, slabs, infrastructure and site development. Preventive and corrective maintenance of industrial installations.',
@@ -74,6 +92,8 @@ export const services: Service[] = [
   {
     slug: 'consommables', icon: Package,
     title: 'Fourniture de consommables et matériels industriels', title_en: 'Supply of consumables and industrial equipment',
+    shortDesc: 'Approvisionnement en consommables, EPI, outillage et fournitures techniques.',
+    shortDesc_en: 'Supply of consumables, PPE, tooling and technical supplies.',
     image: '/images/gallery/consommables-epi.jpg',
     desc: 'Approvisionnement en matériaux, consommables, équipements de protection individuelle, outillage et fournitures techniques pour l\'industrie et la construction.',
     desc_en: 'Procurement of materials, consumables, personal protective equipment, tools and technical supplies for industry and construction.',
@@ -81,6 +101,8 @@ export const services: Service[] = [
   {
     slug: 'usinage', icon: Cog,
     title: 'Usinage des pièces', title_en: 'Machining of parts',
+    shortDesc: 'Fabrication de pièces mécaniques sur mesure, usinage conventionnel et CNC.',
+    shortDesc_en: 'Custom mechanical parts, conventional and CNC machining.',
     image: '/images/gallery/rouleuse-tolerie.jpg',
     desc: 'Fabrication de pièces mécaniques par enlèvement de matière. Usinage conventionnel et à commande numérique pour la réalisation de pièces sur mesure et de précision.',
     desc_en: 'Manufacturing of mechanical parts by material removal. Conventional and CNC machining for the production of custom and precision parts.',
@@ -88,6 +110,8 @@ export const services: Service[] = [
   {
     slug: 'personnel', icon: Users,
     title: 'Mise à disposition de personnels industriels qualifiés et professionnels', title_en: 'Provision of qualified and professional industrial personnel',
+    shortDesc: 'Personnel qualifié mis à disposition pour vos chantiers, onshore et offshore.',
+    shortDesc_en: 'Qualified personnel provided for your worksites, onshore and offshore.',
     image: '/images/prestations/personnel.jpg',
     desc: 'Placement de personnel qualifié et professionnel : soudeurs, chaudronniers, tuyauteurs, monteurs, échafaudeurs et autres corps de métier pour vos chantiers.',
     desc_en: 'Placement of qualified and professional personnel: welders, boilermakers, pipe fitters, assemblers, scaffolders and other trades for your worksites.',
@@ -95,11 +119,17 @@ export const services: Service[] = [
   {
     slug: 'onshore-offshore', icon: Anchor,
     title: 'Prestations de services onshore et offshore', title_en: 'Onshore and offshore services',
+    shortDesc: 'Interventions industrielles sur installations terrestres et en mer.',
+    shortDesc_en: 'Industrial interventions on onshore and offshore installations.',
     image: '/images/prestations/onshore-offshore.jpg',
     desc: 'Interventions industrielles sur installations terrestres (onshore) et en mer (offshore). Personnel qualifié pour les environnements les plus exigeants.',
     desc_en: 'Industrial interventions on onshore and offshore installations. Qualified personnel for the most demanding environments.',
   },
 ];
+
+// Récupère une prestation par son slug (utilisé par la fiche détail).
+export const getService = (slug: string): Service | undefined =>
+  services.find((s) => s.slug === slug);
 
 // === CORPS DE METIER EXACTS DU DOCUMENT ===
 export interface JobFamily {
