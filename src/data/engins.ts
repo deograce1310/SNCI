@@ -97,7 +97,7 @@ export const engins: Engin[] = [
     category_en: 'Earthworks',
     shortDesc: 'Engin de chargement puissant pour reprendre et déplacer de gros volumes de matériaux en vrac.',
     shortDesc_en: 'Powerful loading machine to pick up and move large volumes of bulk material.',
-    desc: 'Chargeuse sur pneus dédiée à la reprise et au déplacement de matériaux en vrac (terre, sable, gravier, agrégats). Son godet de grande capacité et sa mobilité en font un engin clé pour le chargement de camions et l\'approvisionnement des chantiers.',
+    desc: 'Chargeuse sur pneus dédiée à la reprise et au déplacement de matériaux en vrac (terre, sable, gravier, agrégats). Son godet de grande capacité et sa mobilité en font un équipement clé pour le chargement de camions et l\'approvisionnement des chantiers.',
     desc_en: 'Wheel loader dedicated to picking up and moving bulk materials (soil, sand, gravel, aggregates). Its high-capacity bucket and mobility make it a key machine for loading trucks and supplying worksites.',
     uses: ['Reprise de matériaux en vrac', 'Chargement de camions', 'Approvisionnement de chantier'],
     uses_en: ['Handling bulk materials', 'Truck loading', 'Worksite supply'],

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
 import Reveal from '../components/Reveal';
-import WhatsAppIcon from '../components/icons/WhatsAppIcon';
+import WhatsAppCTA from '../components/WhatsAppCTA';
 import { engins } from '../data/engins';
 import { company } from '../data/company';
 
@@ -11,7 +11,7 @@ export default function EnginsPage() {
   const en = i18n.language === 'en';
 
   const generalWhatsappHref = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
-    en ? 'Hello SNCI, I would like information about the equipment you have for sale.' : 'Bonjour SNCI, je souhaite des informations sur les engins que vous proposez à la vente.'
+    en ? 'Hello SNCI, I would like information about the equipment you offer for rental and sale.' : 'Bonjour SNCI, je souhaite des informations sur les équipements que vous proposez à la location et à la vente.'
   )}`;
 
   return (
@@ -24,13 +24,13 @@ export default function EnginsPage() {
               <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
               <div className="w-5 h-[2px] bg-[#CF0D0D] rounded-full" />
             </div>
-            <span className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-[#CF0D0D]">{en ? 'EQUIPMENT FOR SALE' : 'VENTE D\'ENGINS'}</span>
+            <span className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-[#CF0D0D]">{en ? 'EQUIPMENT RENTAL & SALE' : 'LOCATION ET VENTE D\'ÉQUIPEMENTS'}</span>
           </div>
-          <h1 className="font-archivo font-bold text-[clamp(32px,4vw,48px)] text-[#0A090E]">{en ? 'Equipment for sale' : 'Vente d\'engins'}</h1>
+          <h1 className="font-archivo font-bold text-[clamp(32px,4vw,48px)] text-[#0A090E]">{en ? 'Equipment rental & sale' : 'Location et vente d\'équipements'}</h1>
           <p className="text-lg text-[#475479] mt-4 max-w-2xl">
             {en
-              ? 'SNCI offers for sale a range of machines for access at height and earthworks. Open a listing, then contact us on WhatsApp for the price, technical sheet and availability.'
-              : 'SNCI propose à la vente une gamme d\'engins pour l\'accès en hauteur et le terrassement. Ouvrez une fiche, puis contactez-nous sur WhatsApp pour le prix, la fiche technique et la disponibilité.'}
+              ? 'SNCI offers for rental and sale a range of machines for access at height and earthworks. Open a listing, then contact us on WhatsApp for the price, technical sheet and availability.'
+              : 'SNCI propose à la location et à la vente une gamme d\'équipements pour l\'accès en hauteur et le terrassement. Ouvrez une fiche, puis contactez-nous sur WhatsApp pour le prix, la fiche technique et la disponibilité.'}
           </p>
         </div>
       </section>
@@ -69,21 +69,12 @@ export default function EnginsPage() {
           </div>
 
           {/* CTA global WhatsApp */}
-          <Reveal>
-            <div className="mt-14 text-center">
-              <p className="font-archivo font-semibold text-lg text-[#0A090E]">
-                {en ? 'Looking for a specific machine?' : 'Vous cherchez un engin précis ?'}
-              </p>
-              <p className="text-[#475479] mt-2 mb-6 max-w-md mx-auto">
-                {en ? 'Tell us your need — we reply with availability and pricing.' : 'Dites-nous votre besoin — nous répondons avec la disponibilité et les prix.'}
-              </p>
-              <a href={generalWhatsappHref} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
-                <WhatsAppIcon className="w-5 h-5" />
-                {en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
-              </a>
-            </div>
-          </Reveal>
+          <WhatsAppCTA
+            title={en ? 'Looking for a specific machine?' : 'Vous cherchez un engin précis ?'}
+            subtitle={en ? 'Tell us your need — we reply with availability and pricing.' : 'Dites-nous votre besoin — nous répondons avec la disponibilité et les prix.'}
+            href={generalWhatsappHref}
+            buttonLabel={en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
+          />
         </div>
       </section>
     </>

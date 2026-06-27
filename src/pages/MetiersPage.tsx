@@ -1,19 +1,14 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Factory, Building2, Ship, Zap, MapPin } from 'lucide-react';
 import Reveal from '../components/Reveal';
-import WhatsAppIcon from '../components/icons/WhatsAppIcon';
+import WhatsAppCTA from '../components/WhatsAppCTA';
 import { services } from '../data/services';
 import { company } from '../data/company';
 
 export default function MetiersPage() {
   const { t, i18n } = useTranslation();
   const en = i18n.language === 'en';
-
-  // Lien WhatsApp pré-rempli : le visiteur demande à en savoir plus sur une prestation précise
-  const infoHref = (label: string) =>
-    `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
-      en ? `Hello SNCI, I would like to know more about: ${label}.` : `Bonjour SNCI, je souhaite en savoir plus sur : ${label}.`
-    )}`;
 
   // Lien WhatsApp générique (CTA global sous la grille)
   const generalWhatsappHref = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
@@ -51,42 +46,32 @@ export default function MetiersPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, i) => (
               <Reveal key={service.slug} delay={i * 0.06}>
-                <div className="group bg-white rounded-[12px] overflow-hidden border border-[#E7EBF2] hover:border-[#0A090E]/10 hover:shadow-card transition-all duration-400">
+                <Link to={`/prestations/${service.slug}`}
+                  className="group flex h-full flex-col bg-white rounded-[12px] overflow-hidden border border-[#E7EBF2] hover:border-[#0A090E]/10 hover:shadow-card transition-all duration-400">
                   <div className="aspect-[16/9] overflow-hidden relative">
-                    <img src={service.image} alt={i18n.language === 'en' ? service.title_en : service.title}
+                    <img src={service.image} alt={en ? service.title_en : service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                   </div>
                   <div className="p-6">
                     <h3 className="font-archivo font-bold text-lg text-[#0A090E]">{en ? service.title_en : service.title}</h3>
-                    <p className="text-sm text-[#475479] leading-relaxed mt-3">{en ? service.desc_en : service.desc}</p>
-                    <a href={infoHref(en ? service.title_en : service.title)} target="_blank" rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 font-archivo font-semibold text-sm text-[#25D366] hover:text-[#1Fb855] transition-colors group/cta">
-                      <WhatsAppIcon className="w-4 h-4" />
+                    <p className="text-sm text-[#475479] leading-relaxed mt-3">{en ? service.shortDesc_en : service.shortDesc}</p>
+                    <span className="mt-4 inline-flex items-center gap-2 font-archivo font-semibold text-sm text-[#CF0D0D] group/cta">
                       {en ? 'Learn more' : 'En savoir plus'}
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover/cta:translate-x-1" />
-                    </a>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </span>
                   </div>
-                </div>
+                </Link>
               </Reveal>
             ))}
           </div>
 
           {/* CTA global WhatsApp sous la grille */}
-          <Reveal>
-            <div className="mt-14 text-center">
-              <p className="font-archivo font-semibold text-lg text-[#0A090E]">
-                {en ? 'Interested in one of our services?' : 'Une prestation vous intéresse ?'}
-              </p>
-              <p className="text-[#475479] mt-2 mb-6 max-w-md mx-auto">
-                {en ? 'Tell us about your project — we usually reply within the hour.' : 'Parlez-nous de votre projet — nous répondons généralement dans l\'heure.'}
-              </p>
-              <a href={generalWhatsappHref} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:brightness-95 text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
-                <WhatsAppIcon className="w-5 h-5" />
-                {en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
-              </a>
-            </div>
-          </Reveal>
+          <WhatsAppCTA
+            title={en ? 'Interested in one of our services?' : 'Une prestation vous intéresse ?'}
+            subtitle={en ? 'Tell us about your project — we usually reply within the hour.' : 'Parlez-nous de votre projet — nous répondons généralement dans l\'heure.'}
+            href={generalWhatsappHref}
+            buttonLabel={en ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp'}
+          />
         </div>
       </section>
 

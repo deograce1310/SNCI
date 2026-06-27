@@ -179,14 +179,14 @@ export default function HomePage() {
             title={i18n.language === 'en' ? 'A complete industrial partner' : 'Un partenaire industriel complet'}
             subtitle={i18n.language === 'en'
               ? 'From carrying out your work to supplying the equipment, SNCI covers all your industrial needs — services and machines, with a single point of contact.'
-              : "De la réalisation de vos travaux à la fourniture du matériel, SNCI couvre l'ensemble de vos besoins industriels — prestations et engins, avec un seul interlocuteur."}
+              : "De la réalisation de vos travaux à la fourniture du matériel, SNCI couvre l'ensemble de vos besoins industriels — prestations et équipements, avec un seul interlocuteur."}
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Volet 1 — Prestations */}
             <Reveal>
               <Link to="/prestations" className="group flex h-full flex-col bg-white rounded-[14px] overflow-hidden border border-[#E7EBF2] hover:border-[#0A090E]/10 hover:shadow-card transition-all duration-400">
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <img src="/images/metiers/soudeurs.jpg" alt={i18n.language === 'en' ? 'Industrial services' : 'Prestations industrielles'}
+                  <img src="/images/gallery/soudure-reservoir.jpg" alt={i18n.language === 'en' ? 'Industrial services' : 'Prestations industrielles'}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/40 to-transparent" />
                   <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#0A090E] font-mono text-[10px] font-medium uppercase tracking-[0.12em] px-2.5 py-1 rounded-full">{i18n.language === 'en' ? 'Services' : 'Services'}</span>
@@ -209,18 +209,18 @@ export default function HomePage() {
                 </div>
               </Link>
             </Reveal>
-            {/* Volet 2 — Vente d'engins */}
+            {/* Volet 2 — Location et vente d'équipements */}
             <Reveal delay={0.1}>
               <Link to="/engins" className="group flex h-full flex-col bg-white rounded-[14px] overflow-hidden border border-[#E7EBF2] hover:border-[#0A090E]/10 hover:shadow-card transition-all duration-400">
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <img src="/images/engins/tractopelle/1.jpg" alt={i18n.language === 'en' ? 'Equipment for sale' : "Vente d'engins"}
+                  <img src="/images/engins/tractopelle/1.jpg" alt={i18n.language === 'en' ? 'Equipment rental & sale' : "Location et vente d'équipements"}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/40 to-transparent" />
                   <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#0A090E] font-mono text-[10px] font-medium uppercase tracking-[0.12em] px-2.5 py-1 rounded-full">{i18n.language === 'en' ? 'Equipment' : 'Matériel'}</span>
                 </div>
                 <div className="flex flex-1 flex-col p-6 lg:p-7">
-                  <h3 className="font-archivo font-bold text-xl text-[#0A090E]">{i18n.language === 'en' ? 'Equipment for sale' : "Vente d'engins"}</h3>
-                  <p className="text-sm text-[#475479] leading-relaxed mt-2">{i18n.language === 'en' ? 'Access-at-height and earthmoving machines, offered for sale.' : "Engins d'accès en hauteur et de terrassement, proposés à la vente."}</p>
+                  <h3 className="font-archivo font-bold text-xl text-[#0A090E]">{i18n.language === 'en' ? 'Equipment rental & sale' : "Location et vente d'équipements"}</h3>
+                  <p className="text-sm text-[#475479] leading-relaxed mt-2">{i18n.language === 'en' ? 'Access-at-height and earthmoving machines, offered for rental and sale.' : "Équipements d'accès en hauteur et de terrassement, proposés à la location et à la vente."}</p>
                   <ul className="flex flex-wrap gap-2 mt-4">
                     {(i18n.language === 'en'
                       ? ['Articulating boom lifts', 'Scissor lifts', 'Truck-mounted platform', 'Backhoe loaders', 'Wheel loaders']
@@ -230,7 +230,7 @@ export default function HomePage() {
                     ))}
                   </ul>
                   <span className="mt-auto pt-5 inline-flex items-center gap-2 font-archivo font-semibold text-sm text-[#CF0D0D] group/cta">
-                    {i18n.language === 'en' ? 'See equipment for sale' : "Voir les engins à vendre"}
+                    {i18n.language === 'en' ? 'See equipment for rental & sale' : "Voir les équipements à louer et à vendre"}
                     <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
@@ -286,9 +286,11 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/equipe" className="mt-8 inline-flex items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
-                  {t('equipe.corpsMetier')} <ChevronRight className="w-4 h-4" />
-                </Link>
+                <div className="mt-8 flex justify-center">
+                  <Link to="/equipe" className="inline-flex w-full sm:w-auto justify-center items-center gap-2 bg-[#2830B3] hover:bg-[#1E2699] text-white font-archivo font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-[10px] transition-all hover:shadow-lg">
+                    {t('equipe.corpsMetier')} <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -373,6 +375,7 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+
     </>
   );
 }
