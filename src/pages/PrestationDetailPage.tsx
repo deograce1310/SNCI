@@ -1,6 +1,6 @@
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ChevronRight, Check } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import WhatsAppIcon from '../components/icons/WhatsAppIcon';
 import { getService, services } from '../data/services';
@@ -17,6 +17,8 @@ export default function PrestationDetailPage() {
   const Icon = service.icon;
   const title = en ? service.title_en : service.title;
   const desc = en ? service.desc_en : service.desc;
+  const details = en ? service.details_en : service.details;
+  const points = en ? service.points_en : service.points;
 
   const whatsappHref = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
     en ? `Hello SNCI, I would like to know more about: ${service.title_en}.` : `Bonjour SNCI, je souhaite en savoir plus sur : ${service.title}.`
@@ -52,6 +54,19 @@ export default function PrestationDetailPage() {
                 </span>
                 <h1 className="font-archivo font-bold text-[clamp(26px,3.5vw,40px)] text-[#0A090E] mt-4 leading-tight">{title}</h1>
                 <p className="text-[#475479] leading-relaxed mt-4">{desc}</p>
+                <p className="text-[#475479] leading-relaxed mt-3">{details}</p>
+
+                <h2 className="font-archivo font-bold text-base text-[#0A090E] mt-6 mb-3">{en ? 'What we deliver' : 'Ce que nous réalisons'}</h2>
+                <ul className="space-y-3">
+                  {points.map((point) => (
+                    <li key={point} className="flex items-start gap-3">
+                      <span className="w-5 h-5 rounded-full bg-[#CF0D0D]/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-[#CF0D0D]" />
+                      </span>
+                      <span className="text-[#0A090E] text-[15px]">{point}</span>
+                    </li>
+                  ))}
+                </ul>
 
                 {/* CTA WhatsApp */}
                 <div className="mt-8 p-6 rounded-[14px] bg-white border border-[#E7EBF2]">
