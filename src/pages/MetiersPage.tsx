@@ -43,12 +43,12 @@ export default function MetiersPage() {
       {/* Grid — blanc */}
       <section className="py-16 lg:py-20 bg-white">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, i) => (
               <Reveal key={service.slug} delay={i * 0.06}>
                 <Link to={`/prestations/${service.slug}`}
                   className="group flex h-full flex-col bg-white rounded-[12px] overflow-hidden border border-[#E7EBF2] hover:border-[#0A090E]/10 hover:shadow-card transition-all duration-400">
-                  <div className="aspect-[16/9] overflow-hidden relative">
+                  <div className="aspect-[4/3] overflow-hidden relative bg-[#F6F2F2]">
                     <img src={service.image} alt={en ? service.title_en : service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                   </div>
