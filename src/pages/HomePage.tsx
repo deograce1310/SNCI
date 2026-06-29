@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
+import { usePageMeta } from '../hooks/usePageMeta';
 import {
   MessageSquare, UserCheck, Truck, ClipboardCheck,
   ChevronRight, BadgeCheck, ShieldCheck, Clock
@@ -49,29 +50,35 @@ function SectionTitle({
 function useCountUp(end: number, duration = 2000) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const rafRef = useRef<number>(0);
+  const hasAnimated = useRef(false);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
           const startTime = performance.now();
           const animate = (currentTime: number) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
             setCount(Math.round(eased * end));
-            if (progress < 1) requestAnimationFrame(animate);
+            if (progress < 1) rafRef.current = requestAnimationFrame(animate);
           };
-          requestAnimationFrame(animate);
+          rafRef.current = requestAnimationFrame(animate);
           observer.disconnect();
         }
       },
       { threshold: 0.3 }
     );
     if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [end, duration, hasAnimated]);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, [end, duration]);
+
   return { count, ref };
 }
 
@@ -101,6 +108,18 @@ const steps = [
 /* ─── PAGE ─── */
 export default function HomePage() {
   const { t, i18n } = useTranslation();
+  const en = i18n.language === 'en';
+
+  usePageMeta({
+    title: en
+      ? 'SNCI — Industrial Welding, Boilermaking & Maintenance'
+      : 'SNCI — Soudure, Chaudronnerie & Maintenance industrielle',
+    description: en
+      ? 'SNCI (Société des Nouvelles Constructions Industrielles): industrial welding, boilermaking, piping, metal frames, scaffolding, sandblasting and certified personnel. Onshore and offshore across West Africa.'
+      : "SNCI (Société des Nouvelles Constructions Industrielles) : soudure industrielle, chaudronnerie, tuyauterie, charpentes métalliques, échafaudages, sablage et personnel qualifié et certifié. Interventions onshore et offshore en Afrique de l'Ouest.",
+    canonical: '/',
+    lang: en ? 'en' : 'fr',
+  });
 
   return (
     <>
@@ -108,7 +127,7 @@ export default function HomePage() {
       <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#0A090E]">
         {/* Image de fond + voile sombre */}
         <div className="absolute inset-0">
-          <img src="/images/hero-main.jpg" alt="Chantier industriel SNCI" className="h-full w-full object-cover" />
+          <img src="/images/hero-main.jpg" alt="Chantier industriel SNCI" className="h-full w-full object-cover" fetchPriority="high" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A090E]/75 via-[#0A090E]/50 to-[#0A090E]/85" />
         </div>
 
@@ -255,7 +274,7 @@ export default function HomePage() {
       {/* ═══ ÉQUIPE (humain) — BLANC ═══ */}
       <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
         <div className="absolute right-[-5%] bottom-[-10%] w-[45%] opacity-[0.03] pointer-events-none">
-          <img src="/images/gear-watermark.png" alt="" className="w-full" />
+          <img src="/images/gear-watermark.png" alt="" aria-hidden="true" className="w-full" />
         </div>
         <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
@@ -314,7 +333,7 @@ export default function HomePage() {
       {/* ═══ PARCOURS CLIENT — BLANC ═══ */}
       <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
         <div className="absolute -left-[10%] top-[5%] w-[40%] opacity-[0.03] pointer-events-none">
-          <img src="/images/gear-watermark.png" alt="" className="w-full" />
+          <img src="/images/gear-watermark.png" alt="" aria-hidden="true" className="w-full" />
         </div>
         <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
           <SectionTitle eyebrow={i18n.language === 'en' ? 'PROCESS' : 'PROCESSUS'} title={i18n.language === 'en' ? 'How we work' : 'Comment nous travaillons'} />

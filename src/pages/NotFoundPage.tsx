@@ -1,10 +1,21 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Home, ArrowRight } from 'lucide-react';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function NotFoundPage() {
   const { t, i18n } = useTranslation();
   const en = i18n.language === 'en';
+
+  usePageMeta({
+    title: en ? 'Page Not Found — SNCI' : 'Page introuvable — SNCI',
+    description: en
+      ? 'The page you are looking for does not exist. Return to the SNCI homepage.'
+      : "La page que vous recherchez est introuvable. Retournez à l'accueil de SNCI.",
+    canonical: '/',
+    lang: en ? 'en' : 'fr',
+    noindex: true,
+  });
 
   return (
     <section className="min-h-[70vh] flex items-center justify-center bg-white pt-32 lg:pt-40 pb-20">

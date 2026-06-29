@@ -5,10 +5,22 @@ import Reveal from '../components/Reveal';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import { engins } from '../data/engins';
 import { company } from '../data/company';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function EnginsPage() {
   const { i18n } = useTranslation();
   const en = i18n.language === 'en';
+
+  usePageMeta({
+    title: en
+      ? "Equipment Rental & Sale — SNCI"
+      : "Location & Vente d'Équipements industriels — SNCI",
+    description: en
+      ? 'SNCI offers for rental and sale: articulating boom lifts, scissor lifts, truck-mounted platforms, backhoe loaders and wheel loaders. Available across West Africa.'
+      : 'SNCI propose à la location et à la vente : nacelles articulées, nacelles à ciseaux, nacelles sur camion, tractopelle et chargeuse sur pneus. Disponibles en Afrique de l\'Ouest.',
+    canonical: '/engins',
+    lang: en ? 'en' : 'fr',
+  });
 
   const generalWhatsappHref = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(
     en ? 'Hello SNCI, I would like information about the equipment you offer for rental and sale.' : 'Bonjour SNCI, je souhaite des informations sur les équipements que vous proposez à la location et à la vente.'

@@ -6,6 +6,7 @@ import Reveal from '../components/Reveal';
 import WhatsAppIcon from '../components/icons/WhatsAppIcon';
 import { getEngin, engins } from '../data/engins';
 import { company } from '../data/company';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function EnginDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -13,6 +14,20 @@ export default function EnginDetailPage() {
   const en = i18n.language === 'en';
   const engin = slug ? getEngin(slug) : undefined;
   const [active, setActive] = useState(0);
+
+  const pageTitle = engin
+    ? `${en ? engin.title_en : engin.title} — Location & Vente — SNCI`
+    : 'SNCI';
+  const pageDesc = engin
+    ? (en ? engin.desc_en : engin.desc).slice(0, 155)
+    : '';
+
+  usePageMeta({
+    title: pageTitle,
+    description: pageDesc,
+    canonical: slug ? `/engins/${slug}` : '/engins',
+    lang: en ? 'en' : 'fr',
+  });
 
   if (!engin) return <Navigate to="/engins" replace />;
 

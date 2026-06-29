@@ -3,10 +3,20 @@ import { Link } from 'react-router-dom';
 import { Layers, Users, Globe2 } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import { jobFamilies, jobCategories } from '../data/services';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function EquipePage() {
   const { t, i18n } = useTranslation();
   const en = i18n.language === 'en';
+
+  usePageMeta({
+    title: en ? 'Our Industrial Personnel — SNCI' : 'Notre Personnel industriel — SNCI',
+    description: en
+      ? 'SNCI provides qualified industrial personnel: welders, boilermakers, pipe fitters, scaffolders, sandblasters, painters and more. Available onshore and offshore across West Africa.'
+      : 'SNCI met à disposition du personnel industriel qualifié : soudeurs, chaudronniers, tuyauteurs, échafaudeurs, sableurs, peintres et bien plus. Disponible onshore et offshore en Afrique de l\'Ouest.',
+    canonical: '/equipe',
+    lang: en ? 'en' : 'fr',
+  });
 
   const stats = [
     { icon: Layers, value: `${jobCategories.length}`, label: en ? 'Trades available' : 'Corps de métier' },
