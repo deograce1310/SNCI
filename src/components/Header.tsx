@@ -50,6 +50,7 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <Link key={item.path} to={item.path}
+                aria-current={isActive(item.path) ? 'page' : undefined}
                 className={`relative whitespace-nowrap px-4 py-2 text-sm font-inter font-medium transition-colors rounded-lg ${
                   isActive(item.path)
                     ? 'text-[#CF0D0D]'
@@ -91,6 +92,7 @@ export default function Header() {
             <nav className="flex flex-col p-3">
               {navItems.map((item) => (
                 <Link key={item.path} to={item.path}
+                  aria-current={isActive(item.path) ? 'page' : undefined}
                   className={`flex items-center px-5 py-3.5 text-base font-archivo font-semibold rounded-xl transition-colors ${
                     isActive(item.path) ? 'text-[#CF0D0D] bg-[#F8F8FA]' : 'text-[#0A090E] hover:bg-[#F8F8FA] hover:text-[#CF0D0D]'
                   }`}>

@@ -274,7 +274,7 @@ export default function HomePage() {
       {/* ═══ ÉQUIPE (humain) — BLANC ═══ */}
       <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
         <div className="absolute right-[-5%] bottom-[-10%] w-[45%] opacity-[0.03] pointer-events-none">
-          <img src="/images/gear-watermark.png" alt="" className="w-full" />
+          <img src="/images/gear-watermark.png" alt="" aria-hidden="true" className="w-full" />
         </div>
         <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
@@ -333,7 +333,7 @@ export default function HomePage() {
       {/* ═══ PARCOURS CLIENT — BLANC ═══ */}
       <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
         <div className="absolute -left-[10%] top-[5%] w-[40%] opacity-[0.03] pointer-events-none">
-          <img src="/images/gear-watermark.png" alt="" className="w-full" />
+          <img src="/images/gear-watermark.png" alt="" aria-hidden="true" className="w-full" />
         </div>
         <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
           <SectionTitle eyebrow={i18n.language === 'en' ? 'PROCESS' : 'PROCESSUS'} title={i18n.language === 'en' ? 'How we work' : 'Comment nous travaillons'} />
