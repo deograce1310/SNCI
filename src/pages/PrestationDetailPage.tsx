@@ -5,12 +5,27 @@ import Reveal from '../components/Reveal';
 import WhatsAppIcon from '../components/icons/WhatsAppIcon';
 import { getService, services } from '../data/services';
 import { company } from '../data/company';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function PrestationDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const { i18n } = useTranslation();
   const en = i18n.language === 'en';
   const service = slug ? getService(slug) : undefined;
+
+  const pageTitle = service
+    ? `${en ? service.title_en : service.title} — SNCI`
+    : 'SNCI';
+  const pageDesc = service
+    ? (en ? service.desc_en : service.desc).slice(0, 155)
+    : '';
+
+  usePageMeta({
+    title: pageTitle,
+    description: pageDesc,
+    canonical: `/prestations/${slug ?? ''}`,
+    lang: en ? 'en' : 'fr',
+  });
 
   if (!service) return <Navigate to="/prestations" replace />;
 

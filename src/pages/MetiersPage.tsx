@@ -5,10 +5,22 @@ import Reveal from '../components/Reveal';
 import WhatsAppCTA from '../components/WhatsAppCTA';
 import { services } from '../data/services';
 import { company } from '../data/company';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function MetiersPage() {
   const { t, i18n } = useTranslation();
   const en = i18n.language === 'en';
+
+  usePageMeta({
+    title: en
+      ? 'Our Industrial Services — SNCI'
+      : 'Nos Prestations industrielles — SNCI',
+    description: en
+      ? 'Discover all SNCI services: welding, boilermaking, piping, metal frames, scaffolding, sandblasting, factory maintenance, industrial personnel and more. Onshore & offshore.'
+      : "Découvrez toutes les prestations SNCI : soudure, chaudronnerie, tuyauterie, charpentes, échafaudages, sablage, maintenance d'usine, personnel industriel et bien plus. Onshore & offshore.",
+    canonical: '/prestations',
+    lang: en ? 'en' : 'fr',
+  });
 
   // Lien WhatsApp générique (CTA global sous la grille)
   const generalWhatsappHref = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(

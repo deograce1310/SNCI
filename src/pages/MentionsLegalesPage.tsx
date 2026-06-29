@@ -1,9 +1,19 @@
 import { useTranslation } from 'react-i18next';
 import { company, telHref } from '../data/company';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function MentionsLegalesPage() {
   const { i18n } = useTranslation();
   const en = i18n.language === 'en';
+
+  usePageMeta({
+    title: en ? 'Legal Notices — SNCI' : 'Mentions légales — SNCI',
+    description: en
+      ? 'Legal notices and legal information of SNCI SARL, Société des Nouvelles Constructions Industrielles, Cotonou, Benin.'
+      : 'Mentions légales et informations juridiques de SNCI SARL, Société des Nouvelles Constructions Industrielles, Cotonou, Bénin.',
+    canonical: '/mentions-legales',
+    lang: en ? 'en' : 'fr',
+  });
 
   return (
     <>

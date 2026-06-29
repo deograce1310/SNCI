@@ -4,10 +4,22 @@ import { Check, Mail, Phone, MapPin, Globe } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import WhatsAppIcon from '../components/icons/WhatsAppIcon';
 import { company, telHref } from '../data/company';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function ContactPage() {
   const { i18n } = useTranslation();
   const en = i18n.language === 'en';
+
+  usePageMeta({
+    title: en
+      ? 'Contact SNCI — Quote Request & Enquiries'
+      : 'Contactez SNCI — Demande de devis & renseignements',
+    description: en
+      ? 'Contact SNCI for a quote, personnel request or information about our industrial services. Available by email, phone and WhatsApp.'
+      : 'Contactez SNCI pour un devis, une demande de personnel ou des renseignements sur nos prestations industrielles. Disponible par email, téléphone et WhatsApp.',
+    canonical: '/contact',
+    lang: en ? 'en' : 'fr',
+  });
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ nom: '', email: '', sujet: '', message: '' });
   const formRef = useRef<HTMLFormElement>(null);

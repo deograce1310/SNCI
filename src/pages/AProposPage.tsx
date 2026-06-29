@@ -4,10 +4,22 @@ import {
   ShieldCheck, Clock, BadgeCheck, Target, ChevronRight,
 } from 'lucide-react';
 import Reveal from '../components/Reveal';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function AProposPage() {
   const { t, i18n } = useTranslation();
   const en = i18n.language === 'en';
+
+  usePageMeta({
+    title: en
+      ? 'About SNCI — Industrial Construction Company'
+      : 'À propos de SNCI — Société des Nouvelles Constructions Industrielles',
+    description: en
+      ? 'SNCI SARL is an industrial company based in Cotonou, Benin, specialising in welding, boilermaking, piping and factory maintenance. A trusted partner across West Africa.'
+      : "SNCI SARL est une société industrielle basée à Cotonou, Bénin, spécialisée en soudure, chaudronnerie, tuyauterie et maintenance d'usine. Partenaire de confiance en Afrique de l'Ouest.",
+    canonical: '/a-propos',
+    lang: en ? 'en' : 'fr',
+  });
 
   const values = [
     {

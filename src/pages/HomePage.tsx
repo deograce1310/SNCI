@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
+import { usePageMeta } from '../hooks/usePageMeta';
 import {
   MessageSquare, UserCheck, Truck, ClipboardCheck,
   ChevronRight, BadgeCheck, ShieldCheck, Clock
@@ -101,6 +102,18 @@ const steps = [
 /* ─── PAGE ─── */
 export default function HomePage() {
   const { t, i18n } = useTranslation();
+  const en = i18n.language === 'en';
+
+  usePageMeta({
+    title: en
+      ? 'SNCI — Industrial Welding, Boilermaking & Maintenance'
+      : 'SNCI — Soudure, Chaudronnerie & Maintenance industrielle',
+    description: en
+      ? 'SNCI (Société des Nouvelles Constructions Industrielles): industrial welding, boilermaking, piping, metal frames, scaffolding, sandblasting and certified personnel. Onshore and offshore across West Africa.'
+      : "SNCI (Société des Nouvelles Constructions Industrielles) : soudure industrielle, chaudronnerie, tuyauterie, charpentes métalliques, échafaudages, sablage et personnel qualifié et certifié. Interventions onshore et offshore en Afrique de l'Ouest.",
+    canonical: '/',
+    lang: en ? 'en' : 'fr',
+  });
 
   return (
     <>
