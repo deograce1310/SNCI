@@ -7,6 +7,7 @@ interface PageMeta {
   description: string;
   canonical: string;
   lang?: string;
+  noindex?: boolean;
 }
 
 function setMeta(selector: string, attr: string, value: string) {
@@ -14,7 +15,7 @@ function setMeta(selector: string, attr: string, value: string) {
   if (el) el.setAttribute(attr, value);
 }
 
-export function usePageMeta({ title, description, canonical, lang = 'fr' }: PageMeta) {
+export function usePageMeta({ title, description, canonical, lang = 'fr', noindex = false }: PageMeta) {
   useEffect(() => {
     document.title = title;
     document.documentElement.lang = lang;
@@ -22,6 +23,7 @@ export function usePageMeta({ title, description, canonical, lang = 'fr' }: Page
     const url = `${BASE_URL}${canonical}`;
 
     setMeta('meta[name="description"]', 'content', description);
+    setMeta('meta[name="robots"]', 'content', noindex ? 'noindex, nofollow' : 'index, follow');
     setMeta('link[rel="canonical"]', 'href', url);
     setMeta('meta[property="og:title"]', 'content', title);
     setMeta('meta[property="og:description"]', 'content', description);
@@ -29,5 +31,5 @@ export function usePageMeta({ title, description, canonical, lang = 'fr' }: Page
     setMeta('meta[property="og:locale"]', 'content', lang === 'en' ? 'en_US' : 'fr_FR');
     setMeta('meta[name="twitter:title"]', 'content', title);
     setMeta('meta[name="twitter:description"]', 'content', description);
-  }, [title, description, canonical, lang]);
+  }, [title, description, canonical, lang, noindex]);
 }

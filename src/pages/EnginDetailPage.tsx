@@ -25,7 +25,7 @@ export default function EnginDetailPage() {
   usePageMeta({
     title: pageTitle,
     description: pageDesc,
-    canonical: `/engins/${slug ?? ''}`,
+    canonical: slug ? `/engins/${slug}` : '/engins',
     lang: en ? 'en' : 'fr',
   });
 

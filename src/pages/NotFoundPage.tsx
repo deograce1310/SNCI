@@ -14,6 +14,7 @@ export default function NotFoundPage() {
       : "La page que vous recherchez est introuvable. Retournez à l'accueil de SNCI.",
     canonical: '/',
     lang: en ? 'en' : 'fr',
+    noindex: true,
   });
 
   return (

@@ -23,7 +23,7 @@ export default function PrestationDetailPage() {
   usePageMeta({
     title: pageTitle,
     description: pageDesc,
-    canonical: `/prestations/${slug ?? ''}`,
+    canonical: slug ? `/prestations/${slug}` : '/prestations',
     lang: en ? 'en' : 'fr',
   });
 

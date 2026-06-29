@@ -52,6 +52,8 @@ function useCountUp(end: number, duration = 2000) {
   const ref = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
   useEffect(() => {
+    if (hasAnimated) return;
+    let rafId: number;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
@@ -62,16 +64,19 @@ function useCountUp(end: number, duration = 2000) {
             const progress = Math.min(elapsed / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
             setCount(Math.round(eased * end));
-            if (progress < 1) requestAnimationFrame(animate);
+            if (progress < 1) rafId = requestAnimationFrame(animate);
           };
-          requestAnimationFrame(animate);
+          rafId = requestAnimationFrame(animate);
           observer.disconnect();
         }
       },
       { threshold: 0.3 }
     );
     if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(rafId);
+    };
   }, [end, duration, hasAnimated]);
   return { count, ref };
 }
@@ -121,7 +126,7 @@ export default function HomePage() {
       <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#0A090E]">
         {/* Image de fond + voile sombre */}
         <div className="absolute inset-0">
-          <img src="/images/hero-main.jpg" alt="Chantier industriel SNCI" className="h-full w-full object-cover" />
+          <img src="/images/hero-main.jpg" alt="Chantier industriel SNCI" className="h-full w-full object-cover" fetchPriority="high" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A090E]/75 via-[#0A090E]/50 to-[#0A090E]/85" />
         </div>
 

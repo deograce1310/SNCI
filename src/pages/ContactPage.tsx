@@ -156,7 +156,7 @@ export default function ContactPage() {
             </div>
 
             {/* Colonne formulaire */}
-            <div>
+            <div aria-live="polite">
               {submitted ? (
                 <Reveal>
                   <div className="text-center py-12 bg-[#F6F2F2] rounded-[12px] px-6">
