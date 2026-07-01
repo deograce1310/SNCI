@@ -5,8 +5,6 @@ export const company = {
   name: 'SNCI SARL',
   fullName: 'Société des Nouvelles Constructions Industrielles',
   email: 'snciconstructionindustriel@gmail.com',
-  // Ordre d'affichage souhaité : email officiel d'abord, puis l'ancien email
-  emails: ['snciconstructionindustriel@gmail.com', 'sncicom@gmail.com'],
   phones: ['+229 01 62 15 26 35', '+229 01 97 35 14 45'],
   // Numéro WhatsApp (2e numéro) au format international sans espaces ni "+"
   whatsapp: '2290197351445',

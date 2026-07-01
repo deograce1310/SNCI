@@ -98,14 +98,13 @@ export default function ContactPage() {
                 </Reveal>
 
                 <Reveal delay={0.05}>
-                  <a href={`mailto:${company.emails[0]}`} className="group flex items-start gap-4">
+                  <a href={`mailto:${company.email}`} className="group flex items-start gap-4">
                     <div className="w-11 h-11 rounded-lg bg-[#F6F2F2] group-hover:bg-[#2830B3] flex items-center justify-center shrink-0 transition-colors">
                       <Mail className="w-5 h-5 text-[#2830B3] group-hover:text-white transition-colors" />
                     </div>
                     <div className="min-w-0">
                       <p className="text-xs font-medium uppercase tracking-wider text-[#9A9B9C]">Email</p>
-                      <p className="text-[15px] text-[#0A090E] font-medium break-all group-hover:text-[#2830B3] transition-colors">{company.emails[0]}</p>
-                      <p className="text-[15px] text-[#0A090E] font-medium break-all">{company.emails[1]}</p>
+                      <p className="text-[15px] text-[#0A090E] font-medium break-all group-hover:text-[#2830B3] transition-colors">{company.email}</p>
                     </div>
                   </a>
                 </Reveal>
