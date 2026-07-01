@@ -73,7 +73,7 @@ export default function AProposPage() {
         <div className="max-w-[1000px] mx-auto px-5 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-12 items-start">
             <Reveal>
-              <img src="/images/sectors/industrie-btp.jpg" alt={en ? 'SNCI industrial expertise' : 'Savoir-faire industriel SNCI'} className="w-full aspect-[16/10] object-cover rounded-[12px] shadow-lg" loading="lazy" />
+              <img src="/images/sectors/industrie-btp.webp" alt={en ? 'SNCI industrial expertise' : 'Savoir-faire industriel SNCI'} className="w-full aspect-[16/10] object-cover rounded-[12px] shadow-lg" loading="lazy" />
             </Reveal>
             <div>
               <Reveal><p className="text-base text-[#475479] leading-relaxed">{t('apropos.p1')}</p></Reveal>

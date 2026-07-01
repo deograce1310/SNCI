@@ -133,7 +133,7 @@ export default function MetiersPage() {
             <Reveal delay={0.1}>
               <div className="h-full flex flex-col rounded-[12px] overflow-hidden bg-[#1b2540] min-h-[440px]">
                 <div className="relative flex-1">
-                  <img src="/images/sectors/africa-map.jpg" alt={en ? 'Coverage area — West Africa' : "Zone d'intervention — Afrique de l'Ouest"}
+                  <img src="/images/sectors/africa-map.webp" alt={en ? 'Coverage area — West Africa' : "Zone d'intervention — Afrique de l'Ouest"}
                     className="absolute inset-0 w-full h-full object-cover object-[center_38%]" loading="lazy" />
                   <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#1b2540] to-transparent" />
                 </div>
