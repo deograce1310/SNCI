@@ -27,7 +27,7 @@ export default function ContactPage() {
   // Message pré-rempli avec ce que l'utilisateur a saisi
   const buildBody = () =>
     `${en ? 'Name' : 'Nom'}: ${form.nom}\n` +
-    `Email: ${form.email}\n` +
+    (form.email ? `Email: ${form.email}\n` : '') +
     `${en ? 'Subject' : 'Sujet'}: ${form.sujet}\n\n` +
     `${form.message}`;
 
@@ -186,8 +186,10 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 bg-[#F6F2F2] border border-transparent focus:border-[#0A090E] rounded-lg focus:outline-none transition-colors" />
                   </Reveal>
                   <Reveal delay={0.05}>
-                    <label htmlFor="contact-email" className="block text-sm font-medium text-[#0A090E] mb-1.5">Email</label>
-                    <input id="contact-email" name="email" autoComplete="email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-[#0A090E] mb-1.5">
+                      Email <span className="text-[#9A9B9C] font-normal">{en ? '(optional — if you want a reply by email)' : '(facultatif — si vous souhaitez une réponse par email)'}</span>
+                    </label>
+                    <input id="contact-email" name="email" autoComplete="email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
                       className="w-full px-4 py-3 bg-[#F6F2F2] border border-transparent focus:border-[#0A090E] rounded-lg focus:outline-none transition-colors" />
                   </Reveal>
                   <Reveal delay={0.1}>
