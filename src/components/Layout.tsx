@@ -24,7 +24,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
-      <WhatsAppFloat />
+      {location.pathname !== '/contact' && <WhatsAppFloat />}
     </div>
   );
 }

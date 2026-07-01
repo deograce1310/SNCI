@@ -123,18 +123,6 @@ export default function ContactPage() {
                 </Reveal>
 
                 <Reveal delay={0.15}>
-                  <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-lg bg-[#F6F2F2] group-hover:bg-[#25D366] flex items-center justify-center shrink-0 transition-colors">
-                      <WhatsAppIcon className="w-5 h-5 text-[#25D366] group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-[#9A9B9C]">WhatsApp</p>
-                      <p className="text-[15px] text-[#0A090E] font-medium group-hover:text-[#25D366] transition-colors">{en ? 'Chat with us' : 'Discutez avec nous'}</p>
-                    </div>
-                  </a>
-                </Reveal>
-
-                <Reveal delay={0.2}>
                   <a href={company.websiteUrl} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4">
                     <div className="w-11 h-11 rounded-lg bg-[#F6F2F2] group-hover:bg-[#2830B3] flex items-center justify-center shrink-0 transition-colors">
                       <Globe className="w-5 h-5 text-[#2830B3] group-hover:text-white transition-colors" />
@@ -157,6 +145,18 @@ export default function ContactPage() {
 
             {/* Colonne formulaire */}
             <div aria-live="polite">
+              {!submitted && (
+                <Reveal>
+                  <h2 className="font-archivo font-bold text-xl text-[#0A090E] mb-2">
+                    {en ? 'Send us a quick message' : 'Envoyer un message rapide'}
+                  </h2>
+                  <p className="text-sm text-[#475479] mb-6">
+                    {en
+                      ? 'Fill in the form below — it opens WhatsApp with your message ready to send.'
+                      : 'Remplissez le formulaire ci-dessous — il ouvre WhatsApp avec votre message prêt à envoyer.'}
+                  </p>
+                </Reveal>
+              )}
               {submitted ? (
                 <Reveal>
                   <div className="text-center py-12 bg-[#F6F2F2] rounded-[12px] px-6">
