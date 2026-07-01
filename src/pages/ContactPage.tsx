@@ -105,7 +105,7 @@ export default function ContactPage() {
                     <div className="min-w-0">
                       <p className="text-xs font-medium uppercase tracking-wider text-[#9A9B9C]">Email</p>
                       <p className="text-[15px] text-[#0A090E] font-medium break-all group-hover:text-[#2830B3] transition-colors">{company.emails[0]}</p>
-                      <p className="text-[15px] text-[#475479] break-all">{company.emails[1]}</p>
+                      <p className="text-[15px] text-[#0A090E] font-medium break-all">{company.emails[1]}</p>
                     </div>
                   </a>
                 </Reveal>
