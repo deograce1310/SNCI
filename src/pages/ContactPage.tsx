@@ -118,7 +118,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs font-medium uppercase tracking-wider text-[#9A9B9C]">{en ? 'Address' : 'Adresse'}</p>
                       <p className="text-[15px] text-[#0A090E] font-medium">{company.address}</p>
-                      <p className="text-[15px] text-[#475479]">{company.city}, {en ? 'Benin' : company.country}</p>
+                      <p className="text-[15px] text-[#0A090E] font-medium">{company.city}, {en ? 'Benin' : company.country}</p>
                     </div>
                   </div>
                 </Reveal>
