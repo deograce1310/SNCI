@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# SNCI — Site vitrine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site web de **SNCI SARL** (Société des Nouvelles Constructions Industrielles), entreprise de soudure, chaudronnerie, tuyauterie, charpentes métalliques et fourniture d'équipements, basée à Cotonou (Bénin).
 
-Currently, two official plugins are available:
+Application React (Vite + TypeScript), multilingue (i18next), avec routage côté client.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack technique
 
-## React Compiler
+- [React 19](https://react.dev/) + [React Router](https://reactrouter.com/)
+- [Vite 7](https://vite.dev/) — build & dev server
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [i18next](https://www.i18next.com/) / [react-i18next](https://react.i18next.com/) — internationalisation
+- [lucide-react](https://lucide.dev/) — icônes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Structure du projet
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+index.html              Point d'entrée HTML
+public/                  Assets statiques (images, robots.txt, sitemap.xml, .htaccess, _redirects)
+src/
+  main.tsx               Point d'entrée de l'application
+  App.tsx                Déclaration des routes
+  i18n.ts                Configuration et traductions (FR)
+  index.css              Styles globaux
+  components/             Composants réutilisables (Header, Footer, Layout, Reveal, WhatsAppCTA, ...)
+  pages/                  Pages du site (Accueil, Prestations, Équipe, Engins, À propos, Contact, ...)
+  data/                   Données du site (coordonnées, prestations, engins, projets, galerie)
+  hooks/                  Hooks personnalisés (usePageMeta pour le SEO par page)
+vercel.json              Configuration de déploiement Vercel
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Pages / routes
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Route | Page |
+| --- | --- |
+| `/` | Accueil |
+| `/prestations` | Liste des prestations (métiers) |
+| `/prestations/:slug` | Détail d'une prestation |
+| `/equipe` | Notre équipe |
+| `/engins` | Location & vente d'engins |
+| `/engins/:slug` | Détail d'un engin |
+| `/a-propos` | À propos de l'entreprise |
+| `/contact` | Contact |
+| `/mentions-legales` | Mentions légales |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Développement
+
+```bash
+npm install       # installe les dépendances
+npm run dev       # lance le serveur de développement
+npm run build     # build de production (type-check + build Vite)
+npm run preview   # prévisualise le build de production
+npm run lint      # vérifie le code avec ESLint
 ```
+
+## Déploiement
+
+Le projet est configuré pour un déploiement sur [Vercel](https://vercel.com/) (`vercel.json`). Le dossier `public/` contient aussi un `.htaccess` et un `_redirects` pour un hébergement Apache ou Netlify le cas échéant.

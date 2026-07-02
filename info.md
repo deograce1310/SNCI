@@ -1,31 +1,36 @@
-Using Node.js 20, Tailwind CSS v3.4.19, and Vite v7.2.4
+# Infos projet — Site SNCI
 
-Tailwind CSS has been set up with the shadcn theme
+Stack : Node.js 20, React 19, TypeScript, Tailwind CSS 3, Vite 7, React Router 7, i18next.
 
-Setup complete: /mnt/agents/output/app
+## Structure réelle du dépôt
 
-Components (40+):
-  accordion, alert-dialog, alert, aspect-ratio, avatar, badge, breadcrumb,
-  button-group, button, calendar, card, carousel, chart, checkbox, collapsible,
-  command, context-menu, dialog, drawer, dropdown-menu, empty, field, form,
-  hover-card, input-group, input-otp, input, item, kbd, label, menubar,
-  navigation-menu, pagination, popover, progress, radio-group, resizable,
-  scroll-area, select, separator, sheet, sidebar, skeleton, slider, sonner,
-  spinner, switch, table, tabs, textarea, toggle-group, toggle, tooltip
+```
+index.html              Point d'entrée de l'application (Webapp)
+public/                  Assets statiques servis tels quels (images, robots.txt, sitemap.xml, .htaccess, _redirects)
+src/
+  main.tsx               Entrée de rendu de la Webapp
+  App.tsx                Route racine (react-router-dom)
+  i18n.ts                Configuration i18next + traductions FR
+  index.css              Styles globaux
+  components/             Header, Footer, Layout, LoadingScreen, ImageSlider, Reveal, WhatsAppCTA/Float, ErrorBoundary, icons/
+  pages/                  HomePage, MetiersPage, PrestationDetailPage, EquipePage, EnginsPage, EnginDetailPage, AProposPage, ContactPage, MentionsLegalesPage, NotFoundPage
+  data/                   company.ts, services.ts, engins.ts, projects.ts, gallery.ts
+  hooks/                  usePageMeta.ts (gestion des balises meta/SEO par page)
+tailwind.config.js       Thème Tailwind
+vite.config.ts           Build & serveur de dev Vite
+postcss.config.js        Post-traitement CSS
+vercel.json              Configuration de déploiement Vercel
+```
 
-Usage:
-  import { Button } from '@/components/ui/button'
-  import { Card, CardHeader, CardTitle } from '@/components/ui/card'
+## Scripts
 
-Structure:
-  src/sections/        Page sections
-  src/hooks/           Custom hooks
-  src/types/           Type definitions
-  src/App.css          Styles specific to the Webapp
-  src/App.tsx          Root React component
-  src/index.css        Global styles
-  src/main.tsx         Entry point for rendering the Webapp
-  index.html           Entry point for the Webapp
-  tailwind.config.js   Configures Tailwind's theme, plugins, etc.
-  vite.config.ts       Main build and dev server settings for Vite
-  postcss.config.js    Config file for CSS post-processing tools
+```
+npm run dev       Serveur de développement
+npm run build     Vérification des types (tsc -b) + build Vite
+npm run lint      ESLint
+npm run preview   Prévisualisation du build de production
+```
+
+## Remarque
+
+Ce fichier remplace un ancien résumé de setup généré automatiquement qui référençait une structure de template générique (composants shadcn, `src/sections/`, `src/types/`) ne correspondant pas au code réel du projet.
