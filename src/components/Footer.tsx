@@ -17,7 +17,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center text-center">
-          <img src="/images/snci-logo.png" alt="SNCI" className="h-12 w-12 rounded-full object-cover mb-3" />
+          <img src="/images/snci-logo.png" alt="SNCI" className="h-12 w-12 rounded-full object-cover mb-3" loading="lazy" />
           <p className="text-sm font-semibold text-white/90 leading-relaxed">{t('footer.company')}</p>
         </div>
 

@@ -127,7 +127,7 @@ export default function HomePage() {
       <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#0A090E]">
         {/* Image de fond + voile sombre */}
         <div className="absolute inset-0">
-          <img src="/images/hero-main.jpg" alt="Chantier industriel SNCI" className="h-full w-full object-cover" fetchPriority="high" />
+          <img src="/images/hero-main.webp" alt="Chantier industriel SNCI" className="h-full w-full object-cover" fetchPriority="high" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A090E]/75 via-[#0A090E]/50 to-[#0A090E]/85" />
         </div>
 
@@ -205,7 +205,7 @@ export default function HomePage() {
             <Reveal>
               <Link to="/prestations" className="group flex h-full flex-col bg-white rounded-[14px] overflow-hidden border border-[#E7EBF2] hover:border-[#0A090E]/10 hover:shadow-card transition-all duration-400">
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <img src="/images/gallery/soudure-reservoir.jpg" alt={i18n.language === 'en' ? 'Industrial services' : 'Prestations industrielles'}
+                  <img src="/images/gallery/soudure-reservoir.webp" alt={i18n.language === 'en' ? 'Industrial services' : 'Prestations industrielles'}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/40 to-transparent" />
                   <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#0A090E] font-mono text-[10px] font-medium uppercase tracking-[0.12em] px-2.5 py-1 rounded-full">{i18n.language === 'en' ? 'Services' : 'Services'}</span>
@@ -232,7 +232,7 @@ export default function HomePage() {
             <Reveal delay={0.1}>
               <Link to="/engins" className="group flex h-full flex-col bg-white rounded-[14px] overflow-hidden border border-[#E7EBF2] hover:border-[#0A090E]/10 hover:shadow-card transition-all duration-400">
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <img src="/images/engins/tractopelle/1.jpg" alt={i18n.language === 'en' ? 'Equipment rental & sale' : "Location et vente d'équipements"}
+                  <img src="/images/engins/tractopelle/1.webp" alt={i18n.language === 'en' ? 'Equipment rental & sale' : "Location et vente d'équipements"}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A090E]/40 to-transparent" />
                   <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#0A090E] font-mono text-[10px] font-medium uppercase tracking-[0.12em] px-2.5 py-1 rounded-full">{i18n.language === 'en' ? 'Equipment' : 'Matériel'}</span>
@@ -280,7 +280,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <Reveal>
               <div className="aspect-[4/3] rounded-[14px] overflow-hidden">
-                <img src="/images/team/snci-team.jpg" alt={i18n.language === 'en' ? 'The SNCI team' : "L'équipe SNCI"}
+                <img src="/images/team/snci-team.webp" alt={i18n.language === 'en' ? 'The SNCI team' : "L'équipe SNCI"}
                   className="w-full h-full object-cover" loading="lazy" />
               </div>
             </Reveal>

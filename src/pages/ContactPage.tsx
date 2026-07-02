@@ -27,7 +27,7 @@ export default function ContactPage() {
   // Message pré-rempli avec ce que l'utilisateur a saisi
   const buildBody = () =>
     `${en ? 'Name' : 'Nom'}: ${form.nom}\n` +
-    `Email: ${form.email}\n` +
+    (form.email ? `Email: ${form.email}\n` : '') +
     `${en ? 'Subject' : 'Sujet'}: ${form.sujet}\n\n` +
     `${form.message}`;
 
@@ -117,24 +117,12 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs font-medium uppercase tracking-wider text-[#9A9B9C]">{en ? 'Address' : 'Adresse'}</p>
                       <p className="text-[15px] text-[#0A090E] font-medium">{company.address}</p>
-                      <p className="text-[15px] text-[#475479]">{company.city}, {en ? 'Benin' : company.country}</p>
+                      <p className="text-[15px] text-[#0A090E] font-medium">{company.city}, {en ? 'Benin' : company.country}</p>
                     </div>
                   </div>
                 </Reveal>
 
                 <Reveal delay={0.15}>
-                  <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-lg bg-[#F6F2F2] group-hover:bg-[#25D366] flex items-center justify-center shrink-0 transition-colors">
-                      <WhatsAppIcon className="w-5 h-5 text-[#25D366] group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-[#9A9B9C]">WhatsApp</p>
-                      <p className="text-[15px] text-[#0A090E] font-medium group-hover:text-[#25D366] transition-colors">{en ? 'Chat with us' : 'Discutez avec nous'}</p>
-                    </div>
-                  </a>
-                </Reveal>
-
-                <Reveal delay={0.2}>
                   <a href={company.websiteUrl} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4">
                     <div className="w-11 h-11 rounded-lg bg-[#F6F2F2] group-hover:bg-[#2830B3] flex items-center justify-center shrink-0 transition-colors">
                       <Globe className="w-5 h-5 text-[#2830B3] group-hover:text-white transition-colors" />
@@ -157,6 +145,18 @@ export default function ContactPage() {
 
             {/* Colonne formulaire */}
             <div aria-live="polite">
+              {!submitted && (
+                <Reveal>
+                  <h2 className="font-archivo font-bold text-xl text-[#0A090E] mb-2">
+                    {en ? 'Send us a quick message' : 'Envoyer un message rapide'}
+                  </h2>
+                  <p className="text-sm text-[#475479] mb-6">
+                    {en
+                      ? 'Fill in the form below — it opens WhatsApp with your message ready to send.'
+                      : 'Remplissez le formulaire ci-dessous — il ouvre WhatsApp avec votre message prêt à envoyer.'}
+                  </p>
+                </Reveal>
+              )}
               {submitted ? (
                 <Reveal>
                   <div className="text-center py-12 bg-[#F6F2F2] rounded-[12px] px-6">
@@ -186,8 +186,10 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 bg-[#F6F2F2] border border-transparent focus:border-[#0A090E] rounded-lg focus:outline-none transition-colors" />
                   </Reveal>
                   <Reveal delay={0.05}>
-                    <label htmlFor="contact-email" className="block text-sm font-medium text-[#0A090E] mb-1.5">Email</label>
-                    <input id="contact-email" name="email" autoComplete="email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-[#0A090E] mb-1.5">
+                      Email <span className="text-[#9A9B9C] font-normal">{en ? '(optional — if you want a reply by email)' : '(facultatif — si vous souhaitez une réponse par email)'}</span>
+                    </label>
+                    <input id="contact-email" name="email" autoComplete="email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
                       className="w-full px-4 py-3 bg-[#F6F2F2] border border-transparent focus:border-[#0A090E] rounded-lg focus:outline-none transition-colors" />
                   </Reveal>
                   <Reveal delay={0.1}>
